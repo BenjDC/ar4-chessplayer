@@ -46,17 +46,38 @@ def get_board_corners_from_tags(tags):
     pts39 = tags[ID_TR].reshape(4,2)  # à droite de H8
     pts9  = tags[ID_TL].reshape(4,2)  # à gauche de A8
 
+    # Taille du carré noir (en px)
+    def tag_margin_size(c):
+        pts = c.reshape(4,2)
+        size_tag = np.mean([
+            np.linalg.norm(pts[0] - pts[1]),
+            np.linalg.norm(pts[1] - pts[2]),
+            np.linalg.norm(pts[2] - pts[3]),
+            np.linalg.norm(pts[3] - pts[0])
+        ])
+
+        px_per_mm = size_tag / 30.0      # 30 mm = zone noire
+        return 5.0 * px_per_mm    # marge extérieure
+
+    
+    
     # -----------------
     # BORDS RÉELS DU PLATEAU
     # -----------------
 
     # TAGS DU BAS → bord supérieur du tag = bord du plateau
-    BL = pts19[3]   # coin haut-gauche du tag 19
-    BR = pts29[0]   # coin haut-droit  du tag 19
+    margin_px = tag_margin_size(pts19)
+    BL = pts19[3] + np.array([-margin_px, -margin_px])   # coin haut-gauche du tag 19
+
+    margin_px = tag_margin_size(pts29)
+    BR = pts29[0] + np.array([margin_px, -margin_px])  # coin haut-droit  du tag 29
 
     # TAGS DU HAUT → bord inférieur du tag = bord du plateau
-    TR = pts39[0]   # coin bas-gauche du tag 39
-    TL = pts9[1]    # coin bas-droit  du tag 9
+    margin_px = tag_margin_size(pts39)
+    TR = pts39[0]  + np.array([-margin_px, -margin_px])  # coin bas-gauche du tag 39
+
+    margin_px = tag_margin_size(pts9)
+    TL = pts9[1] + np.array([margin_px, -margin_px])   # coin bas-droit  du tag 9
 
     # Ordre : TL, TR, BR, BL
     return np.array([TL, TR, BR, BL], dtype=np.float32)
