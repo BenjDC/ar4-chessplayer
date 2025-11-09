@@ -189,181 +189,55 @@ def get_board():
     # Découpe en cases
     return slice_into_64_cases(board_warped)
 
-
-
 def extract_case_top(c, ratio=0.2):
     h, w, _ = c.shape
+
+    margin = ratio * ratio
     top_h = int(h * ratio)
     return c[0:top_h, :]
 
-def preprocess_case_for_diff(c):
-    # 1. top 20%
-    h, w, _ = c.shape
-    t = c[:int(h*0.2), :]
+# def extract_case_top(case_img, ratio=0.25, margin_pct=0.05):
+#     h, w, _ = case_img.shape
 
-    # 2. LAB
-    lab = cv2.cvtColor(t, cv2.COLOR_BGR2LAB)
-    L, A, B = cv2.split(lab)
+#     # marges en px
+#     margin = int(h * margin_pct)
+#     band_h = int(h * ratio)
 
-    # 3. Normalisation lumière
-    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
-    L2 = clahe.apply(L)
+#     # début = marge
+#     y1 = margin
+#     # fin = y1 + hauteur de la bande
+#     y2 = y1 + band_h
 
-    # 4. Stabilisation de la chroma (utile pour cases vertes)
-    A2 = cv2.equalizeHist(A)
+#     # protection pour éviter de dépasser
+#     y2 = min(y2, h)
 
-    # 5. Fusion
-    fused = cv2.addWeighted(L2, 0.6, A2, 0.4, 0)
+#     return case_img[y1:y2, :]
 
-    # 6. Filtrage anti-bruit
-    fused = cv2.GaussianBlur(fused, (5,5), 0)
+def extract_case_top(case_img, ratio=0.4):
+    h, w, _ = case_img.shape
+    dh = int(h * ratio)
+    dw = int(w * ratio)
+    y1 = (h - dh) // 2
+    x1 = (w - dw) // 2
+    return case_img[y1:y1+dh, x1:x1+dw]
 
-    return fused
-
-# ne compare que le haut de la case
-def diff_case_top(c_before, c_after):
-    p1 = preprocess_case_for_diff(c_before)
-    p2 = preprocess_case_for_diff(c_after)
-
-    diff = cv2.absdiff(p1, p2)
-    score = np.mean(diff)
-
-    return score, diff
-
-
-def diff_all_cases(cases_before, cases_after):
-    scores = {}
-    for name in cases_before:
-        scores[name], diff = diff_case_top(cases_before[name], cases_after[name])
-    return scores
-
-def detect_changed_cases(scores):
-    # trier du plus grand changement au plus petit
-    sorted_cases = sorted(scores.items(), key=lambda x: x[1], reverse=True)
-
-    
-    
-    # les deux cases les plus différentes
-    c1, s1 = sorted_cases[0]
-    c2, s2 = sorted_cases[1]
-
-    for i in range(8):
-        print(sorted_cases[i])
-
-
-    return (c1, s1), (c2, s2)
-
-def classify_move(cases_before, cases_after, c1, c2):
-    # prendre la moyenne de pixel brut
-    def mean_intensity(img):
-        return np.mean(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY))
-
-    b1 = mean_intensity(cases_before[c1])
-    a1 = mean_intensity(cases_after[c1])
-    b2 = mean_intensity(cases_before[c2])
-    a2 = mean_intensity(cases_after[c2])
-
-    delta1 = a1 - b1
-    delta2 = a2 - b2
-
-    # destination = intensité augmente
-    # source      = intensité diminue
-    
-    if delta1 > delta2:
-        dest = c1
-        src = c2
-    else:
-        dest = c2
-        src = c1
-
-    return src, dest
-
-def detect_move(cases_before, cases_after):
-    scores = diff_all_cases(cases_before, cases_after)
-
-    (c1, s1), (c2, s2) = detect_changed_cases(scores)
-
-    src, dest = classify_move(cases_before, cases_after, c1, c2)
-
-    return str(src)+str(dest)
-
-def debug_compare_cases(cases_before, cases_after):
-
-    
-    cell_h, cell_w, _ = next(iter(cases_before.values())).shape
-    top_h = int(cell_h * 0.2)
-
-    # panneau 8x8 contenant 3 bandes : before / after / diff
-    panel_h = top_h * 8
-    panel_w = cell_w * 8
-
-    before_panel = np.zeros((panel_h, panel_w), dtype=np.uint8)
-    after_panel  = np.zeros((panel_h, panel_w), dtype=np.uint8)
-    diff_panel   = np.zeros((panel_h, panel_w), dtype=np.uint8)
-
-    # heatmap 8x8 pour scores
-    score_grid = np.zeros((8,8), dtype=np.float32)
-
-    for r in range(8):
-        for c in range(8):
-            case_name = chr(ord("a")+c) + str(8-r)
-
-            score, diff_img = diff_case_top(
-                cases_before[case_name],
-                cases_after[case_name]
-            )
-
-            score_grid[r,c] = score
-
-            # images top 20%
-            top_before = extract_case_top(cases_before[case_name])
-            top_after  = extract_case_top(cases_after[case_name])
-
-            gb = cv2.cvtColor(top_before, cv2.COLOR_BGR2GRAY)
-            ga = cv2.cvtColor(top_after,  cv2.COLOR_BGR2GRAY)
-
-            y1 = r * top_h
-            y2 = y1 + top_h
-            x1 = c * cell_w
-            x2 = x1 + cell_w
-
-            before_panel[y1:y2, x1:x2] = gb
-            after_panel[y1:y2,  x1:x2] = ga
-
-            # diff normalisée pour affichage
-            d_norm = cv2.normalize(diff_img, None, 0, 255, cv2.NORM_MINMAX)
-            diff_panel[y1:y2, x1:x2] = d_norm
-
-    # heatmap 8x8 des scores
-    heat = cv2.normalize(score_grid, None, 0, 255, cv2.NORM_MINMAX)
-    heat = heat.astype(np.uint8)
-    heatmap = cv2.applyColorMap(heat, cv2.COLORMAP_JET)
-    heatmap = cv2.resize(heatmap, (panel_w, panel_h), interpolation=cv2.INTER_NEAREST)
-
-    # affichage des panneaux
-    cv2.imshow("DEBUG - top 20% BEFORE", before_panel)
-    cv2.imshow("DEBUG - top 20% AFTER",  after_panel)
-    cv2.imshow("DEBUG - top 20% DIFF",   diff_panel)
-    cv2.imshow("DEBUG - Scores Heatmap", heatmap)
-
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
-
-
+def piece_variance_score(case_img):
+    c = extract_case_top(case_img)
+    g = cv2.cvtColor(c, cv2.COLOR_BGR2GRAY)
+    return g.var()
 
 def piece_presence_score(case_img):
-    # 1. extraire le centre
+    # 1. extraire centre
     c = extract_case_top(case_img)
 
-    # 2. conversion HSV
+    # 2. HSV
     hsv = cv2.cvtColor(c, cv2.COLOR_BGR2HSV)
     h, s, v = cv2.split(hsv)
 
-    # 3. seuil sur la luminosité (pixels sombres = présence pièce)
-    #    80 est très robuste pour cam faible luminosité
+    # 3. pixels sombres
     mask_dark = cv2.inRange(v, 0, 80)
 
-    # 4. fermeture pour nettoyer le bruit
+    # 4. petite fermeture morphologique
     kernel = np.ones((3,3), np.uint8)
     mask_dark = cv2.morphologyEx(mask_dark, cv2.MORPH_CLOSE, kernel)
 
@@ -371,16 +245,42 @@ def piece_presence_score(case_img):
     score = np.sum(mask_dark // 255)
 
     return score, mask_dark
+    
+
+def piece_presence_fused(case_img):
+    # silhouette sombre
+    dark_score, mask = piece_presence_score(case_img)
+    
+    # variance
+    var_score = piece_variance_score(case_img)
+
+    # seuils raisonnables
+    DARK_THRESHOLD = 60
+    VAR_THRESHOLD  = 150
+
+    is_dark = dark_score > DARK_THRESHOLD
+    is_textured = var_score > VAR_THRESHOLD
+    
+    # Une pièce blanche sur case blanche est détectée par variance
+    # Une pièce noire / case noire est détectée par silhouette
+    presence = is_dark or is_textured
+
+    return presence, dark_score, var_score, mask
 
 
 def board_state(cases):
     state = {}
-    masks = {}
+    debug = {}
     for name, img in cases.items():
-        score, mask = piece_presence_score(img)
-        state[name] = (score > 60)       # True = pièce présente
-        masks[name] = mask               # pour debug
-    return state, masks
+        presence, dark_score, var_score, mask = piece_presence_fused(img)
+        state[name] = presence
+        debug[name] = {
+            "mask": mask,
+            "dark": dark_score,
+            "var": var_score,
+            "presence": presence,
+        }
+    return state, debug
 
 def detect_move_from_state(state_before, state_after):
     src = None
@@ -397,19 +297,92 @@ def detect_move_from_state(state_before, state_after):
 
     return str(src)+str(dst)
 
-def debug_silhouettes(masks_before, masks_after):
-    # construire un panneau 8x8 montrant les silhouettes
-    rows = []
-    for r in range(8):
-        row_before = []
-        row_after = []
-        for c in range(8):
-            name = chr(ord('a')+c) + str(8-r)
-            row_before.append(masks_before[name])
-            row_after.append(masks_after[name])
-        rows.append(np.hstack(row_before))
-        rows.append(np.hstack(row_after))
+def analyze_case(case_img):
+    center = extract_case_top(case_img)
 
-    panel = np.vstack(rows)
-    cv2.imshow("Silhouettes BEFORE / AFTER", panel)
+    # HSV → pixels sombres
+    hsv = cv2.cvtColor(center, cv2.COLOR_BGR2HSV)
+    _, _, v = cv2.split(hsv)
+    mask_dark = cv2.inRange(v, 0, 60)
+    dark_score = np.sum(mask_dark // 255)
+
+    # Variance (pièces blanches)
+    gray = cv2.cvtColor(center, cv2.COLOR_BGR2GRAY)
+    var_score = gray.var()
+
+    # Indicateur présence
+    DARK_THR = 1000
+    VAR_THR  = 150
+    presence = (dark_score > DARK_THR) or (var_score > VAR_THR)
+
+    return presence, dark_score, var_score, center, mask_dark
+
+def enhance_contrast(case_img):
+    # convert LAB (beaucoup plus robuste que RGB ou HSV)
+    lab = cv2.cvtColor(case_img, cv2.COLOR_BGR2LAB)
+    L, A, B = cv2.split(lab)
+
+    # application CLAHE sur la luminance
+    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
+    L2 = clahe.apply(L)
+
+    # reconstruction
+    lab2 = cv2.merge([L2, A, B])
+    enhanced = cv2.cvtColor(lab2, cv2.COLOR_LAB2BGR)
+
+    return enhanced
+
+############################################
+# Debug grid : vue complète 8×8
+############################################
+def debug_grid(cases):
+    CELL = 200   # taille d’affichage d'une case dans la grille debug
+
+    grid = np.zeros((8*CELL, 8*CELL, 3), dtype=np.uint8)
+
+    for r in range(8):
+        for c in range(8):
+            sq = chr(ord('a')+c) + str(8-r)
+            img = enhance_contrast(cases[sq])
+
+            presence, dark_s, var_s, center, mask_dark = analyze_case(img)
+
+            # créer une vignette visuelle
+            # zone 1 : zone centrale analysée
+            center_viz = cv2.resize(center, (CELL//2, CELL//2))
+
+            # zone 2 : silhouette sombre
+            mask_viz = cv2.cvtColor(mask_dark, cv2.COLOR_GRAY2BGR)
+            mask_viz = cv2.resize(mask_viz, (CELL//2, CELL//2))
+
+            # combiner les deux (haut = center, bas = silhouette)
+            top_block = center_viz
+            bottom_block = mask_viz
+
+            block = np.zeros((CELL, CELL, 3), dtype=np.uint8)
+            block[0:CELL//2, 0:CELL//2] = top_block
+            block[CELL//2: CELL, 0:CELL//2] = bottom_block
+
+            # fond vert = vide, rouge = occupé
+            color = (0,255,0) if not presence else (0,0,255)
+            block[:, CELL//2:] = color
+
+            # texte
+            txt = f"{sq}"
+            cv2.putText(block, txt, (CELL//2+10, 25),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
+
+            cv2.putText(block, f"D:{dark_s}", (CELL//2+10, 60),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 1)
+
+            cv2.putText(block, f"V:{int(var_s)}", (CELL//2+10, 90),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 1)
+
+            # placer dans la grille
+            y1 = r * CELL
+            x1 = c * CELL
+            grid[y1:y1+CELL, x1:x1+CELL] = block
+
+    cv2.imshow("DEBUG PIECES - zone analyse + scores + occupation", grid)
     cv2.waitKey(0)
+    cv2.destroyAllWindows()
