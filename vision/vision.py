@@ -160,8 +160,6 @@ def get_board():
     ret, img = webcam.read()
 
     corners, ids = detect_aruco(img)
-    if ids is None:
-        raise SystemExit("Aucun tag ArUco détecté.")
 
     ids = ids.flatten()
     tags = {}
@@ -172,7 +170,8 @@ def get_board():
     needed = [ID_BL, ID_BR, ID_TR, ID_TL]
     for ID in needed:
         if ID not in tags:
-            raise SystemExit(f"Tag {ID} manquant, il est pourtant attendu.")
+            print(f"Tag {ID} manquant, il est pourtant attendu.")
+            return None, None
 
     # Récupérer les 4 coins exacts du plateau
     pts_board = get_board_corners_from_tags(tags)
@@ -187,7 +186,7 @@ def get_board():
     board_warped=draw_grid(board_warped)
 
     # Découpe en cases
-    return slice_into_64_cases(board_warped)
+    return board_warped, slice_into_64_cases(board_warped)
 
 def extract_case_top(c, ratio=0.2):
     h, w, _ = c.shape
