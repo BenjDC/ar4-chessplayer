@@ -1,5 +1,6 @@
 #project specific
 stockfish/
+vision/dataset
 .DS_Store
 
 
