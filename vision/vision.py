@@ -119,6 +119,36 @@ def slice_into_64_cases(board):
 
     return cases
 
+
+def assemble_board_from_cases(cases, CASE_SIZE):
+    """
+    Recompose l'image complète du plateau à partir d'un dict {case_name: crop}.
+    
+    cases : dict comme {"a1": img, ..., "h8": img}
+    CASE_SIZE : taille (en pixels) d'une case (carrée)
+    """
+    # Créer une grande image vide
+    board = np.zeros((8 * CASE_SIZE, 8 * CASE_SIZE, 3), dtype=np.uint8)
+
+    for r in range(8):
+        for c in range(8):
+            # Nom de case inverse du slicing :
+            # colonne = lettre, rang = 8 - r
+            case_name = chr(ord('a') + c) + str(8 - r)
+
+            if case_name not in cases:
+                raise ValueError(f"Case manquante dans cases : {case_name}")
+
+            crop = cases[case_name]
+
+            # Position où coller l'image de la case
+            x1 = c * CASE_SIZE
+            y1 = r * CASE_SIZE
+
+            board[y1:y1+CASE_SIZE, x1:x1+CASE_SIZE] = crop
+
+    return board
+
 # ----------------------
 # Desssine un quadrillage 8x8 sur l'image
 # ----------------------
@@ -160,6 +190,14 @@ def get_board():
     ret, img = webcam.read()
 
     corners, ids = detect_aruco(img)
+
+    if (ids == None):
+        print("échec vision plateau : aucun tag aruco détecté")
+        return None
+    
+    if (ids.size() < 4):
+        print(f"Erreur : 4 tags aruco attendus, tags détectés ", ids)
+        return None
 
     ids = ids.flatten()
     tags = {}
