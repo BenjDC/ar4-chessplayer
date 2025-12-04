@@ -15,7 +15,7 @@ def parse_args():
     parser.add_argument(
         "--color",
         choices=["blancs", "noirs"],
-        default="black",
+        default="noirs",
         help="Couleur jouée par le bras (blancs | noirs). Noirs par défaut "
     )
 
@@ -40,19 +40,25 @@ if __name__ == "__main__":
     args = parse_args()
 
     print("=== AR4 Chess Player ===")
-    print(f"Je joue avec les {args.color}")
+    
 
-    board, fishplayer = chessmonitor.init_chess()
+    print("initialize chess")
+    fishy = chessmonitor.Chessfish()
+    #model = load_model("C:\\Users\\Robotique\\Documents\\Benjamin\\ar4-chessplayer\\ar4-chessplayer\\vision\\model_occupation_TL.keras")
+
+    print("initialized chess")
 
     if args.color == "blancs":
         current_player = "ai"
     else:
         current_player = "human"
     
+    print(f"Je joue avec les {args.color}")
+
     while(True):
         
         if current_player == "ai":
-            board = chessmonitor.ai_plays_move(board, fishplayer)
+            fishy.ai_plays_move()
 
             if not args.dry_run:
                 input("le bras n'est pas prêt, merci de jouer mon coup")
@@ -63,6 +69,7 @@ if __name__ == "__main__":
             
 
         else:
+            print("Tour Humain")
             before_move = vision.get_board()
 
             if before_move == None:
@@ -70,19 +77,17 @@ if __name__ == "__main__":
                 chessmonitor.endgame(board)
                 break
 
+            before_move_occupancy = vision.predict_board_occupancy(before_move, model, debug=True)
+
             input("Confirmer lorsque ton coup est joué")
 
             after_move = vision.get_board()
 
-            state_before, masks_before = vision.board_state(before_move)
-                
-            #vision.show_occupancy_grid(state_before)
+            after_move_occupancy = vision.predict_board_occupancy(after_move, model, debug=False)
 
-            state_after,  masks_after  = vision.board_state(before_move)
+            human_move = vision.detect_move_from_occupancy(before_move_occupancy, after_move_occupancy)
 
-            human_move = vision.detect_move_from_state(state_before, state_after)
-
-            board = chessmonitor.human_plays_move(board, human_move)
+            board = fishy.human_plays_move(human_move)
 
             current_player = "ai"
         

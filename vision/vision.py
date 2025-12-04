@@ -1,5 +1,7 @@
 import cv2
+import chess
 import numpy as np
+#import matplotlib.pyplot as plt
 
 ### Détecte un échiquier à partir d'une photo. Se base sur la présence de tags aruco.
 
@@ -64,7 +66,7 @@ def get_board_corners_from_tags(tags):
     
     
     # -----------------
-    # BORDS RÉELS DU PLATEAU
+    # BORDS RÉELS DU PLATEAU : haut de la camera côté blancs
     # -----------------
 
     # TAGS DU BAS → bord supérieur du tag = bord du plateau
@@ -186,22 +188,20 @@ def draw_grid(image):
 # ---------------------------------------------------------------
 
 def get_board():
-    webcam = cv2.VideoCapture(2)
+    webcam = cv2.VideoCapture(0)
     #on recupere frame par frame
     ret, img = webcam.read()
 
-    # cv2.imshow('dbg', img)
-    # cv2.waitKey()
+    cv2.imwrite("essai2.png", img)
+    cv2.imshow('dbg', img)
+    cv2.waitKey()
 
     corners, ids = detect_aruco(img)
 
-    if (ids == None):
-        print("échec vision plateau : aucun tag aruco détecté")
-        return None
     
-    if (ids.size() < 4):
-        print(f"Erreur : 4 tags aruco attendus, tags détectés ", ids)
-        return None
+    # if (ids.shape[1] < 4):
+    #     print(f"Erreur : 4 tags aruco attendus, tags détectés ", ids)
+    #     return None
 
     ids = ids.flatten()
     tags = {}
@@ -222,221 +222,198 @@ def get_board():
     # Récupérer les 4 coins exacts du plateau
     pts_board = get_board_corners_from_tags(tags)
 
+    ##### DEBUG
     # Debug affichage des coins sur l’image
     dbg = img.copy()
     for p in pts_board:
         cv2.circle(dbg, (int(p[0]), int(p[1])), 3, (0,0,255), -1)
 
-    gray = cv2.cvtColor(dbg, cv2.COLOR_BGR2GRAY)
-    eq = cv2.equalizeHist(gray)
-
-    # cv2.imshow('dbg', dbg)
-    # cv2.waitKey()
+    cv2.imshow('dbg', dbg)
+    cv2.waitKey()
+    ##### DEBUG
 
     # Warp
     board_warped, M = warp_board(img, pts_board)
-    board_warped=draw_grid(board_warped)
-
-    # cv2.imshow('test', board_warped)
-    # cv2.waitKey()
 
     # Découpe en cases
-    return board_warped, slice_into_64_cases(board_warped)
+    return slice_into_64_cases(board_warped)
 
-def extract_case_top(c, ratio=0.2):
-    h, w, _ = c.shape
+# ordre cohérent de l'échiquier pour l'affichage (a8 -> h1)
+SQUARES_ORDER = [
+    chr(ord('a') + c) + str(8 - r)
+    for r in range(8) for c in range(8)
+]
 
-    margin = ratio * ratio
-    top_h = int(h * ratio)
-    return c[0:top_h, :]
+def predict_board_occupancy(cases_dict, model, debug=False, img_size=128):
+    """
+    cases_dict : dict {"a8": image, ..., "h1": image}
+    model : modèle Keras déjà chargé
+    debug : affiche un échiquier annoté si True
+    img_size : taille de redimensionnement du CNN
+    """
 
-# def extract_case_top(case_img, ratio=0.25, margin_pct=0.05):
-#     h, w, _ = case_img.shape
+    class_names = ["piece_blanche", "piece_noire", "vide"]
+    results = {}
 
-#     # marges en px
-#     margin = int(h * margin_pct)
-#     band_h = int(h * ratio)
+    # Préparation batch pour meilleure rapidité
+    X_batch = []
 
-#     # début = marge
-#     y1 = margin
-#     # fin = y1 + hauteur de la bande
-#     y2 = y1 + band_h
+    # Conserver l'ordre des cases pour correspondance batch -> case
+    ordered_case_keys = SQUARES_ORDER
 
-#     # protection pour éviter de dépasser
-#     y2 = min(y2, h)
+    for key in ordered_case_keys:
+        img = cases_dict[key]
 
-#     return case_img[y1:y2, :]
+        # Resize → Normalisation
+        img_resized = cv2.resize(img, (img_size, img_size))
+        img_resized = img_resized.astype("float32") / 255.0
+        X_batch.append(img_resized)
 
-def extract_case_top(case_img, ratio=0.4):
-    h, w, _ = case_img.shape
-    dh = int(h * ratio)
-    dw = int(w * ratio)
-    y1 = (h - dh) // 2
-    x1 = (w - dw) // 2
-    return case_img[y1:y1+dh, x1:x1+dw]
+    X_batch = np.array(X_batch)
 
-def piece_variance_score(case_img):
-    c = extract_case_top(case_img)
-    g = cv2.cvtColor(c, cv2.COLOR_BGR2GRAY)
-    return g.var()
+    # Prédiction
+    preds = model.predict(X_batch)
 
-def piece_presence_score(case_img):
-    # 1. extraire centre
-    c = extract_case_top(case_img)
+    for i, key in enumerate(ordered_case_keys):
+        label_id = np.argmax(preds[i])
+        label = class_names[label_id]
+        results[key] = label
 
-    # 2. HSV
-    hsv = cv2.cvtColor(c, cv2.COLOR_BGR2HSV)
-    h, s, v = cv2.split(hsv)
+    # --- Mode debug : affichage graphique de l'échiquier ---
+    if debug:
+        fig, ax = plt.subplots(figsize=(6, 6))
+        ax.set_title("Résultats du CNN")
 
-    # 3. pixels sombres
-    mask_dark = cv2.inRange(v, 0, 80)
-
-    # 4. petite fermeture morphologique
-    kernel = np.ones((3,3), np.uint8)
-    mask_dark = cv2.morphologyEx(mask_dark, cv2.MORPH_CLOSE, kernel)
-
-    # 5. score = nombre de pixels sombres
-    score = np.sum(mask_dark // 255)
-
-    return score, mask_dark
-    
-
-def piece_presence_fused(case_img):
-    # silhouette sombre
-    dark_score, mask = piece_presence_score(case_img)
-    
-    # variance
-    var_score = piece_variance_score(case_img)
-
-    # seuils raisonnables
-    DARK_THRESHOLD = 60
-    VAR_THRESHOLD  = 150
-
-    is_dark = dark_score > DARK_THRESHOLD
-    is_textured = var_score > VAR_THRESHOLD
-    
-    # Une pièce blanche sur case blanche est détectée par variance
-    # Une pièce noire / case noire est détectée par silhouette
-    presence = is_dark or is_textured
-
-    return presence, dark_score, var_score, mask
-
-
-def board_state(cases):
-    state = {}
-    debug = {}
-    for name, img in cases.items():
-        presence, dark_score, var_score, mask = piece_presence_fused(img)
-        state[name] = presence
-        debug[name] = {
-            "mask": mask,
-            "dark": dark_score,
-            "var": var_score,
-            "presence": presence,
+        # Couleurs pour visualiser rapidement
+        colors = {
+            "vide": "#EEEEEE",
+            "piece_blanche": "#88DDFF",
+            "piece_noire": "#4444AA"
         }
-    return state, debug
 
-def detect_move_from_state(state_before, state_after):
-    src = None
-    dst = None
+        # Affichage case par case
+        for r in range(8):
+            for c in range(8):
+                square = chr(ord('a') + c) + str(8 - r)
+                label = results[square]
 
-    for case in state_before:
-        before = state_before[case]
-        after = state_after[case]
+                rect = plt.Rectangle(
+                    (c, r), 1, 1,
+                    facecolor=colors[label],
+                    edgecolor="black"
+                )
+                ax.add_patch(rect)
 
-        if before and not after:
-            src = case
-        if not before and after:
-            dst = case
+                ax.text(
+                    c + 0.5, r + 0.5,
+                    label.replace("piece_", "").replace("_", " "),
+                    ha="center", va="center", fontsize=8
+                )
 
-    return str(src)+str(dst)
+        ax.set_xlim(0, 8)
+        ax.set_ylim(0, 8)
+        ax.set_xticks(range(8))
+        ax.set_yticks(range(8))
+        ax.set_xticklabels(['a','b','c','d','e','f','g','h'])
+        ax.set_yticklabels(['8','7','6','5','4','3','2','1'])
+        ax.invert_yaxis()
+        plt.show()
 
-def analyze_case(case_img):
-    center = extract_case_top(case_img)
+    return results
 
-    # HSV → pixels sombres
-    hsv = cv2.cvtColor(center, cv2.COLOR_BGR2HSV)
-    _, _, v = cv2.split(hsv)
-    mask_dark = cv2.inRange(v, 0, 60)
-    dark_score = np.sum(mask_dark // 255)
 
-    # Variance (pièces blanches)
-    gray = cv2.cvtColor(center, cv2.COLOR_BGR2GRAY)
-    var_score = gray.var()
+def detect_move_from_occupancy(fen_before, occupancy_after):
+    """
+    fen_before : FEN initial
+    occupancy_after : dict {"a1": "white"/"black"/"empty"}
 
-    # Indicateur présence
-    DARK_THR = 1000
-    VAR_THR  = 150
-    presence = (dark_score > DARK_THR) or (var_score > VAR_THR)
+    Retourne un objet chess.Move décrivant le coup joué.
+    Ambiguïté restante : promotion (renvoyée sans pièce de promo).
+    """
 
-    return presence, dark_score, var_score, center, mask_dark
+    board_before = chess.Board(fen_before)
 
-def enhance_contrast(case_img):
-    # convert LAB (beaucoup plus robuste que RGB ou HSV)
-    lab = cv2.cvtColor(case_img, cv2.COLOR_BGR2LAB)
-    L, A, B = cv2.split(lab)
+    # Convertit le FEN initial en occupation simplifiée
+    occupancy_before = {}
+    for square in chess.SQUARES:
+        piece = board_before.piece_at(square)
+        sq_name = chess.square_name(square)
+        if piece is None:
+            occupancy_before[sq_name] = "empty"
+        else:
+            occupancy_before[sq_name] = "white" if piece.color == chess.WHITE else "black"
 
-    # application CLAHE sur la luminance
-    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
-    L2 = clahe.apply(L)
+    # Liste des différences
+    removed = []
+    added = []
 
-    # reconstruction
-    lab2 = cv2.merge([L2, A, B])
-    enhanced = cv2.cvtColor(lab2, cv2.COLOR_LAB2BGR)
+    for sq in occupancy_before:
+        if occupancy_before[sq] != occupancy_after[sq]:
+            if occupancy_before[sq] != "empty" and occupancy_after[sq] == "empty":
+                removed.append(sq)
+            if occupancy_before[sq] == "empty" and occupancy_after[sq] != "empty":
+                added.append(sq)
 
-    return enhanced
+    # -----------------------------
+    # 1) CAS DU ROQUE
+    # -----------------------------
+    # Blanc
+    if board_before.turn == chess.WHITE:
+        if occupancy_before["e1"] == "white":
+            # Petit roque : e1→g1, h1→f1
+            if occupancy_after["e1"] == "empty" and occupancy_after["g1"] == "white":
+                return chess.Move.from_uci("e1g1")
+            # Grand roque : e1→c1, a1→d1
+            if occupancy_after["e1"] == "empty" and occupancy_after["c1"] == "white":
+                return chess.Move.from_uci("e1c1")
+    else:
+        # Noir
+        if occupancy_before["e8"] == "black":
+            # Petit roque
+            if occupancy_after["e8"] == "empty" and occupancy_after["g8"] == "black":
+                return chess.Move.from_uci("e8g8")
+            # Grand roque
+            if occupancy_after["e8"] == "empty" and occupancy_after["c8"] == "black":
+                return chess.Move.from_uci("e8c8")
 
-############################################
-# Debug grid : vue complète 8×8
-############################################
-def debug_grid(cases):
-    CELL = 120   # taille d’affichage d'une case dans la grille debug
+    # -----------------------------
+    # 2) CAS STANDARD
+    # -----------------------------
+    if len(removed) == 1 and len(added) == 1:
+        move = chess.Move.from_uci(removed[0] + added[0])
+        return move
 
-    grid = np.zeros((8*CELL, 8*CELL, 3), dtype=np.uint8)
+    # -----------------------------
+    # 3) PRISE EN PASSANT
+    # -----------------------------
+    if len(removed) == 2 and len(added) == 1:
+        # Exemple : pion blanc joue e5xd6 en passant → d5 disparaît
+        # On cherche un pion disparu sur une autre colonne
+        dest = added[0]
+        for r in removed:
+            if r != dest:
+                # On teste si c'est cohérent avec un EP autorisé dans FEN
+                for move in board_before.legal_moves:
+                    if move.to_square == chess.parse_square(dest) and board_before.is_en_passant(move):
+                        return move
 
-    for r in range(8):
-        for c in range(8):
-            sq = chr(ord('a')+c) + str(8-r)
-            img = enhance_contrast(cases[sq])
+    # -----------------------------
+    # 4) PROMOTION (AMBIGUË)
+    # -----------------------------
+    # Pion monte : removed = 1, added = 1 mais sur rangée 8/1
+    if len(removed) == 1 and len(added) == 1:
+        src = removed[0]
+        dst = added[0]
 
-            presence, dark_s, var_s, center, mask_dark = analyze_case(img)
+        # Blanc promu si arrivée en rangée 8
+        if dst[1] == "8" and occupancy_before[src] == "white":
+            return chess.Move.from_uci(src + dst)  # promo manquante
 
-            # créer une vignette visuelle
-            # zone 1 : zone centrale analysée
-            center_viz = cv2.resize(center, (CELL//2, CELL//2))
+        # Noir promu si arrivée en rangée 1
+        if dst[1] == "1" and occupancy_before[src] == "black":
+            return chess.Move.from_uci(src + dst)
 
-            # zone 2 : silhouette sombre
-            mask_viz = cv2.cvtColor(mask_dark, cv2.COLOR_GRAY2BGR)
-            mask_viz = cv2.resize(mask_viz, (CELL//2, CELL//2))
-
-            # combiner les deux (haut = center, bas = silhouette)
-            top_block = center_viz
-            bottom_block = mask_viz
-
-            block = np.zeros((CELL, CELL, 3), dtype=np.uint8)
-            block[0:CELL//2, 0:CELL//2] = top_block
-            block[CELL//2: CELL, 0:CELL//2] = bottom_block
-
-            # fond vert = vide, rouge = occupé
-            color = (0,255,0) if not presence else (0,0,255)
-            block[:, CELL//2:] = color
-
-            # texte
-            txt = f"{sq}"
-            cv2.putText(block, txt, (CELL//2+10, 25),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,255,255), 2)
-
-            cv2.putText(block, f"D:{dark_s}", (CELL//2+10, 60),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 1)
-
-            cv2.putText(block, f"V:{int(var_s)}", (CELL//2+10, 90),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 1)
-
-            # placer dans la grille
-            y1 = r * CELL
-            x1 = c * CELL
-            grid[y1:y1+CELL, x1:x1+CELL] = block
-
-    cv2.imshow("DEBUG PIECES - zone analyse + scores + occupation", grid)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    # -----------------------------
+    # Rien trouvé
+    # -----------------------------
+    return None
