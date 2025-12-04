@@ -4,7 +4,8 @@ import chess
 
 def init_chess():
     # Chemin vers le binaire Stockfish
-    stockfish_path = "/Users/Myriametben/Documents/GitHub/ar4-chessplayer/stockfish/stockfish-macos-m1-apple-silicon"  # ou "C:/chemin/vers/stockfish.exe" sous Windows
+    #stockfish_path = "/Users/Myriametben/Documents/GitHub/ar4-chessplayer/stockfish/stockfish-macos-m1-apple-silicon"  # ou "C:/chemin/vers/stockfish.exe" sous Windows
+    stockfish_path = "./stockfish/stockfish-macos-m1-apple-silicon"  # ou "C:/chemin/vers/stockfish.exe" sous Windows
 
     # Initialiser Stockfish
     ai_player = Stockfish(stockfish_path, depth=15)  # depth peut être ajusté
@@ -18,25 +19,7 @@ def init_chess():
     return board, ai_player
 
 
-def play_move(white_move, board, ai_player):
-
-
-    # Convertir la chaîne en objet coup
-    try:
-        move = chess.Move.from_uci(white_move)
-    except ValueError:
-        print(f"Coup blanc {white_move} au format UCI invalide")
-        return None
-
-    # Vérifier si le coup est légal
-    if move and move in board.legal_moves:
-        print(f"Les blancs jouent {white_move}")
-    else:
-        print(f"Le coup {white_move} est illégal dans cette position.")
-        return None
-
-
-    board.push(move)
+def ai_plays_move(board, ai_player):
 
     ai_player.set_fen_position(board.fen()) 
 
@@ -51,5 +34,31 @@ def play_move(white_move, board, ai_player):
 
     print("Stockfish joue :", coup_noir)
     print(board)
+
+    return board
+
+
+def human_plays_move(human_move, board):
+
+    # Convertir la chaîne en objet coup
+    try:
+        move = chess.Move.from_uci(human_move)
+    except ValueError:
+        print(f"Coup {human_move} au format UCI invalide")
+        return None
+
+    # Vérifier si le coup est légal
+    if move and move in board.legal_moves:
+        print(f"Tu joues {human_move}")
+    else:
+        print(f"Le coup {human_move} est illégal dans cette position.")
+        return None
+
+    board.push(move)
     
-    return move
+    return board
+
+def endgame(board):
+    print(board.fen())
+    print (board)
+    return
