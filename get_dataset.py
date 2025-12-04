@@ -3,21 +3,22 @@ import numpy as np
 from pathlib import Path
 from vision import vision
 import os
-import time
+from datetime import datetime
+
 
 # === CONFIGURATION ===
-N_CAPTURES = 3          # nombre total d’images à capturer
+N_CAPTURES = 64          # nombre total d’images à capturer
 BASE_DIR = "dataset_auto"
 
 # === POSITION INITIALE DES PIÈCES ===
 initial_board = [
     ['tour_noir', 'cavalier_noir', 'fou_noir', 'dame_noir', 'roi_noir', 'fou_noir', 'cavalier_noir', 'tour_noir'],
-    ['vide', 'vide', 'vide', 'vide','dame_noir', 'pion_noir', 'pion_noir', 'pion_noir'], 
+    ['pion_noir', 'pion_noir', 'pion_noir', 'pion_noir', 'pion_noir', 'pion_noir', 'pion_noir', 'pion_noir'], 
     ['vide', 'vide', 'vide', 'vide', 'vide', 'vide', 'vide', 'vide'],
     ['vide', 'vide', 'vide', 'vide', 'vide', 'vide', 'vide', 'vide'],
     ['vide', 'vide', 'vide', 'vide', 'vide', 'vide', 'vide', 'vide'],
     ['vide', 'vide', 'vide', 'vide', 'vide', 'vide', 'vide', 'vide'],
-    ['pion_blanc', 'pion_blanc', 'pion_blanc' , 'dame_blanc', 'vide', 'vide', 'vide', 'vide'],
+    ['pion_blanc', 'pion_blanc', 'pion_blanc' ,'pion_blanc', 'pion_blanc', 'pion_blanc', 'pion_blanc', 'pion_blanc'],
     ['tour_blanc', 'cavalier_blanc', 'fou_blanc', 'dame_blanc', 'roi_blanc', 'fou_blanc', 'cavalier_blanc', 'tour_blanc']
 ]
 
@@ -74,7 +75,7 @@ def save_cases_with_labels(cases, board, base_dir=BASE_DIR):
         col = ord(case_name[0]) - ord('a')
         label = board[row][col]
 
-        path = f"{base_dir}/{label}"
+        path = f"{base_dir}/dataset/{label}"
         Path(path).mkdir(parents=True, exist_ok=True)
 
         # vérifications robustes
@@ -98,6 +99,9 @@ def capture_image(cap):
 def main():
     board = initial_board
 
+    now = datetime.now()
+    timestamp = now.strftime("%Y-%m-%d_%H-%M-%S")
+
     print(f"📸 Démarrage de la capture automatique ({N_CAPTURES} images)...")
     for i in range(N_CAPTURES):
         print(f"\n--- Capture {i+1}/{N_CAPTURES} ---")
@@ -107,7 +111,10 @@ def main():
         if cases == None:
             continue
 
-        save_cases_with_labels(cases, board)
+                
+        
+
+        save_cases_with_labels(cases, board, BASE_DIR+"_"+timestamp)
         print("💾 Sauvegarde des cases terminée.")
 
         debugimg = dessiner_echiquier(board_wraped, board)

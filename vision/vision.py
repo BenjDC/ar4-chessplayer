@@ -58,7 +58,7 @@ def get_board_corners_from_tags(tags):
             np.linalg.norm(pts[3] - pts[0])
         ])
 
-        px_per_mm = size_tag / 30.0      # 30 mm = zone noire
+        px_per_mm = size_tag / 70.0      # 30 mm = zone noire
         return 5.0 * px_per_mm    # marge extérieure
 
     
@@ -69,17 +69,18 @@ def get_board_corners_from_tags(tags):
 
     # TAGS DU BAS → bord supérieur du tag = bord du plateau
     margin_px = tag_margin_size(pts19)
-    BL = pts19[3] + np.array([-margin_px, -margin_px])   # coin haut-gauche du tag 19
+    BL = pts19[3] + np.array([+margin_px, +margin_px * 4])   # coin haut-gauche du tag 19
+    # BL = pts19[3] 
 
     margin_px = tag_margin_size(pts29)
-    BR = pts29[0] + np.array([margin_px, -margin_px])  # coin haut-droit  du tag 29
+    BR = pts29[0] + np.array([-margin_px, +margin_px * 4])  # coin haut-droit  du tag 29
 
     # TAGS DU HAUT → bord inférieur du tag = bord du plateau
     margin_px = tag_margin_size(pts39)
-    TR = pts39[0]  + np.array([-margin_px, -margin_px])  # coin bas-gauche du tag 39
+    TR = pts39[0]  + np.array([-margin_px, -margin_px * 4])  # coin bas-gauche du tag 39
 
     margin_px = tag_margin_size(pts9)
-    TL = pts9[1] + np.array([margin_px, -margin_px])   # coin bas-droit  du tag 9
+    TL = pts9[1] + np.array([+margin_px, -margin_px * 4])   # coin bas-droit  du tag 9
 
     # Ordre : TL, TR, BR, BL
     return np.array([TL, TR, BR, BL], dtype=np.float32)
@@ -155,9 +156,12 @@ def draw_grid(image):
 # ---------------------------------------------------------------
 
 def get_board():
-    webcam = cv2.VideoCapture(0)
+    webcam = cv2.VideoCapture(2)
     #on recupere frame par frame
     ret, img = webcam.read()
+
+    # cv2.imshow('dbg', img)
+    # cv2.waitKey()
 
     corners, ids = detect_aruco(img)
 
@@ -168,10 +172,14 @@ def get_board():
 
     # Vérification que les 4 tags sont présents
     needed = [ID_BL, ID_BR, ID_TR, ID_TL]
+    manquants = False
     for ID in needed:
         if ID not in tags:
             print(f"Tag {ID} manquant, il est pourtant attendu.")
-            return None, None
+            manquants = True
+    
+    if manquants:
+        return None, None
 
     # Récupérer les 4 coins exacts du plateau
     pts_board = get_board_corners_from_tags(tags)
@@ -179,11 +187,20 @@ def get_board():
     # Debug affichage des coins sur l’image
     dbg = img.copy()
     for p in pts_board:
-        cv2.circle(dbg, (int(p[0]), int(p[1])), 10, (0,0,255), -1)
+        cv2.circle(dbg, (int(p[0]), int(p[1])), 3, (0,0,255), -1)
+
+    gray = cv2.cvtColor(dbg, cv2.COLOR_BGR2GRAY)
+    eq = cv2.equalizeHist(gray)
+
+    # cv2.imshow('dbg', dbg)
+    # cv2.waitKey()
 
     # Warp
     board_warped, M = warp_board(img, pts_board)
     board_warped=draw_grid(board_warped)
+
+    # cv2.imshow('test', board_warped)
+    # cv2.waitKey()
 
     # Découpe en cases
     return board_warped, slice_into_64_cases(board_warped)
@@ -335,7 +352,7 @@ def enhance_contrast(case_img):
 # Debug grid : vue complète 8×8
 ############################################
 def debug_grid(cases):
-    CELL = 200   # taille d’affichage d'une case dans la grille debug
+    CELL = 120   # taille d’affichage d'une case dans la grille debug
 
     grid = np.zeros((8*CELL, 8*CELL, 3), dtype=np.uint8)
 
