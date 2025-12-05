@@ -4,6 +4,7 @@ import numpy as np
 import argparse
 from vision import vision
 from chessai import chessmonitor
+import torch
 
 
 def parse_args():
@@ -33,6 +34,14 @@ def parse_args():
         help="Ne pas envoyer les commandes au bras robotisé."
     )
 
+    # Mode test : vérifie la détection à partir d'images
+    parser.add_argument(
+        "--test",
+        type=str,
+        default=None,
+        help="fournit une image d'essai pour tester la détection (pas de camera necessaire)."
+    )
+
     return parser.parse_args()
 
 if __name__ == "__main__":
@@ -41,55 +50,62 @@ if __name__ == "__main__":
 
     print("=== AR4 Chess Player ===")
     
-
-    print("initialize chess")
     fishy = chessmonitor.Chessfish()
-    #model = load_model("C:\\Users\\Robotique\\Documents\\Benjamin\\ar4-chessplayer\\ar4-chessplayer\\vision\\model_occupation_TL.keras")
 
-    print("initialized chess")
-
-    if args.color == "blancs":
-        current_player = "ai"
-    else:
-        current_player = "human"
+    device = "cpu"
+    model = vision.load_chess_model("vision/model_chess.pth", device)
     
-    print(f"Je joue avec les {args.color}")
+    if (not (args.test == None)):
+        boardstate = vision.get_board(args.test)
+        vision.predict_board_occupancy(boardstate, model, device, debug=True)
 
-    while(True):
-        
-        if current_player == "ai":
-            fishy.ai_plays_move()
 
-            if not args.dry_run:
-                input("le bras n'est pas prêt, merci de jouer mon coup")
-            else:
-                input("mode dry run activé, merci de jouer mon coup")
 
-            current_player = "human"
-            
+    else:
 
-        else:
-            print("Tour Humain")
-            before_move = vision.get_board()
 
-            if before_move == None:
-                print(f"Erreur de vision plateau")
-                chessmonitor.endgame(board)
-                break
-
-            before_move_occupancy = vision.predict_board_occupancy(before_move, model, debug=True)
-
-            input("Confirmer lorsque ton coup est joué")
-
-            after_move = vision.get_board()
-
-            after_move_occupancy = vision.predict_board_occupancy(after_move, model, debug=False)
-
-            human_move = vision.detect_move_from_occupancy(before_move_occupancy, after_move_occupancy)
-
-            board = fishy.human_plays_move(human_move)
-
+        if args.color == "blancs":
             current_player = "ai"
+        else:
+            current_player = "human"
         
-        if (board == None):
-            break
+        print(f"Je joue avec les {args.color}")
+
+        while(True):
+            
+            if current_player == "ai":
+                fishy.ai_plays_move()
+
+                if not args.dry_run:
+                    input("le bras n'est pas prêt, merci de jouer mon coup")
+                else:
+                    input("mode dry run activé, merci de jouer mon coup")
+
+                current_player = "human"
+                
+
+            else:
+                print("Tour Humain")
+                before_move = vision.get_board()
+
+                if before_move == None:
+                    print(f"Erreur de vision plateau")
+                    chessmonitor.endgame(board)
+                    break
+
+                before_move_occupancy = vision.predict_board_occupancy(before_move, model, device, debug=True)
+
+                input("Confirmer lorsque ton coup est joué")
+
+                after_move = vision.get_board()
+
+                after_move_occupancy = vision.predict_board_occupancy(after_move, model, debug=False)
+
+                human_move = vision.detect_move_from_occupancy(before_move_occupancy, after_move_occupancy)
+
+                board = fishy.human_plays_move(human_move)
+
+                current_player = "ai"
+            
+            if (board == None):
+                break

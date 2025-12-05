@@ -1,6 +1,13 @@
 import cv2
 import chess
 import numpy as np
+import torch.nn.functional as F
+import numpy as np
+import torch
+from torchvision import models
+import torch.nn as nn
+
+
 #import matplotlib.pyplot as plt
 
 ### Détecte un échiquier à partir d'une photo. Se base sur la présence de tags aruco.
@@ -187,10 +194,19 @@ def draw_grid(image):
 # RECUPERE L'ECHIQUIER ET LA LISTE DES CASES EN PRENANT UNE PHOTO
 # ---------------------------------------------------------------
 
-def get_board():
-    webcam = cv2.VideoCapture(0)
-    #on recupere frame par frame
-    ret, img = webcam.read()
+def get_board(img_test=None):
+
+    if (img_test == None):
+
+        webcam = cv2.VideoCapture(0)
+        #on recupere frame par frame
+        ret, img = webcam.read()    
+    else:
+        img = cv2.imread(img_test)
+
+    if img is None:
+        print(f"Erreur : impossible de charger l'image")
+        return
 
     cv2.imwrite("essai2.png", img)
     cv2.imshow('dbg', img)
@@ -243,83 +259,6 @@ SQUARES_ORDER = [
     chr(ord('a') + c) + str(8 - r)
     for r in range(8) for c in range(8)
 ]
-
-def predict_board_occupancy(cases_dict, model, debug=False, img_size=128):
-    """
-    cases_dict : dict {"a8": image, ..., "h1": image}
-    model : modèle Keras déjà chargé
-    debug : affiche un échiquier annoté si True
-    img_size : taille de redimensionnement du CNN
-    """
-
-    class_names = ["piece_blanche", "piece_noire", "vide"]
-    results = {}
-
-    # Préparation batch pour meilleure rapidité
-    X_batch = []
-
-    # Conserver l'ordre des cases pour correspondance batch -> case
-    ordered_case_keys = SQUARES_ORDER
-
-    for key in ordered_case_keys:
-        img = cases_dict[key]
-
-        # Resize → Normalisation
-        img_resized = cv2.resize(img, (img_size, img_size))
-        img_resized = img_resized.astype("float32") / 255.0
-        X_batch.append(img_resized)
-
-    X_batch = np.array(X_batch)
-
-    # Prédiction
-    preds = model.predict(X_batch)
-
-    for i, key in enumerate(ordered_case_keys):
-        label_id = np.argmax(preds[i])
-        label = class_names[label_id]
-        results[key] = label
-
-    # --- Mode debug : affichage graphique de l'échiquier ---
-    if debug:
-        fig, ax = plt.subplots(figsize=(6, 6))
-        ax.set_title("Résultats du CNN")
-
-        # Couleurs pour visualiser rapidement
-        colors = {
-            "vide": "#EEEEEE",
-            "piece_blanche": "#88DDFF",
-            "piece_noire": "#4444AA"
-        }
-
-        # Affichage case par case
-        for r in range(8):
-            for c in range(8):
-                square = chr(ord('a') + c) + str(8 - r)
-                label = results[square]
-
-                rect = plt.Rectangle(
-                    (c, r), 1, 1,
-                    facecolor=colors[label],
-                    edgecolor="black"
-                )
-                ax.add_patch(rect)
-
-                ax.text(
-                    c + 0.5, r + 0.5,
-                    label.replace("piece_", "").replace("_", " "),
-                    ha="center", va="center", fontsize=8
-                )
-
-        ax.set_xlim(0, 8)
-        ax.set_ylim(0, 8)
-        ax.set_xticks(range(8))
-        ax.set_yticks(range(8))
-        ax.set_xticklabels(['a','b','c','d','e','f','g','h'])
-        ax.set_yticklabels(['8','7','6','5','4','3','2','1'])
-        ax.invert_yaxis()
-        plt.show()
-
-    return results
 
 
 def detect_move_from_occupancy(fen_before, occupancy_after):
@@ -417,3 +356,78 @@ def detect_move_from_occupancy(fen_before, occupancy_after):
     # Rien trouvé
     # -----------------------------
     return None
+
+
+def predict_board_occupancy(cases_dict, model, device="cpu", debug=False):
+    """
+    cases_dict : dict {'a1': image BGR numpy, ..., 'h8': image }
+    model      : modèle PyTorch chargé
+    device     : 'cpu' ou 'cuda'
+    debug      : affiche un échiquier ASCII des résultats
+    """
+    
+    model.to(device)
+    model.eval()
+
+    class_names = ["vide", "piece_blanche", "piece_noire"]
+
+    results = {}
+
+    with torch.no_grad():
+        for sq, img in cases_dict.items():
+
+            # --- Correction du bug des strides négatifs ---
+            img_np = np.ascontiguousarray(img)
+
+            # Convertir BGR → RGB
+            img_rgb = cv2.cvtColor(img_np, cv2.COLOR_BGR2RGB)
+
+            # Normalisation 0–1
+            img_rgb = img_rgb.astype(np.float32) / 255.0
+
+            # Passage HWC → CHW
+            tensor = torch.from_numpy(img_rgb).permute(2, 0, 1).unsqueeze(0)
+
+            tensor = tensor.to(device)
+
+            # Prédiction
+            logits = model(tensor)
+            pred = torch.argmax(logits, dim=1).item()
+
+            results[sq] = class_names[pred]
+
+    # ---------------------------------------
+    #            DEBUG DISPLAY
+    # ---------------------------------------
+    if debug:
+        print("\n=== OCCUPATION DU PLATEAU ===\n")
+        for r in range(8, 0, -1):
+            row = ""
+            for c in "abcdefgh":
+                k = f"{c}{r}"
+                
+                if results[k] == "vide":
+                    row += ". "
+                elif results[k] == "piece_blanche":
+                    row += "B "
+                else:
+                    row += "N "
+            print(row)
+        print("\nLégende : . = vide | B = blanc | N = noir\n")
+
+    return results
+
+
+
+def load_chess_model(path, device="cpu"):
+    # 1. Reconstruire la même archi
+    model = models.resnet18(weights=None)
+    model.fc = nn.Linear(model.fc.in_features, 3)   # 3 classes
+
+    # 2. Charger le state_dict
+    state_dict = torch.load(path, map_location=device)
+    model.load_state_dict(state_dict)
+
+    model.to(device)
+    model.eval()
+    return model

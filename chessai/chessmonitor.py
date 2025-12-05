@@ -10,14 +10,12 @@ class Chessfish:
     def  __init__(self):
         # Chemin vers le binaire Stockfish
         #stockfish_path = "/Users/Myriametben/Documents/GitHub/ar4-chessplayer/stockfish/stockfish-macos-m1-apple-silicon"  # ou "C:/chemin/vers/stockfish.exe" sous Windows
-        #stockfish_path = "./stockfish/stockfish-macos-m1-apple-silicon"  # ou "C:/chemin/vers/stockfish.exe" sous Windows
-        stockfish_path = "C:\\Users\\Robotique\\Documents\\Benjamin\\ar4-chessplayer\\ar4-chessplayer\\stockfish-windows-x86-64-avx2\\stockfish\\stockfish-windows-x86-64-avx2.exe"
+        stockfish_path = "./stockfish/stockfish-macos-m1-apple-silicon"  # ou "C:/chemin/vers/stockfish.exe" sous Windows
+        #stockfish_path = "C:\\Users\\Robotique\\Documents\\Benjamin\\ar4-chessplayer\\ar4-chessplayer\\stockfish-windows-x86-64-avx2\\stockfish\\stockfish-windows-x86-64-avx2.exe"
 
         #initialiser affichage 
         # self.root = tk.Tk()
         # self.root.title("Position en cours")
-
-
 
         # Initialiser Stockfish
         self.ai_player = Stockfish(stockfish_path, depth=15)  # depth peut être ajusté
@@ -55,8 +53,6 @@ class Chessfish:
 
         #self.display_board()
 
-
-
     def human_plays_move(self, human_move):
 
         # Convertir la chaîne en objet coup
@@ -76,8 +72,6 @@ class Chessfish:
         self.board.push(move)
         #self.display_board()
         
-
-
     def endgame(self):
         print(self.board.fen())
         print (self.board)
