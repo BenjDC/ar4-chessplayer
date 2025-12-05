@@ -208,9 +208,9 @@ def get_board(img_test=None):
         print(f"Erreur : impossible de charger l'image")
         return
 
-    cv2.imwrite("essai2.png", img)
-    cv2.imshow('dbg', img)
-    cv2.waitKey()
+    # cv2.imwrite("essai2.png", img)
+    # cv2.imshow('dbg', img)
+    # cv2.waitKey()
 
     corners, ids = detect_aruco(img)
 
@@ -244,8 +244,8 @@ def get_board(img_test=None):
     for p in pts_board:
         cv2.circle(dbg, (int(p[0]), int(p[1])), 3, (0,0,255), -1)
 
-    cv2.imshow('dbg', dbg)
-    cv2.waitKey()
+    # cv2.imshow('dbg', dbg)
+    # cv2.waitKey()
     ##### DEBUG
 
     # Warp
@@ -259,6 +259,25 @@ SQUARES_ORDER = [
     chr(ord('a') + c) + str(8 - r)
     for r in range(8) for c in range(8)
 ]
+
+
+
+
+def print_occupancy(occup):
+    print("\n=== OCCUPATION DU PLATEAU ===\n")
+    for r in range(8, 0, -1):
+        row = ""
+        for c in "abcdefgh":
+            k = f"{c}{r}"
+            
+            if occup[k] == "vide":
+                row += ". "
+            elif occup[k] == "piece_blanche":
+                row += "B "
+            else:
+                row += "N "
+        print(row)
+    print("\nLégende : . = vide | B = blanc | N = noir\n")
 
 
 def detect_move_from_occupancy(fen_before, occupancy_after):
@@ -278,9 +297,14 @@ def detect_move_from_occupancy(fen_before, occupancy_after):
         piece = board_before.piece_at(square)
         sq_name = chess.square_name(square)
         if piece is None:
-            occupancy_before[sq_name] = "empty"
+            occupancy_before[sq_name] = "vide"
         else:
-            occupancy_before[sq_name] = "white" if piece.color == chess.WHITE else "black"
+            occupancy_before[sq_name] = "piece_blanche" if piece.color == chess.WHITE else "piece_noire"
+
+    print("occupation avant")
+    print_occupancy(occupancy_before)
+    print("occupation après")
+    print_occupancy(occupancy_after)
 
     # Liste des différences
     removed = []
@@ -288,31 +312,34 @@ def detect_move_from_occupancy(fen_before, occupancy_after):
 
     for sq in occupancy_before:
         if occupancy_before[sq] != occupancy_after[sq]:
-            if occupancy_before[sq] != "empty" and occupancy_after[sq] == "empty":
+            if occupancy_before[sq] != "vide" and occupancy_after[sq] == "vide":
                 removed.append(sq)
-            if occupancy_before[sq] == "empty" and occupancy_after[sq] != "empty":
+            if occupancy_before[sq] == "vide" and occupancy_after[sq] != "vide":
                 added.append(sq)
+
+    print(removed)
+    print(added)
 
     # -----------------------------
     # 1) CAS DU ROQUE
     # -----------------------------
     # Blanc
     if board_before.turn == chess.WHITE:
-        if occupancy_before["e1"] == "white":
+        if occupancy_before["e1"] == "piece_blanche":
             # Petit roque : e1→g1, h1→f1
-            if occupancy_after["e1"] == "empty" and occupancy_after["g1"] == "white":
+            if occupancy_after["e1"] == "vide" and occupancy_after["g1"] == "piece_blanche":
                 return chess.Move.from_uci("e1g1")
             # Grand roque : e1→c1, a1→d1
-            if occupancy_after["e1"] == "empty" and occupancy_after["c1"] == "white":
+            if occupancy_after["e1"] == "vide" and occupancy_after["c1"] == "piece_blanche":
                 return chess.Move.from_uci("e1c1")
     else:
         # Noir
-        if occupancy_before["e8"] == "black":
+        if occupancy_before["e8"] == "piece_noire":
             # Petit roque
-            if occupancy_after["e8"] == "empty" and occupancy_after["g8"] == "black":
+            if occupancy_after["e8"] == "vide" and occupancy_after["g8"] == "piece_noire":
                 return chess.Move.from_uci("e8g8")
             # Grand roque
-            if occupancy_after["e8"] == "empty" and occupancy_after["c8"] == "black":
+            if occupancy_after["e8"] == "vide" and occupancy_after["c8"] == "piece_noire":
                 return chess.Move.from_uci("e8c8")
 
     # -----------------------------
@@ -345,11 +372,11 @@ def detect_move_from_occupancy(fen_before, occupancy_after):
         dst = added[0]
 
         # Blanc promu si arrivée en rangée 8
-        if dst[1] == "8" and occupancy_before[src] == "white":
+        if dst[1] == "8" and occupancy_before[src] == "piece_blanche":
             return chess.Move.from_uci(src + dst)  # promo manquante
 
         # Noir promu si arrivée en rangée 1
-        if dst[1] == "1" and occupancy_before[src] == "black":
+        if dst[1] == "1" and occupancy_before[src] == "piece_noire":
             return chess.Move.from_uci(src + dst)
 
     # -----------------------------
@@ -369,7 +396,7 @@ def predict_board_occupancy(cases_dict, model, device="cpu", debug=False):
     model.to(device)
     model.eval()
 
-    class_names = ["vide", "piece_blanche", "piece_noire"]
+    class_names = ["piece_blanche","piece_noire","vide"]
 
     results = {}
 
@@ -400,23 +427,9 @@ def predict_board_occupancy(cases_dict, model, device="cpu", debug=False):
     #            DEBUG DISPLAY
     # ---------------------------------------
     if debug:
-        print("\n=== OCCUPATION DU PLATEAU ===\n")
-        for r in range(8, 0, -1):
-            row = ""
-            for c in "abcdefgh":
-                k = f"{c}{r}"
-                
-                if results[k] == "vide":
-                    row += ". "
-                elif results[k] == "piece_blanche":
-                    row += "B "
-                else:
-                    row += "N "
-            print(row)
-        print("\nLégende : . = vide | B = blanc | N = noir\n")
+        print_occupancy(results)
 
     return results
-
 
 
 def load_chess_model(path, device="cpu"):

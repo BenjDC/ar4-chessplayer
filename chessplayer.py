@@ -86,26 +86,23 @@ if __name__ == "__main__":
 
             else:
                 print("Tour Humain")
-                before_move = vision.get_board()
+                # before_move = vision.get_board()
 
-                if before_move == None:
-                    print(f"Erreur de vision plateau")
-                    chessmonitor.endgame(board)
-                    break
+                # if before_move == None:
+                #     print(f"Erreur de vision plateau")
+                #     chessmonitor.endgame(board)
+                #     break
 
-                before_move_occupancy = vision.predict_board_occupancy(before_move, model, device, debug=True)
+                #before_move_occupancy = vision.predict_board_occupancy(before_move, model, device, debug=True)
 
                 input("Confirmer lorsque ton coup est joué")
 
                 after_move = vision.get_board()
 
-                after_move_occupancy = vision.predict_board_occupancy(after_move, model, debug=False)
+                after_move_occupancy = vision.predict_board_occupancy(after_move, model, debug=True)
 
-                human_move = vision.detect_move_from_occupancy(before_move_occupancy, after_move_occupancy)
+                human_move = vision.detect_move_from_occupancy(fishy.get_fen(), after_move_occupancy)
 
-                board = fishy.human_plays_move(human_move)
+                fishy.human_plays_move(human_move)
 
                 current_player = "ai"
-            
-            if (board == None):
-                break
