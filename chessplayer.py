@@ -69,22 +69,29 @@ if __name__ == "__main__":
         while(True):
             
             if current_player == "ai":
-                fishy.ai_plays_move()
+                print("Tour IA")
+
+                move = fishy.get_ai_move()
 
                 current_player = "human"
-                
 
+                # lorsque le robot sera complètement opérationnel, il faudra introduire l'appel au bras ici ! 
+                # pour le moment c'est à l'humain de joué le coup à sa place
+                
+                
             else:
                 print("Tour Humain")
 
-                input("Confirmer lorsque ton coup est joué")
-
-                after_move = vision.get_board()
-
-                after_move_occupancy = vision.predict_board_occupancy(after_move, model, debug=True)
-
-                human_move = vision.detect_move_from_occupancy(fishy.get_fen(), after_move_occupancy)
-
-                fishy.human_plays_move(human_move)
-
                 current_player = "ai"
+
+            input("Confirmer lorsque le coup est joué")
+
+            after_move = vision.get_board()
+
+            after_move_occupancy = vision.predict_board_occupancy(after_move, model, debug=True)
+
+            move = vision.detect_move_from_occupancy(fishy.get_fen(), after_move_occupancy)
+
+            
+
+            fishy.play_move(move)

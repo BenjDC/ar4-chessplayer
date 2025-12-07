@@ -38,7 +38,7 @@ class Chessfish:
         svg_kwargs = {}
         if arrow:
             from_sq, to_sq = arrow
-            svg_kwargs['arrows'] = [chess.svg.Arrow(from_sq, to_sq, color="#008800")]
+            svg_kwargs['arrows'] = [chess.svg.Arrow(from_sq, to_sq, color="#0000F0")]
         
         svg_data = chess.svg.board(self.board, **svg_kwargs)
 
@@ -56,9 +56,8 @@ class Chessfish:
             print(f"FEN : {self.board.fen()}")
 
         self.root.update()
-        
-    def ai_plays_move(self):
 
+    def get_ai_move(self):
         self.ai_player.set_fen_position(self.board.fen()) 
 
         # Laisser Stockfish calculer le coup noir
@@ -66,41 +65,23 @@ class Chessfish:
         if coup_noir is None:
             print("Fin de partie !")
             return 
+        
         move = chess.Move.from_uci(coup_noir)
 
         # Afficher d'abord la flèche du coup
         self.update_display(arrow=(move.from_square, move.to_square))
 
-        # Attendre un input pour confirmer le coup
-        input("Merci de jouer mon coup !")
+        return move
 
-        self.board.push(move)
-
-        
-
-        print("Stockfish joue :", coup_noir)
-        print(self.board)
-
-        self.update_display()
-
-    def human_plays_move(self, human_move):
-        print('je joue le coup ' + str(human_move))
-
-        # Convertir la chaîne en objet coup
-        try:
-            move = chess.Move.from_uci(human_move)
-        except ValueError:
-            print(f"Coup {human_move} au format UCI invalide")
-            return
+    def play_move(self, played_move):
+        print('coup joué' + str(played_move))
 
         # Vérifier si le coup est légal
-        if move and move in self.board.legal_moves:
-            print(f"Tu joues {human_move}")
-        else:
-            print(f"Le coup {human_move} est illégal dans cette position.")
+        if not played_move in self.board.legal_moves:
+            print(f"Le coup {played_move} est illégal dans cette position.")
             return
 
-        self.board.push(move)
+        self.board.push(played_move)
         self.update_display()
     
     def get_fen(self):
