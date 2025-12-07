@@ -27,13 +27,6 @@ def parse_args():
         help="Active les affichages et images intermédiaires."
     )
 
-    # Paramètre pour simuler le robot sans mouvement réel
-    parser.add_argument(
-        "--dry-run",
-        action="store_true",
-        help="Ne pas envoyer les commandes au bras robotisé."
-    )
-
     # Mode test : vérifie la détection à partir d'images
     parser.add_argument(
         "--test",
@@ -84,7 +77,12 @@ if __name__ == "__main__":
 
                 current_player = "ai"
 
-            input("Confirmer lorsque le coup est joué")
+            player_input = input("Confirmer lorsque le coup est joué")
+
+            if player_input == "a":
+                print("abandon session")
+                break
+
 
             after_move = vision.get_board()
 
