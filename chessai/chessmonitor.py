@@ -2,39 +2,61 @@ from stockfish import Stockfish
 import chess
 import chess.svg
 import tkinter as tk
-from tkinterhtml import HtmlFrame
+from PIL import Image, ImageTk
+import io
 
 
 class Chessfish:
 
     def  __init__(self):
-        # Chemin vers le binaire Stockfish
-        #stockfish_path = "/Users/Myriametben/Documents/GitHub/ar4-chessplayer/stockfish/stockfish-macos-m1-apple-silicon"  # ou "C:/chemin/vers/stockfish.exe" sous Windows
-        #stockfish_path = "./stockfish/stockfish-macos-m1-apple-silicon"  # ou "C:/chemin/vers/stockfish.exe" sous Windows
-        stockfish_path = "C:\\Users\\Robotique\\Documents\\Benjamin\\ar4-chessplayer\\ar4-chessplayer\\stockfish-windows-x86-64-avx2\\stockfish\\stockfish-windows-x86-64-avx2.exe"
-
-        #initialiser affichage 
-        # self.root = tk.Tk()
-        # self.root.title("Position en cours")
+        stockfish_path = "/Users/Myriametben/Documents/GitHub/ar4-chessplayer/stockfish/stockfish-macos-m1-apple-silicon"  # ou "C:/chemin/vers/stockfish.exe" sous Windows
+        #stockfish_path = "C:\\Users\\Robotique\\Documents\\Benjamin\\ar4-chessplayer\\ar4-chessplayer\\stockfish-windows-x86-64-avx2\\stockfish\\stockfish-windows-x86-64-avx2.exe"
 
         # Initialiser Stockfish
         self.ai_player = Stockfish(stockfish_path, depth=15)  # depth peut être ajusté
 
         # Position connue (FEN de départ)
         fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
-
         # Initialiser l'échiquier
         self.board = chess.Board(fen)
 
-        # self.frame = HtmlFrame(self.root, horizontal_scrollbar="auto")
-        # self.frame.pack(fill="both", expand=True)
+        # Fenêtre Tkinter pour affichage
+        self.root = tk.Tk()
+        self.root.title("Chessfish")
+        self.canvas = tk.Label(self.root)
+        self.canvas.pack()
 
-        #self.display_board()
+        # Affichage initial
+        self.update_display()
+        self.root.update()
 
-    def display_board(self):
-        svg_code = chess.svg.board(self.board)
-        self.frame.set_content(svg_code)
+    def update_display(self, arrow=None):
+        """Mettre à jour l'affichage avec SVG converti en image Tkinter."""
+        """
+        arrow : tuple (from_square, to_square) pour afficher une flèche
+        """
+        svg_kwargs = {}
+        if arrow:
+            from_sq, to_sq = arrow
+            svg_kwargs['arrows'] = [chess.svg.Arrow(from_sq, to_sq, color="#008800")]
+        
+        svg_data = chess.svg.board(self.board, **svg_kwargs)
 
+        # Convertir SVG en PNG via PIL
+        try:
+            from cairosvg import svg2png
+            png_data = svg2png(bytestring=svg_data.encode("utf-8"))
+            image = Image.open(io.BytesIO(png_data))
+            self.tk_image = ImageTk.PhotoImage(image)
+            self.canvas.config(image=self.tk_image)
+        except ImportError:
+            # Si cairosvg non installé → affichage ASCII en console
+            print("\nÉchiquier ASCII :")
+            print(self.board)
+            print(f"FEN : {self.board.fen()}")
+
+        self.root.update()
+        
     def ai_plays_move(self):
 
         self.ai_player.set_fen_position(self.board.fen()) 
@@ -46,12 +68,20 @@ class Chessfish:
             return 
         move = chess.Move.from_uci(coup_noir)
 
+        # Afficher d'abord la flèche du coup
+        self.update_display(arrow=(move.from_square, move.to_square))
+
+        # Attendre un input pour confirmer le coup
+        input("Merci de jouer mon coup !")
+
         self.board.push(move)
+
+        
 
         print("Stockfish joue :", coup_noir)
         print(self.board)
 
-        #self.display_board()
+        self.update_display()
 
     def human_plays_move(self, human_move):
         print('je joue le coup ' + str(human_move))
@@ -71,14 +101,8 @@ class Chessfish:
             return
 
         self.board.push(move)
-        #self.display_board()
+        self.update_display()
     
     def get_fen(self):
         return self.board.fen()
     
-
-    def endgame(self):
-        print(self.board.fen())
-        print (self.board)
-        self.display_board()
-        return

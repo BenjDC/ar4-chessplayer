@@ -282,33 +282,36 @@ def print_occupancy(occup):
 
 def detect_move_from_occupancy(fen_before, occupancy_after):
     """
-    fen_before : FEN initial
-    occupancy_after : dict {"a1": "white"/"black"/"empty"}
+    Déduit le coup joué en comparant :
+    - fen_before  : FEN avant le coup
+    - occupancy_after : dict {"a1": "piece_blanche"/"piece_noire"/"vide"}
 
-    Retourne un objet chess.Move décrivant le coup joué.
-    Ambiguïté restante : promotion (renvoyée sans pièce de promo).
+    Retourne un objet chess.Move.
+    Promotion par défaut : Dame.
     """
 
     board_before = chess.Board(fen_before)
 
-    # Convertit le FEN initial en occupation simplifiée
+    # -----------------------------
+    # Construction de l'occupation avant
+    # -----------------------------
     occupancy_before = {}
-    for square in chess.SQUARES:
-        piece = board_before.piece_at(square)
-        sq_name = chess.square_name(square)
+    for sq in chess.SQUARES:
+        piece = board_before.piece_at(sq)
+        name = chess.square_name(sq)
         if piece is None:
-            occupancy_before[sq_name] = "vide"
+            occupancy_before[name] = "vide"
         else:
-            occupancy_before[sq_name] = "piece_blanche" if piece.color == chess.WHITE else "piece_noire"
+            occupancy_before[name] = "piece_blanche" if piece.color == chess.WHITE else "piece_noire"
 
-    print("occupation avant")
-    print_occupancy(occupancy_before)
-    print("occupation après")
-    print_occupancy(occupancy_after)
+    # -----------------------------
+    # Listes des carrés modifiés
+    # -----------------------------
+    removed = []   # cases où une pièce a disparu
+    added = []     # cases où une pièce est apparue
 
-    # Liste des différences
-    removed = []
-    added = []
+    print("cases devenues vides : ".join(removed))
+    print("cases devenues occupées : ".join(added))
 
     for sq in occupancy_before:
         if occupancy_before[sq] != occupancy_after[sq]:
@@ -317,70 +320,106 @@ def detect_move_from_occupancy(fen_before, occupancy_after):
             if occupancy_before[sq] == "vide" and occupancy_after[sq] != "vide":
                 added.append(sq)
 
-    print(removed)
-    print(added)
-
     # -----------------------------
-    # 1) CAS DU ROQUE
+    # 1) Roques
     # -----------------------------
-    # Blanc
     if board_before.turn == chess.WHITE:
-        if occupancy_before["e1"] == "piece_blanche":
-            # Petit roque : e1→g1, h1→f1
-            if occupancy_after["e1"] == "vide" and occupancy_after["g1"] == "piece_blanche":
-                return chess.Move.from_uci("e1g1")
-            # Grand roque : e1→c1, a1→d1
-            if occupancy_after["e1"] == "vide" and occupancy_after["c1"] == "piece_blanche":
-                return chess.Move.from_uci("e1c1")
+        # Petit roque : e1->g1
+        if occupancy_before["e1"] != "vide" and occupancy_after["e1"] == "vide" and occupancy_after["g1"] == "piece_blanche":
+            print("petit roque blanc")
+            return chess.Move.from_uci("e1g1")
+        # Grand roque : e1->c1
+        if occupancy_before["e1"] != "vide" and occupancy_after["e1"] == "vide" and occupancy_after["c1"] == "piece_blanche":
+            print("grand roque blanc")
+            return chess.Move.from_uci("e1c1")
     else:
-        # Noir
-        if occupancy_before["e8"] == "piece_noire":
-            # Petit roque
-            if occupancy_after["e8"] == "vide" and occupancy_after["g8"] == "piece_noire":
-                return chess.Move.from_uci("e8g8")
-            # Grand roque
-            if occupancy_after["e8"] == "vide" and occupancy_after["c8"] == "piece_noire":
-                return chess.Move.from_uci("e8c8")
+        # Petit roque noir
+        if occupancy_before["e8"] != "vide" and occupancy_after["e8"] == "vide" and occupancy_after["g8"] == "piece_noire":
+            print("petit roque noir")
+            return chess.Move.from_uci("e8g8")
+        # Grand roque noir
+        if occupancy_before["e8"] != "vide" and occupancy_after["e8"] == "vide" and occupancy_after["c8"] == "piece_noire":
+            print("grand roque noir")
+            return chess.Move.from_uci("e8c8")
 
     # -----------------------------
-    # 2) CAS STANDARD
+    # 2) Coup normal 
     # -----------------------------
-    if len(removed) == 1 and len(added) == 1:
-        move = chess.Move.from_uci(removed[0] + added[0])
-        return move
-
-    # -----------------------------
-    # 3) PRISE EN PASSANT
-    # -----------------------------
-    if len(removed) == 2 and len(added) == 1:
-        # Exemple : pion blanc joue e5xd6 en passant → d5 disparaît
-        # On cherche un pion disparu sur une autre colonne
-        dest = added[0]
-        for r in removed:
-            if r != dest:
-                # On teste si c'est cohérent avec un EP autorisé dans FEN
-                for move in board_before.legal_moves:
-                    if move.to_square == chess.parse_square(dest) and board_before.is_en_passant(move):
-                        return move
-
-    # -----------------------------
-    # 4) PROMOTION (AMBIGUË)
-    # -----------------------------
-    # Pion monte : removed = 1, added = 1 mais sur rangée 8/1
     if len(removed) == 1 and len(added) == 1:
         src = removed[0]
         dst = added[0]
+        piece = board_before.piece_at(chess.parse_square(src))
 
-        # Blanc promu si arrivée en rangée 8
-        if dst[1] == "8" and occupancy_before[src] == "piece_blanche":
-            return chess.Move.from_uci(src + dst)  # promo manquante
-
-        # Noir promu si arrivée en rangée 1
-        if dst[1] == "1" and occupancy_before[src] == "piece_noire":
-            return chess.Move.from_uci(src + dst)
+        # Cas standard ou prise simple
+        move = chess.Move.from_uci(src + dst)
+        if move in board_before.legal_moves:
+            print("Coup simple "+src+dst)
+            return move
 
     # -----------------------------
-    # Rien trouvé
+    # 2bis) PRISE SIMPLE
+    # -----------------------------
+    # Une pièce disparaît de 'removed[0]' et apparaît sur une case adverse
+    if len(removed) == 1 and len(added) == 0:
+        src = removed[0]
+
+        # destination = toute case où l’occupation a changé et où une pièce adverse a disparu
+        # c’est-à-dire : occ_before != occ_after et occ_after != "vide"
+        candidates = []
+        for sq in occupancy_before:
+            if occupancy_before[sq] != occupancy_after[sq]:
+                # destination = case qui est occupée après
+                if occupancy_after[sq] != "vide":
+                    candidates.append(sq)
+
+        if len(candidates) == 1:
+            dst = candidates[0]
+            move = chess.Move.from_uci(src + dst)
+        
+            if move in board_before.legal_moves:
+                print("Prise "+src+dst)
+                return move
+
+    # -----------------------------
+    # 3) Prise en passant
+    # removed = 2 cases : le pion bouge + le pion capturé
+    # added   = 1 case  : destination du pion
+    # -----------------------------
+    if len(removed) == 2 and len(added) == 1:
+        dst = added[0]
+        for src in removed:
+            # src candidat pour le pion qui bouge
+            move = chess.Move.from_uci(src + dst)
+            if move in board_before.legal_moves and board_before.is_en_passant(move):
+                print("Prise en passant "+src+dst)
+                return move
+
+    # -----------------------------
+    # 4) Promotions
+    # -----------------------------
+    if len(removed) == 1 and len(added) == 1:
+        src = removed[0]
+        dst = added[0]
+        src_sq = chess.parse_square(src)
+        piece = board_before.piece_at(src_sq)
+
+        if piece and piece.piece_type == chess.PAWN:
+            # Promotion blanche
+            if board_before.turn == chess.WHITE and dst[1] == "8":
+                move = chess.Move.from_uci(src + dst + "q")  # promotion en reine
+                if move in board_before.legal_moves:
+                    print("Promotion "+src+dst)
+                    return move
+
+            # Promotion noire
+            if board_before.turn == chess.BLACK and dst[1] == "1":
+                move = chess.Move.from_uci(src + dst + "q")
+                if move in board_before.legal_moves:
+                    print("Promotion "+src+dst)
+                    return move
+
+    # -----------------------------
+    # Rien de valide détecté
     # -----------------------------
     return None
 

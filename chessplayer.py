@@ -58,12 +58,7 @@ if __name__ == "__main__":
     if (not (args.test == None)):
         boardstate = vision.get_board(args.test)
         vision.predict_board_occupancy(boardstate, model, device, debug=True)
-
-
-
     else:
-
-
         if args.color == "blancs":
             current_player = "ai"
         else:
@@ -76,24 +71,11 @@ if __name__ == "__main__":
             if current_player == "ai":
                 fishy.ai_plays_move()
 
-                if not args.dry_run:
-                    input("le bras n'est pas prêt, merci de jouer mon coup")
-                else:
-                    input("mode dry run activé, merci de jouer mon coup")
-
                 current_player = "human"
                 
 
             else:
                 print("Tour Humain")
-                # before_move = vision.get_board()
-
-                # if before_move == None:
-                #     print(f"Erreur de vision plateau")
-                #     chessmonitor.endgame(board)
-                #     break
-
-                #before_move_occupancy = vision.predict_board_occupancy(before_move, model, device, debug=True)
 
                 input("Confirmer lorsque ton coup est joué")
 
