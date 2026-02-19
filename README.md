@@ -9,7 +9,7 @@ Une joueur d'échecs robotique à partir du bras AR4.
               │       │             
               └─▲───┬─┘             
                 │   │               
-┌────────┐    ┌─┴───▼─┐    ┌───────┐
+              ┌─┴───▼─┐    ┌───────┐
 │        ◄────┤       │    │       │
 │ Vision │    │ Main  ├────►  Arm  │
 │        ├────►       │    │       │
