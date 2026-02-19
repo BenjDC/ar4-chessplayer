@@ -3,23 +3,7 @@ Une joueur d'échecs robotique à partir du bras AR4.
 
 ## Architecture : 
 
-              ┌───────┐             
-              │       │             
-              │ Chess │             
-              │       │             
-              └─▲───┬─┘             
-                │   │               
-              ┌─┴───▼─┐    ┌───────┐
-│        ◄────┤       │    │       │
-│ Vision │    │ Main  ├────►  Arm  │
-│        ├────►       │    │       │
-└────────┘    └─▲───┬─┘    └───────┘
-                │   │               
-              ┌─┴───▼─┐             
-              │       │             
-              │ Clock │             
-              │       │             
-              └───────┘             
+todo 
 
 Le code **main* orchestre le joueur d'échecs sur les fonctions suivantes : 
 
