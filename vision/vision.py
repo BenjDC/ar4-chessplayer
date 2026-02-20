@@ -310,8 +310,7 @@ def detect_move_from_occupancy(fen_before, occupancy_after):
     removed = []   # cases où une pièce a disparu
     added = []     # cases où une pièce est apparue
 
-    print("cases devenues vides : ".join(removed))
-    print("cases devenues occupées : ".join(added))
+
 
     for sq in occupancy_before:
         if occupancy_before[sq] != occupancy_after[sq]:
@@ -319,6 +318,11 @@ def detect_move_from_occupancy(fen_before, occupancy_after):
                 removed.append(sq)
             if occupancy_before[sq] == "vide" and occupancy_after[sq] != "vide":
                 added.append(sq)
+
+    print("cases devenues vides : ")
+    print(removed)
+    print("cases devenues occupées :")
+    print(added)
 
     # -----------------------------
     # 1) Roques

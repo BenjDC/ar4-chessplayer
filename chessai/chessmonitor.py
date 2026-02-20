@@ -4,14 +4,18 @@ import chess.svg
 import tkinter as tk
 from PIL import Image, ImageTk
 import io
+import platform
 
 
 class Chessfish:
 
     def  __init__(self):
-        stockfish_path = "/Users/Myriametben/Documents/GitHub/ar4-chessplayer/stockfish/stockfish-macos-m1-apple-silicon"  # ou "C:/chemin/vers/stockfish.exe" sous Windows
-        #stockfish_path = "C:\\Users\\Robotique\\Documents\\Benjamin\\ar4-chessplayer\\ar4-chessplayer\\stockfish-windows-x86-64-avx2\\stockfish\\stockfish-windows-x86-64-avx2.exe"
 
+        if (platform.system() =="Windows"):
+            stockfish_path = "C:\\Users\\Robotique\\Documents\\Benjamin\\ar4-chessplayer\\ar4-chessplayer\\stockfish-windows-x86-64-avx2\\stockfish\\stockfish-windows-x86-64-avx2.exe"
+        else:
+            stockfish_path = "/Users/Myriametben/Documents/GitHub/ar4-chessplayer/stockfish/stockfish-macos-m1-apple-silicon"  # ou "C:/chemin/vers/stockfish.exe" sous Windows
+        
         # Initialiser Stockfish
         self.ai_player = Stockfish(stockfish_path, depth=15)  # depth peut être ajusté
 

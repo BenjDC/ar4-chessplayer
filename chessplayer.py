@@ -5,7 +5,32 @@ import argparse
 from vision import vision
 from chessai import chessmonitor
 import torch
+import serial
+import time
 
+
+
+def wait_for_click(port, ser, baudrate=9600, keyword="clic"):
+    """
+    Attend qu'un message contenant `keyword` arrive du port série.
+    
+    port : nom du port série (COM3, COM4, /dev/ttyUSB0, /dev/ttyACM0…)
+    baudrate : vitesse série Arduino
+    keyword : texte envoyé par l'Arduino ("click")
+    """
+
+
+
+    print("⏳ En attente d’un click de l'horloge…")
+
+    while True:
+        if ser.in_waiting:
+            line = ser.readline().decode("utf-8", errors="ignore").strip().lower()
+            if keyword in line:
+                print("✔ Click détecté !")
+                ser.close()
+                return
+        time.sleep(0.01)  # éviter de charger le CPU
 
 def parse_args():
     parser = argparse.ArgumentParser(
@@ -38,6 +63,11 @@ def parse_args():
     return parser.parse_args()
 
 if __name__ == "__main__":
+
+    # ser = serial.Serial("COM4", 9600, timeout=0.1)
+
+    # # # Attendre que l'Arduino redémarre physiquement
+    # time.sleep(2)
 
     args = parse_args()
 
@@ -78,6 +108,7 @@ if __name__ == "__main__":
                 current_player = "ai"
 
             player_input = input("Confirmer lorsque le coup est joué")
+            # wait_for_click("COM4", ser)   # adapte COM3 à ton port
 
             if player_input == "a":
                 print("abandon session")
@@ -93,3 +124,5 @@ if __name__ == "__main__":
             
 
             fishy.play_move(move)
+
+            
