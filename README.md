@@ -29,4 +29,7 @@ reçoit un coup au format UCI et le joue avec le bras AR4. Une fois le coup jou�
 * Pièces : https://damieropera.com/produit/pieces-en-resine-plombees-taille-5-3/
 * Horloge : https://www.amazon.fr/RNPKZ-Professionnelle-chronomètre-pourMaison-etTournois/dp/B0FDQJTFJ2/ (bouton large pour que le robot l'utilise). L'horloge est instrumentée pour renvoyer par port série un indicateur lorsqu'un coup est joue (utiliser un arduino nano)
 
+
+courroie : https://www.123courroies.com/courroies-dentees-3m-pas-3-mm/41261-courroie-dentee-1500-3m6.html
+
 ## libraires
