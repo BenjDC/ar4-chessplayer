@@ -21,15 +21,13 @@ Code embarqué dans une pendule d'échecs instrumentée, indique à **main** via
 
 Arm : 
 
-reçoit un coup au format UCI et le joue avec le bras AR4. Une fois le coup joué, le bras actionne la pendule.
+reçoit un coup au format UCI et le joue avec un aimant sous le plateau qui déplace les pièces. Active éventuellement l'horloge. (sidequest)
 
 ## Matériel
 
 * Plateau d'échecs : https://damieropera.com/produit/echiquier-en-vinyle-souple-roulable-4/ (vert)
 * Pièces : https://damieropera.com/produit/pieces-en-resine-plombees-taille-5-3/
-* Horloge : https://www.amazon.fr/RNPKZ-Professionnelle-chronomètre-pourMaison-etTournois/dp/B0FDQJTFJ2/ (bouton large pour que le robot l'utilise). L'horloge est instrumentée pour renvoyer par port série un indicateur lorsqu'un coup est joue (utiliser un arduino nano)
+* Horloge : https://www.amazon.fr/RNPKZ-Professionnelle-chronomètre-pourMaison-etTournois/dp/B0FDQJTFJ2/ . L'horloge est instrumentée pour renvoyer par port série un indicateur lorsqu'un coup est joue (utiliser un arduino nano)
 
-
-courroie : https://www.123courroies.com/courroies-dentees-3m-pas-3-mm/41261-courroie-dentee-1500-3m6.html
 
 ## libraires
