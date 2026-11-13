@@ -1,5 +1,5 @@
 # ar4-chessplayer
-Une joueur d'échecs robotique à partir du bras AR4.
+Une joueur d'échecs robotique à partir d'un plateau CoreXY avec aimant et vision par camera
 
 ## Architecture : 
 
@@ -17,7 +17,7 @@ Prend une photo du plateau, fait les opérations nécessaires pour détecter et 
 
 Clock : 
 
-Code embarqué dans une pendule d'échecs instrumentée, indique à **main** via port série qu'un coup a été  joué. 
+Code embarqué dans une pendule d'échecs instrumentée, indique à **main** via port série qu'un coup a été  joué. (cette partie du projet est une sidequest)
 
 Arm : 
 
