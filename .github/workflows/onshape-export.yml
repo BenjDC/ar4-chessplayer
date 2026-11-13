@@ -29,9 +29,9 @@ jobs:
   export:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -40,8 +40,8 @@ jobs:
 
       - name: Exporter depuis Onshape
         env:
-          ONSHAPE_ACCESS_KEY: ${{ secrets.ONSHAPE_ACCESS_KEY }}
-          ONSHAPE_SECRET_KEY: ${{ secrets.ONSHAPE_SECRET_KEY }}
+          ONSHAPE_ACCESS_KEY: ${{ secrets.ONSHAPE_API_ACCESS_KEY }}
+          ONSHAPE_SECRET_KEY: ${{ secrets.ONSHAPE_API_SECRET_KEY }}
         run: |
           python tools/onshape_export.py \
             --did "${{ inputs.document_id }}" \
