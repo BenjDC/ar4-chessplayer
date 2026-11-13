@@ -1,5 +1,10 @@
-# ar4-chessplayer
-Une joueur d'échecs robotique à partir d'un plateau CoreXY avec aimant et vision par camera
+# Joueur d'échecs robotisé (CoreXY)
+
+Un joueur d'échecs robotique : une caméra lit le plateau, Stockfish choisit le coup, et un chariot CoreXY sous l'échiquier déplace les pièces avec un électro-aimant.
+
+> Le dépôt s'appelle `ar4-chessplayer` pour des raisons historiques : l'idée initiale d'un bras robot AR4 a été abandonnée (voir [décision 001](docs/decisions/001-corexy-plutot-que-bras-ar4.md)).
+
+**Documentation du projet** : [exigences](docs/exigences.md) · [décisions techniques](docs/decisions/README.md) · [nomenclature](docs/nomenclature.csv) · [plan](docs/plan.md) · [modèle CAO exporté](mecanique/onshape/RESUME.md)
 
 ## Architecture
 
@@ -12,16 +17,16 @@ flowchart LR
     VISION["vision/<br/>ArUco + redressement<br/>+ ResNet18 (64 cases)"] -- "occupation 8x8" --> MAIN
     MAIN["chessplayer.py<br/>boucle de jeu"] -- "FEN / coup" --> CHESS["chessai/<br/>python-chess + Stockfish"]
     CHESS -- "coup UCI" --> MAIN
-    MAIN -. "coup UCI" .-> ARM["Arm<br/>CoreXY + électro-aimant"]
+    MAIN -. "coup UCI" .-> ROBOT["Robot<br/>CoreXY + électro-aimant"]
 ```
 
-*Traits pleins : implémenté. Pointillés : prévu (sidequests).*
+*Traits pleins : implémenté. Pointillés : prévu.*
 
 ### Boucle principale – `chessplayer.py`
 
 - Arguments : `--color blancs|noirs` (couleur jouée par la machine, noirs par défaut), `--debug-vision`, `--test <image>` (teste la détection sur une photo, sans caméra).
 - Boucle tour par tour :
-  1. **Tour IA** : Stockfish propose un coup, affiché par une flèche dans la fenêtre Tkinter. Tant que le bras n'est pas opérationnel, l'humain joue ce coup à la place du robot.
+  1. **Tour IA** : Stockfish propose un coup, affiché par une flèche dans la fenêtre Tkinter. Tant que le robot n'est pas opérationnel, l'humain joue ce coup à sa place.
   2. **Tour humain** : l'humain joue sur le plateau physique.
   3. Validation du coup au clavier (`a` pour abandonner) ; à terme, ce sera le clic de la pendule via le port série (`wait_for_click`, code présent mais commenté).
   4. Photo du plateau → occupation des 64 cases → déduction du coup par comparaison avec la FEN précédente → mise à jour de la partie.
@@ -50,13 +55,13 @@ Classe `Chessfish` :
 - `play_move()` : vérifie la légalité du coup et l'applique.
 - Affichage de l'échiquier dans une fenêtre Tkinter (SVG converti par `cairosvg`, avec repli en ASCII dans la console).
 
-### Pendule – *sidequest*
+### Pendule – *en option*
 
 Pendule d'échecs instrumentée par un Arduino Nano, qui envoie `clic` sur le port série (9600 bauds) quand un joueur appuie. Le code côté PC est prêt (`wait_for_click`) ; le firmware n'est pas encore dans le dépôt.
 
-### Bras (Arm) – *sidequest*
+### Robot CoreXY – *à écrire*
 
-Reçoit un coup UCI et déplace la pièce par un électro-aimant sous le plateau. Pas encore de code dans le dépôt. La mécanique est décrite ci-dessous.
+Reçoit un coup UCI, le transforme en trajectoire passant par les lignes entre les cases, puis en G-code envoyé à Marlin (SKR Mini E3 V3) par USB série. Pas encore de code dans le dépôt : voir les [décisions 005 et 006](docs/decisions/README.md) et la mécanique ci-dessous.
 
 ## Mécanique – `mecanique/`
 
@@ -102,7 +107,7 @@ Fichiers CAO dans le dépôt (FreeCAD `.FCStd`, et `.stp` pour les profilés) : 
 - [x] Déduction du coup joué et suivi de la partie avec Stockfish
 - [x] Mode test sur image
 - [ ] Validation du coup par la pendule (code PC prêt, firmware Arduino à ajouter)
-- [ ] Pilotage du CoreXY et de l'électro-aimant (module Arm)
+- [ ] Pilotage du CoreXY et de l'électro-aimant (module robot)
 - [ ] Fichier `requirements.txt` et chemin Stockfish configurable
 
 ## Matériel

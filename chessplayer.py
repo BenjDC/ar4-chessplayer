@@ -34,15 +34,15 @@ def wait_for_click(port, ser, baudrate=9600, keyword="clic"):
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="AR4 Chess Player – vision + robot"
+        description="Joueur d'échecs robotisé (CoreXY) – vision + robot"
     )
 
-    # Paramètre couleur du bras
+    # Couleur jouée par la machine
     parser.add_argument(
         "--color",
         choices=["blancs", "noirs"],
         default="noirs",
-        help="Couleur jouée par le bras (blancs | noirs). Noirs par défaut "
+        help="Couleur jouée par la machine (blancs | noirs). Noirs par défaut."
     )
 
     # Paramètre mode debug vision
@@ -71,7 +71,7 @@ if __name__ == "__main__":
 
     args = parse_args()
 
-    print("=== AR4 Chess Player ===")
+    print("=== Joueur d'échecs robotisé (CoreXY) ===")
     
     fishy = chessmonitor.Chessfish()
 
@@ -98,8 +98,8 @@ if __name__ == "__main__":
 
                 current_player = "human"
 
-                # lorsque le robot sera complètement opérationnel, il faudra introduire l'appel au bras ici ! 
-                # pour le moment c'est à l'humain de joué le coup à sa place
+                # lorsque le robot CoreXY sera opérationnel, il faudra appeler ici le module de pilotage
+                # pour le moment, c'est l'humain qui joue le coup à sa place
                 
                 
             else:
