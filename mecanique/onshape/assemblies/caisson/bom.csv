@@ -1,0 +1,10 @@
+Niveau,Item,Quantity,Part number,Description,Appearance,Name,Revision,State,Vendor,Project,Product line,Material,Title 1,Title 2,Title 3,Not revision managed,Exclude from all BOMs,Unit of measure,Category,Mass,Center of mass,Inertia,Subassembly BOM behavior,Snap 3D Cad to AR scan blob,Snap 3D Cad to AR scan xml,Tessellation quality
+0,1,11.0,,,"{""isGenerated"": false, ""opacity"": 255, ""color"": {""green"": 153, ""blue"": 153, ""red"": 153}}",100113,,In progress,,,,Aluminum,,,,False,False,Each,Onshape Part,0.175 lb,,,N/A,,,Auto
+0,2,6.0,,,"{""isGenerated"": false, ""opacity"": 255, ""color"": {""green"": 102, ""blue"": 102, ""red"": 102}}",100078,,In progress,,,,Aluminum,,,,False,False,Each,Onshape Part,0.029 lb,,,N/A,,,Auto
+0,3,8.0,,,"{""isGenerated"": true, ""opacity"": 255, ""color"": {""green"": 207, ""blue"": 237, ""red"": 157}}",Part 1,,In progress,,,,,,,,False,False,Each,Onshape Part,,,,N/A,,,Auto
+0,4,3.0,,,"{""isGenerated"": false, ""opacity"": 255, ""color"": {""green"": 198, ""blue"": 182, ""red"": 204}}",Corps,,In progress,,,,Aluminum,,,,False,False,Each,Onshape Part,0.193 lb,,,N/A,,,Auto
+0,5,3.0,,,"{""isGenerated"": false, ""opacity"": 255, ""color"": {""green"": 25, ""blue"": 25, ""red"": 25}}",Corps,,In progress,,,,,,,,False,False,Each,Onshape Part,,,,N/A,,,Auto
+0,6,2.0,,,"{""isGenerated"": true, ""opacity"": 255, ""color"": {""green"": 207, ""blue"": 237, ""red"": 157}}",Part 1,,In progress,,,,,,,,False,False,Each,Onshape Part,,,,N/A,,,Auto
+0,7,2.0,,,"{""isGenerated"": true, ""opacity"": 255, ""color"": {""green"": 207, ""blue"": 237, ""red"": 157}}",Part 1,,In progress,,,,,,,,False,False,Each,Onshape Part,,,,N/A,,,Auto
+0,8,2.0,,,"{""isGenerated"": true, ""opacity"": 255, ""color"": {""green"": 234, ""blue"": 234, ""red"": 234}}",NEMA 17 17HD40,,In progress,,,,,,,,False,False,Each,Onshape Part,,,,N/A,,,Auto
+0,9,1.0,,,"{""isGenerated"": true, ""opacity"": 255, ""color"": {""green"": 207, ""blue"": 237, ""red"": 157}}",Part 1,,In progress,,,,,,,,False,False,Each,Onshape Part,,,,N/A,,,Auto

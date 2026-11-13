@@ -1,0 +1,36 @@
+[
+  {
+    "name": "Part 1",
+    "state": "IN_PROGRESS",
+    "description": null,
+    "revision": null,
+    "microversionId": "320897e83a8de94937b221c8",
+    "partNumber": null,
+    "partId": "JHD",
+    "bodyType": "solid",
+    "elementId": "8b59acb581a073e53ad6831b",
+    "isFlattenedBody": false,
+    "partQuery": "query=qCompressed(1.0,\"&203$eJx9UctygkAQ/JnJUYtFQTnyWJEygtnFMuZC8VhlK8IiLFH+PiBVuaT0ONM9PT09b5YGHy2ru61GkQoZb+Ii4ec2llyUTixjE23V/0jYVYyiGQTEcz3ffI8cvMO+g337SA0QNT/zMr40pm4rvXAMrJRcdsOUFQP+K+gcsONimkDOGynqsbkEm2Az9AK/B0TF6sdKL7NU8DITUYSmOqzq1admuqlyl5vSFJFy4zULqn77dTjnIZQB3eDQXkfYD73wSBk030ym+WjAy2jaCxn74na4oMJd5kEipBTF4JnMiUZ0siBLEpOEpCSjE6ROZyBF9QKfw4Wd5BNCOp0gDbqiuq+pNftyW+WpktFTF/AC1qDPOJdkbut9iFbgHEeSnYwBGbA63BK+P+0b/Tr72dqRIip8l3WbMZL0H6EHvAujYfAXkMijig==\",id);",
+    "partIdentity": "e99a76c280ff2e05173aff1d",
+    "meshState": "NO_MESH",
+    "isHidden": false,
+    "configurationId": "",
+    "thumbnailConfigurationId": "",
+    "propertySourceTypes": {
+      "57f3fb8efa3416c06701d60d": 0
+    },
+    "metadataMicroversion": "ed72154eda9dc860e0622b78",
+    "defaultColorHash": "FWwbiUfUs6q3vMC_0_0",
+    "ordinal": 0,
+    "isMesh": false,
+    "appearance": {
+      "color": {
+        "red": 157,
+        "green": 207,
+        "blue": 237
+      },
+      "isGenerated": true,
+      "opacity": 255
+    }
+  }
+]

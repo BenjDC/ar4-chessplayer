@@ -1,0 +1,2943 @@
+{
+  "type": "topLevel",
+  "rows": [
+    {
+      "itemSource": {
+        "viewHref": "https://cad.onshape.com/documents/eaf3a2d1ab237bdd64cab5e4/v/68f25fe1121c0ec648f1542b/e/1722c29da55dbb443a7b611e?configuration=default",
+        "sourceElementMicroversionId": "ccb25ec25647a30365909258",
+        "wvmType": "v",
+        "isStandardContent": false,
+        "fullConfiguration": "default",
+        "configuration": "default",
+        "wvmId": "68f25fe1121c0ec648f1542b",
+        "documentId": "eaf3a2d1ab237bdd64cab5e4",
+        "partId": "JFD",
+        "elementId": "1722c29da55dbb443a7b611e",
+        "partIdentity": "d4b927ef147e4dd549cf6b2e"
+      },
+      "indentedRowId": "fqcz9xTI+-4EESyktcMIOMnSDpOWeKGkjKGw8LyYKdk=",
+      "flattenedRowId": "CtaY3aXQPIBz7tFSxf-Hqv91MaTWBch9JwNHyV9qfJM=",
+      "relatedOccurrences": [
+        "MwCmJh+neo4QfjdWv",
+        "MtH0+8GfRuaQHKk26",
+        "MW+4PMMehE6kCWy6K",
+        "M83RhFcZ4R9K3eSHW",
+        "MzSLmRWlrvpIsQQX3",
+        "MBHMAaZ5CTuOVVtNI",
+        "MoFCuzX3A+3ysEmWp",
+        "MvfxaMctIG7ty7Kg9",
+        "MU/5DQ0m3jKmyTecW",
+        "Mzkmgp81oAIYDtsKp",
+        "MBLYNvSkaLrpmeUkG"
+      ],
+      "indentLevel": 0,
+      "isPartNumberReadOnly": false,
+      "headerIdToValue": {
+        "57f3fb8efa3416c06701d628": null,
+        "57f3fb8efa3416c06701d61e": false,
+        "57f3fb8efa3416c06701d61d": false,
+        "57f3fb8efa3416c06701d615": {
+          "id": "Aluminum",
+          "libraryName": "Onshape Material Library",
+          "libraryReference": {
+            "documentId": "2718281828459eacfeeda11f",
+            "elementMicroversionId": "b722224aa714b6346c7e8278",
+            "versionId": "7e0317fdf97739c9457998f0",
+            "elementId": "6bbab304a1f64e7d640a2d7d"
+          },
+          "properties": [
+            {
+              "type": "REAL",
+              "category": "Physical",
+              "name": "COMPRESSIVE_YIELD_STRENGTH",
+              "value": "0",
+              "displayName": "Compressive Yield Strength",
+              "units": "Pa",
+              "description": "Compressive Yield Strength"
+            },
+            {
+              "type": "REAL",
+              "category": "Physical",
+              "name": "YOUNGS_MODULUS",
+              "value": "68900000000",
+              "displayName": "Young's Modulus",
+              "units": "Pa",
+              "description": "Young's Modulus"
+            },
+            {
+              "type": "REAL",
+              "category": "Physical",
+              "name": "TENSILE_YIELD_STRENGTH",
+              "value": "27600000",
+              "displayName": "Tensile Yield Strength",
+              "units": "Pa",
+              "description": "Tensile Yield Strength"
+            },
+            {
+              "type": "REAL",
+              "category": "Physical",
+              "name": "DENS",
+              "value": "2700",
+              "displayName": "Density",
+              "units": "kg/m^3",
+              "description": "Density"
+            },
+            {
+              "type": "REAL",
+              "category": "Physical",
+              "name": "ULTIMATE_COMPRESSIVE_STRENGTH",
+              "value": "0",
+              "displayName": "Ultimate Compressive Strength",
+              "units": "Pa",
+              "description": "Ultimate Compressive Strength"
+            },
+            {
+              "type": "REAL",
+              "category": "Physical",
+              "name": "POISSONS_RATIO",
+              "value": "0.33",
+              "displayName": "Poisson's Ratio",
+              "units": "",
+              "description": "Poisson's Ratio"
+            },
+            {
+              "type": "REAL",
+              "category": "Physical",
+              "name": "ULTIMATE_TENSILE_STRENGTH",
+              "value": "68900000",
+              "displayName": "Ultimate Tensile Strength",
+              "units": "Pa",
+              "description": "Ultimate Tensile Strength"
+            }
+          ],
+          "displayName": "Aluminum"
+        },
+        "57f3fb8efa3416c06701d616": null,
+        "57f3fb8efa3416c06701d613": null,
+        "5ace84d3c046ad611c65a0dd": 11.0,
+        "57f3fb8efa3416c06701d614": null,
+        "57f3fb8efa3416c06701d611": "In progress",
+        "57f3fb8efa3416c06701d633": "N/A",
+        "57f3fb8efa3416c06701d612": null,
+        "57f3fb8efa3416c06701d610": null,
+        "57f3fb8efa3416c06701d617": null,
+        "57f3fb8efa3416c06701d618": null,
+        "57f3fb8efa3416c06701d60d": "100113",
+        "57f3fb8efa3416c06701d60e": null,
+        "57f3fb8efa3416c06701d60c": {
+          "isGenerated": false,
+          "opacity": 255,
+          "color": {
+            "green": 153,
+            "blue": 153,
+            "red": 153
+          }
+        },
+        "57f3fb8efa3416c06701d60f": null,
+        "5ace8269c046ad612c65a0ba": "1",
+        "57f3fb8efa3416c06701d626": "0.175 lb",
+        "57f3fb8efa3416c06701d627": null,
+        "5ace8269c046ad612c65a0bb": "Auto",
+        "57f3fb8efa3416c06701d625": [
+          {
+            "memberCategoryIds": null,
+            "memberCategories": null,
+            "ownerType": 2,
+            "publishState": 1,
+            "defaultObjectType": 2,
+            "objectTypes": [
+              2
+            ],
+            "description": "Category created by upgrade",
+            "ownerId": "556f3109e4b00b3fee9a3f4a",
+            "id": "5877a03ebe4c21163b49dce2",
+            "href": null,
+            "name": "Onshape Part"
+          }
+        ],
+        "57f3fb8efa3416c06701d644": null,
+        "57f3fb8efa3416c06701d623": "Each",
+        "57f3fb8efa3416c06701d645": null
+      },
+      "selectedMetadataEnumValues": {
+        "5ace8269c046ad612c65a0bb": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "Auto"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Coarse"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Medium"
+            },
+            {
+              "value": "3",
+              "state": 0,
+              "label": "Fine"
+            },
+            {
+              "value": "4",
+              "state": 0,
+              "label": "Very fine"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d611": {
+          "selectedValue": "0",
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "In progress"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Pending"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Released"
+            },
+            {
+              "value": "3",
+              "state": 0,
+              "label": "Obsolete"
+            },
+            {
+              "value": "4",
+              "state": 0,
+              "label": "Rejected"
+            },
+            {
+              "value": "5",
+              "state": 0,
+              "label": "Discarded"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d633": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "Show Assembly and components"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Show Assembly only"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Show components only"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d623": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "Centimeter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Foot",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Inch",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Meter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Millimeter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Yard",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Gram",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Kilogram",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Ounce",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Pound",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Liter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Gallon",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Each",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Fluid ounce",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Milliliter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Centiliter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Package",
+              "state": 0,
+              "label": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "itemSource": {
+        "viewHref": "https://cad.onshape.com/documents/d824ba5f80e854bc1e44a220/v/c7270212ec1197a668977e14/e/ed69e9cc0a3deb16e0ec4266?configuration=default",
+        "sourceElementMicroversionId": "4fc2c9e8210ab170f6851c78",
+        "wvmType": "v",
+        "isStandardContent": false,
+        "fullConfiguration": "default",
+        "configuration": "default",
+        "wvmId": "c7270212ec1197a668977e14",
+        "documentId": "d824ba5f80e854bc1e44a220",
+        "partId": "JFD",
+        "elementId": "ed69e9cc0a3deb16e0ec4266",
+        "partIdentity": "cdbde3681b8c6dc1f6ebf289"
+      },
+      "indentedRowId": "UfgUSpQ3G3kG+9qRJNdapwFpWi3mqGtsv8SG4F7lhHU=",
+      "flattenedRowId": "F8LZPtiOd8vn-NoDKSkCI+64YzC+xkMjHCzuBWYrQp8=",
+      "relatedOccurrences": [
+        "MN0MDcGwzsjmA8EjN",
+        "MFxIJxJUq9NzaV5bS",
+        "MN2Hv2RnTPkQjpNz4",
+        "M8G3SZBpCH1txoXK9",
+        "MSVEkmkTJ8z40WicX",
+        "MqU5P1WT+pj96cK/o"
+      ],
+      "indentLevel": 0,
+      "isPartNumberReadOnly": false,
+      "headerIdToValue": {
+        "57f3fb8efa3416c06701d628": null,
+        "57f3fb8efa3416c06701d61e": false,
+        "57f3fb8efa3416c06701d61d": false,
+        "57f3fb8efa3416c06701d615": {
+          "id": "Aluminum",
+          "libraryName": "Onshape Material Library",
+          "libraryReference": {
+            "documentId": "2718281828459eacfeeda11f",
+            "elementMicroversionId": "b722224aa714b6346c7e8278",
+            "versionId": "7e0317fdf97739c9457998f0",
+            "elementId": "6bbab304a1f64e7d640a2d7d"
+          },
+          "properties": [
+            {
+              "type": "REAL",
+              "category": "Physical",
+              "name": "COMPRESSIVE_YIELD_STRENGTH",
+              "value": "0",
+              "displayName": "Compressive Yield Strength",
+              "units": "Pa",
+              "description": "Compressive Yield Strength"
+            },
+            {
+              "type": "REAL",
+              "category": "Physical",
+              "name": "YOUNGS_MODULUS",
+              "value": "68900000000",
+              "displayName": "Young's Modulus",
+              "units": "Pa",
+              "description": "Young's Modulus"
+            },
+            {
+              "type": "REAL",
+              "category": "Physical",
+              "name": "TENSILE_YIELD_STRENGTH",
+              "value": "27600000",
+              "displayName": "Tensile Yield Strength",
+              "units": "Pa",
+              "description": "Tensile Yield Strength"
+            },
+            {
+              "type": "REAL",
+              "category": "Physical",
+              "name": "DENS",
+              "value": "2700",
+              "displayName": "Density",
+              "units": "kg/m^3",
+              "description": "Density"
+            },
+            {
+              "type": "REAL",
+              "category": "Physical",
+              "name": "ULTIMATE_COMPRESSIVE_STRENGTH",
+              "value": "0",
+              "displayName": "Ultimate Compressive Strength",
+              "units": "Pa",
+              "description": "Ultimate Compressive Strength"
+            },
+            {
+              "type": "REAL",
+              "category": "Physical",
+              "name": "POISSONS_RATIO",
+              "value": "0.33",
+              "displayName": "Poisson's Ratio",
+              "units": "",
+              "description": "Poisson's Ratio"
+            },
+            {
+              "type": "REAL",
+              "category": "Physical",
+              "name": "ULTIMATE_TENSILE_STRENGTH",
+              "value": "68900000",
+              "displayName": "Ultimate Tensile Strength",
+              "units": "Pa",
+              "description": "Ultimate Tensile Strength"
+            }
+          ],
+          "displayName": "Aluminum"
+        },
+        "57f3fb8efa3416c06701d616": null,
+        "57f3fb8efa3416c06701d613": null,
+        "5ace84d3c046ad611c65a0dd": 6.0,
+        "57f3fb8efa3416c06701d614": null,
+        "57f3fb8efa3416c06701d611": "In progress",
+        "57f3fb8efa3416c06701d633": "N/A",
+        "57f3fb8efa3416c06701d612": null,
+        "57f3fb8efa3416c06701d610": null,
+        "57f3fb8efa3416c06701d617": null,
+        "57f3fb8efa3416c06701d618": null,
+        "57f3fb8efa3416c06701d60d": "100078",
+        "57f3fb8efa3416c06701d60e": null,
+        "57f3fb8efa3416c06701d60c": {
+          "isGenerated": false,
+          "opacity": 255,
+          "color": {
+            "green": 102,
+            "blue": 102,
+            "red": 102
+          }
+        },
+        "57f3fb8efa3416c06701d60f": null,
+        "5ace8269c046ad612c65a0ba": "2",
+        "57f3fb8efa3416c06701d626": "0.029 lb",
+        "57f3fb8efa3416c06701d627": null,
+        "5ace8269c046ad612c65a0bb": "Auto",
+        "57f3fb8efa3416c06701d625": [
+          {
+            "memberCategoryIds": null,
+            "memberCategories": null,
+            "ownerType": 2,
+            "publishState": 1,
+            "defaultObjectType": 2,
+            "objectTypes": [
+              2
+            ],
+            "description": "Category created by upgrade",
+            "ownerId": "556f3109e4b00b3fee9a3f4a",
+            "id": "5877a03ebe4c21163b49dce2",
+            "href": null,
+            "name": "Onshape Part"
+          }
+        ],
+        "57f3fb8efa3416c06701d644": null,
+        "57f3fb8efa3416c06701d623": "Each",
+        "57f3fb8efa3416c06701d645": null
+      },
+      "selectedMetadataEnumValues": {
+        "5ace8269c046ad612c65a0bb": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "Auto"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Coarse"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Medium"
+            },
+            {
+              "value": "3",
+              "state": 0,
+              "label": "Fine"
+            },
+            {
+              "value": "4",
+              "state": 0,
+              "label": "Very fine"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d611": {
+          "selectedValue": "0",
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "In progress"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Pending"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Released"
+            },
+            {
+              "value": "3",
+              "state": 0,
+              "label": "Obsolete"
+            },
+            {
+              "value": "4",
+              "state": 0,
+              "label": "Rejected"
+            },
+            {
+              "value": "5",
+              "state": 0,
+              "label": "Discarded"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d633": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "Show Assembly and components"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Show Assembly only"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Show components only"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d623": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "Centimeter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Foot",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Inch",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Meter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Millimeter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Yard",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Gram",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Kilogram",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Ounce",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Pound",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Liter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Gallon",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Each",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Fluid ounce",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Milliliter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Centiliter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Package",
+              "state": 0,
+              "label": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "itemSource": {
+        "viewHref": "https://cad.onshape.com/documents/958fe90e8e24c5ba1873d33b/v/975e0768f7cd67f6de30b0b5/e/c7d5dd157060d3e2a22878d6?configuration=default",
+        "sourceElementMicroversionId": "60c9d6e75561ba406629e1d8",
+        "wvmType": "v",
+        "isStandardContent": false,
+        "fullConfiguration": "default",
+        "configuration": "default",
+        "wvmId": "975e0768f7cd67f6de30b0b5",
+        "documentId": "958fe90e8e24c5ba1873d33b",
+        "partId": "JHD",
+        "elementId": "c7d5dd157060d3e2a22878d6",
+        "partIdentity": "7d026851b3a36195695e4041"
+      },
+      "indentedRowId": "w0sAnnArLGTgCYXSO790Fs3UOCirxRsG2V-Gq0zYK-M=",
+      "flattenedRowId": "-yKJykkJYK38E-xwlhL98oPjqlNdRIfItFxgNbm3440=",
+      "relatedOccurrences": [
+        "MyJheOfJ1bOZh8pP3",
+        "MfTbS+cKRmKC0PPYv",
+        "MVsiXeULrLxBqiLY3",
+        "MjMlXhpawkUvAhEGB",
+        "MvnIH/7YbmR7WJXDN",
+        "MJZFDjB24Nep9yiuq",
+        "Mv3+Qd3cYAyuTmvJL",
+        "MKOi3C0M1ajoYzFOK"
+      ],
+      "indentLevel": 0,
+      "isPartNumberReadOnly": false,
+      "headerIdToValue": {
+        "57f3fb8efa3416c06701d628": null,
+        "57f3fb8efa3416c06701d61e": false,
+        "57f3fb8efa3416c06701d61d": false,
+        "57f3fb8efa3416c06701d615": null,
+        "57f3fb8efa3416c06701d616": null,
+        "57f3fb8efa3416c06701d613": null,
+        "5ace84d3c046ad611c65a0dd": 8.0,
+        "57f3fb8efa3416c06701d614": null,
+        "57f3fb8efa3416c06701d611": "In progress",
+        "57f3fb8efa3416c06701d633": "N/A",
+        "57f3fb8efa3416c06701d612": null,
+        "57f3fb8efa3416c06701d610": null,
+        "57f3fb8efa3416c06701d617": null,
+        "57f3fb8efa3416c06701d618": null,
+        "57f3fb8efa3416c06701d60d": "Part 1",
+        "57f3fb8efa3416c06701d60e": null,
+        "57f3fb8efa3416c06701d60c": {
+          "isGenerated": true,
+          "opacity": 255,
+          "color": {
+            "green": 207,
+            "blue": 237,
+            "red": 157
+          }
+        },
+        "57f3fb8efa3416c06701d60f": null,
+        "5ace8269c046ad612c65a0ba": "3",
+        "57f3fb8efa3416c06701d626": null,
+        "57f3fb8efa3416c06701d627": null,
+        "5ace8269c046ad612c65a0bb": "Auto",
+        "57f3fb8efa3416c06701d625": [
+          {
+            "memberCategoryIds": null,
+            "memberCategories": null,
+            "ownerType": 2,
+            "publishState": 1,
+            "defaultObjectType": 2,
+            "objectTypes": [
+              2
+            ],
+            "description": "Category created by upgrade",
+            "ownerId": "556f3109e4b00b3fee9a3f4a",
+            "id": "5877a03ebe4c21163b49dce2",
+            "href": null,
+            "name": "Onshape Part"
+          }
+        ],
+        "57f3fb8efa3416c06701d644": null,
+        "57f3fb8efa3416c06701d623": "Each",
+        "57f3fb8efa3416c06701d645": null
+      },
+      "selectedMetadataEnumValues": {
+        "5ace8269c046ad612c65a0bb": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "Auto"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Coarse"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Medium"
+            },
+            {
+              "value": "3",
+              "state": 0,
+              "label": "Fine"
+            },
+            {
+              "value": "4",
+              "state": 0,
+              "label": "Very fine"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d611": {
+          "selectedValue": "0",
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "In progress"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Pending"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Released"
+            },
+            {
+              "value": "3",
+              "state": 0,
+              "label": "Obsolete"
+            },
+            {
+              "value": "4",
+              "state": 0,
+              "label": "Rejected"
+            },
+            {
+              "value": "5",
+              "state": 0,
+              "label": "Discarded"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d633": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "Show Assembly and components"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Show Assembly only"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Show components only"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d623": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "Centimeter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Foot",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Inch",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Meter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Millimeter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Yard",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Gram",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Kilogram",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Ounce",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Pound",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Liter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Gallon",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Each",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Fluid ounce",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Milliliter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Centiliter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Package",
+              "state": 0,
+              "label": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "itemSource": {
+        "viewHref": "https://cad.onshape.com/documents/84114acefee76f36591fdd2e/v/d68763253bf6ef6fc6d50e24/e/4a14942bcfd63c1e32427dc0?configuration=default",
+        "sourceElementMicroversionId": "7f3b7a2547ec5d0cc4eeec39",
+        "wvmType": "v",
+        "isStandardContent": false,
+        "fullConfiguration": "default",
+        "configuration": "default",
+        "wvmId": "d68763253bf6ef6fc6d50e24",
+        "documentId": "84114acefee76f36591fdd2e",
+        "partId": "JFD",
+        "elementId": "4a14942bcfd63c1e32427dc0"
+      },
+      "indentedRowId": "DHscDREELZYO-ZRWkiwItGxka8mDbZQTi+5Xg7mPZKk=",
+      "flattenedRowId": "H6ACfwK2KL1Y0bnthdDXUqjxgKKKKOJRFhosvEonBYA=",
+      "relatedOccurrences": [
+        "MncgNEie7zIWgCAie",
+        "M8Ezo57S0g565VgjF",
+        "MpivPVa5kOi8b+ypm"
+      ],
+      "indentLevel": 0,
+      "isPartNumberReadOnly": false,
+      "headerIdToValue": {
+        "57f3fb8efa3416c06701d628": null,
+        "57f3fb8efa3416c06701d61e": false,
+        "57f3fb8efa3416c06701d61d": false,
+        "57f3fb8efa3416c06701d615": {
+          "id": "Aluminum",
+          "libraryName": "Onshape Material Library",
+          "libraryReference": {
+            "documentId": "2718281828459eacfeeda11f",
+            "elementMicroversionId": "b722224aa714b6346c7e8278",
+            "versionId": "7e0317fdf97739c9457998f0",
+            "elementId": "6bbab304a1f64e7d640a2d7d"
+          },
+          "properties": [
+            {
+              "type": "REAL",
+              "category": "Physical",
+              "name": "COMPRESSIVE_YIELD_STRENGTH",
+              "value": "0",
+              "displayName": "Compressive Yield Strength",
+              "units": "Pa",
+              "description": "Compressive Yield Strength"
+            },
+            {
+              "type": "REAL",
+              "category": "Physical",
+              "name": "YOUNGS_MODULUS",
+              "value": "68900000000",
+              "displayName": "Young's Modulus",
+              "units": "Pa",
+              "description": "Young's Modulus"
+            },
+            {
+              "type": "REAL",
+              "category": "Physical",
+              "name": "TENSILE_YIELD_STRENGTH",
+              "value": "27600000",
+              "displayName": "Tensile Yield Strength",
+              "units": "Pa",
+              "description": "Tensile Yield Strength"
+            },
+            {
+              "type": "REAL",
+              "category": "Physical",
+              "name": "DENS",
+              "value": "2700",
+              "displayName": "Density",
+              "units": "kg/m^3",
+              "description": "Density"
+            },
+            {
+              "type": "REAL",
+              "category": "Physical",
+              "name": "ULTIMATE_COMPRESSIVE_STRENGTH",
+              "value": "0",
+              "displayName": "Ultimate Compressive Strength",
+              "units": "Pa",
+              "description": "Ultimate Compressive Strength"
+            },
+            {
+              "type": "REAL",
+              "category": "Physical",
+              "name": "POISSONS_RATIO",
+              "value": "0.33",
+              "displayName": "Poisson's Ratio",
+              "units": "",
+              "description": "Poisson's Ratio"
+            },
+            {
+              "type": "REAL",
+              "category": "Physical",
+              "name": "ULTIMATE_TENSILE_STRENGTH",
+              "value": "68900000",
+              "displayName": "Ultimate Tensile Strength",
+              "units": "Pa",
+              "description": "Ultimate Tensile Strength"
+            }
+          ],
+          "displayName": "Aluminum"
+        },
+        "57f3fb8efa3416c06701d616": null,
+        "57f3fb8efa3416c06701d613": null,
+        "5ace84d3c046ad611c65a0dd": 3.0,
+        "57f3fb8efa3416c06701d614": null,
+        "57f3fb8efa3416c06701d611": "In progress",
+        "57f3fb8efa3416c06701d633": "N/A",
+        "57f3fb8efa3416c06701d612": null,
+        "57f3fb8efa3416c06701d610": null,
+        "57f3fb8efa3416c06701d617": null,
+        "57f3fb8efa3416c06701d618": null,
+        "57f3fb8efa3416c06701d60d": "Corps",
+        "57f3fb8efa3416c06701d60e": null,
+        "57f3fb8efa3416c06701d60c": {
+          "isGenerated": false,
+          "opacity": 255,
+          "color": {
+            "green": 198,
+            "blue": 182,
+            "red": 204
+          }
+        },
+        "57f3fb8efa3416c06701d60f": null,
+        "5ace8269c046ad612c65a0ba": "4",
+        "57f3fb8efa3416c06701d626": "0.193 lb",
+        "57f3fb8efa3416c06701d627": null,
+        "5ace8269c046ad612c65a0bb": "Auto",
+        "57f3fb8efa3416c06701d625": [
+          {
+            "memberCategoryIds": null,
+            "memberCategories": null,
+            "ownerType": 2,
+            "publishState": 1,
+            "defaultObjectType": 2,
+            "objectTypes": [
+              2
+            ],
+            "description": "Category created by upgrade",
+            "ownerId": "556f3109e4b00b3fee9a3f4a",
+            "id": "5877a03ebe4c21163b49dce2",
+            "href": null,
+            "name": "Onshape Part"
+          }
+        ],
+        "57f3fb8efa3416c06701d644": null,
+        "57f3fb8efa3416c06701d623": "Each",
+        "57f3fb8efa3416c06701d645": null
+      },
+      "selectedMetadataEnumValues": {
+        "5ace8269c046ad612c65a0bb": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "Auto"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Coarse"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Medium"
+            },
+            {
+              "value": "3",
+              "state": 0,
+              "label": "Fine"
+            },
+            {
+              "value": "4",
+              "state": 0,
+              "label": "Very fine"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d611": {
+          "selectedValue": "0",
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "In progress"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Pending"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Released"
+            },
+            {
+              "value": "3",
+              "state": 0,
+              "label": "Obsolete"
+            },
+            {
+              "value": "4",
+              "state": 0,
+              "label": "Rejected"
+            },
+            {
+              "value": "5",
+              "state": 0,
+              "label": "Discarded"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d633": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "Show Assembly and components"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Show Assembly only"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Show components only"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d623": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "Centimeter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Foot",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Inch",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Meter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Millimeter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Yard",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Gram",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Kilogram",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Ounce",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Pound",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Liter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Gallon",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Each",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Fluid ounce",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Milliliter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Centiliter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Package",
+              "state": 0,
+              "label": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "itemSource": {
+        "viewHref": "https://cad.onshape.com/documents/c58196b6603643281ae08758/v/b54b5ae1d7b2f529da355df0/e/2741c411e85bb4b69fc9c8b8?configuration=default",
+        "sourceElementMicroversionId": "219a9afe3af2be2fed6773f6",
+        "wvmType": "v",
+        "isStandardContent": false,
+        "fullConfiguration": "default",
+        "configuration": "default",
+        "wvmId": "b54b5ae1d7b2f529da355df0",
+        "documentId": "c58196b6603643281ae08758",
+        "partId": "JFD",
+        "elementId": "2741c411e85bb4b69fc9c8b8"
+      },
+      "indentedRowId": "MVeO6cVhcQ7z-+mEPuNgdScgxOPlJ4vU4dYn+xr76as=",
+      "flattenedRowId": "zKsTn36jPkYjNeVxzQ5K-0NEL8MpNzqa0Mt+SP+qjtk=",
+      "relatedOccurrences": [
+        "Mu+aw55F2pD8h0d8p",
+        "MdhHLfs8SOk2LOGPv",
+        "MuxGhxEaFHK0g/hun"
+      ],
+      "indentLevel": 0,
+      "isPartNumberReadOnly": false,
+      "headerIdToValue": {
+        "57f3fb8efa3416c06701d628": null,
+        "57f3fb8efa3416c06701d61e": false,
+        "57f3fb8efa3416c06701d61d": false,
+        "57f3fb8efa3416c06701d615": null,
+        "57f3fb8efa3416c06701d616": null,
+        "57f3fb8efa3416c06701d613": null,
+        "5ace84d3c046ad611c65a0dd": 3.0,
+        "57f3fb8efa3416c06701d614": null,
+        "57f3fb8efa3416c06701d611": "In progress",
+        "57f3fb8efa3416c06701d633": "N/A",
+        "57f3fb8efa3416c06701d612": null,
+        "57f3fb8efa3416c06701d610": null,
+        "57f3fb8efa3416c06701d617": null,
+        "57f3fb8efa3416c06701d618": null,
+        "57f3fb8efa3416c06701d60d": "Corps",
+        "57f3fb8efa3416c06701d60e": null,
+        "57f3fb8efa3416c06701d60c": {
+          "isGenerated": false,
+          "opacity": 255,
+          "color": {
+            "green": 25,
+            "blue": 25,
+            "red": 25
+          }
+        },
+        "57f3fb8efa3416c06701d60f": null,
+        "5ace8269c046ad612c65a0ba": "5",
+        "57f3fb8efa3416c06701d626": null,
+        "57f3fb8efa3416c06701d627": null,
+        "5ace8269c046ad612c65a0bb": "Auto",
+        "57f3fb8efa3416c06701d625": [
+          {
+            "memberCategoryIds": null,
+            "memberCategories": null,
+            "ownerType": 2,
+            "publishState": 1,
+            "defaultObjectType": 2,
+            "objectTypes": [
+              2
+            ],
+            "description": "Category created by upgrade",
+            "ownerId": "556f3109e4b00b3fee9a3f4a",
+            "id": "5877a03ebe4c21163b49dce2",
+            "href": null,
+            "name": "Onshape Part"
+          }
+        ],
+        "57f3fb8efa3416c06701d644": null,
+        "57f3fb8efa3416c06701d623": "Each",
+        "57f3fb8efa3416c06701d645": null
+      },
+      "selectedMetadataEnumValues": {
+        "5ace8269c046ad612c65a0bb": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "Auto"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Coarse"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Medium"
+            },
+            {
+              "value": "3",
+              "state": 0,
+              "label": "Fine"
+            },
+            {
+              "value": "4",
+              "state": 0,
+              "label": "Very fine"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d611": {
+          "selectedValue": "0",
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "In progress"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Pending"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Released"
+            },
+            {
+              "value": "3",
+              "state": 0,
+              "label": "Obsolete"
+            },
+            {
+              "value": "4",
+              "state": 0,
+              "label": "Rejected"
+            },
+            {
+              "value": "5",
+              "state": 0,
+              "label": "Discarded"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d633": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "Show Assembly and components"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Show Assembly only"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Show components only"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d623": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "Centimeter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Foot",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Inch",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Meter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Millimeter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Yard",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Gram",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Kilogram",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Ounce",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Pound",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Liter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Gallon",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Each",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Fluid ounce",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Milliliter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Centiliter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Package",
+              "state": 0,
+              "label": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "itemSource": {
+        "viewHref": "https://cad.onshape.com/documents/73d8a9b994f023e735a0d531/v/0fc8ad5023a6ef7008c7e7f3/e/0a8a60a76118cf7710f305b2?configuration=default",
+        "sourceElementMicroversionId": "15cd8db01c19b2b1a62acf04",
+        "wvmType": "v",
+        "isStandardContent": false,
+        "fullConfiguration": "default",
+        "configuration": "default",
+        "wvmId": "0fc8ad5023a6ef7008c7e7f3",
+        "documentId": "73d8a9b994f023e735a0d531",
+        "partId": "JHD",
+        "elementId": "0a8a60a76118cf7710f305b2",
+        "partIdentity": "4a333378f605e0eff6206b76"
+      },
+      "indentedRowId": "qbJmLP-oNxBMJAE+4p5S41pbJrG26B-UhJC9tgO0f74=",
+      "flattenedRowId": "nklNW7fKWQXpgeqfQ5gHKOD3y258f4CGqNbVIL947Gw=",
+      "relatedOccurrences": [
+        "MI1lgkMd3PZ6sisBy",
+        "MyY4g3nLRKVjAayMw"
+      ],
+      "indentLevel": 0,
+      "isPartNumberReadOnly": false,
+      "headerIdToValue": {
+        "57f3fb8efa3416c06701d628": null,
+        "57f3fb8efa3416c06701d61e": false,
+        "57f3fb8efa3416c06701d61d": false,
+        "57f3fb8efa3416c06701d615": null,
+        "57f3fb8efa3416c06701d616": null,
+        "57f3fb8efa3416c06701d613": null,
+        "5ace84d3c046ad611c65a0dd": 2.0,
+        "57f3fb8efa3416c06701d614": null,
+        "57f3fb8efa3416c06701d611": "In progress",
+        "57f3fb8efa3416c06701d633": "N/A",
+        "57f3fb8efa3416c06701d612": null,
+        "57f3fb8efa3416c06701d610": null,
+        "57f3fb8efa3416c06701d617": null,
+        "57f3fb8efa3416c06701d618": null,
+        "57f3fb8efa3416c06701d60d": "Part 1",
+        "57f3fb8efa3416c06701d60e": null,
+        "57f3fb8efa3416c06701d60c": {
+          "isGenerated": true,
+          "opacity": 255,
+          "color": {
+            "green": 207,
+            "blue": 237,
+            "red": 157
+          }
+        },
+        "57f3fb8efa3416c06701d60f": null,
+        "5ace8269c046ad612c65a0ba": "6",
+        "57f3fb8efa3416c06701d626": null,
+        "57f3fb8efa3416c06701d627": null,
+        "5ace8269c046ad612c65a0bb": "Auto",
+        "57f3fb8efa3416c06701d625": [
+          {
+            "memberCategoryIds": null,
+            "memberCategories": null,
+            "ownerType": 2,
+            "publishState": 1,
+            "defaultObjectType": 2,
+            "objectTypes": [
+              2
+            ],
+            "description": "Category created by upgrade",
+            "ownerId": "556f3109e4b00b3fee9a3f4a",
+            "id": "5877a03ebe4c21163b49dce2",
+            "href": null,
+            "name": "Onshape Part"
+          }
+        ],
+        "57f3fb8efa3416c06701d644": null,
+        "57f3fb8efa3416c06701d623": "Each",
+        "57f3fb8efa3416c06701d645": null
+      },
+      "selectedMetadataEnumValues": {
+        "5ace8269c046ad612c65a0bb": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "Auto"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Coarse"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Medium"
+            },
+            {
+              "value": "3",
+              "state": 0,
+              "label": "Fine"
+            },
+            {
+              "value": "4",
+              "state": 0,
+              "label": "Very fine"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d611": {
+          "selectedValue": "0",
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "In progress"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Pending"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Released"
+            },
+            {
+              "value": "3",
+              "state": 0,
+              "label": "Obsolete"
+            },
+            {
+              "value": "4",
+              "state": 0,
+              "label": "Rejected"
+            },
+            {
+              "value": "5",
+              "state": 0,
+              "label": "Discarded"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d633": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "Show Assembly and components"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Show Assembly only"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Show components only"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d623": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "Centimeter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Foot",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Inch",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Meter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Millimeter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Yard",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Gram",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Kilogram",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Ounce",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Pound",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Liter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Gallon",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Each",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Fluid ounce",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Milliliter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Centiliter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Package",
+              "state": 0,
+              "label": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "itemSource": {
+        "viewHref": "https://cad.onshape.com/documents/193b28609d356b928047811f/v/f269584e728825dc9ba1b715/e/4bb56704d659d1753a694cf1?configuration=default",
+        "sourceElementMicroversionId": "6a65dd1a086b44616a1555cd",
+        "wvmType": "v",
+        "isStandardContent": false,
+        "fullConfiguration": "default",
+        "configuration": "default",
+        "wvmId": "f269584e728825dc9ba1b715",
+        "documentId": "193b28609d356b928047811f",
+        "partId": "JJD",
+        "elementId": "4bb56704d659d1753a694cf1",
+        "partIdentity": "8d889f5f3b96043a0436f761"
+      },
+      "indentedRowId": "nh4DyTOj8fYzi7SR8Hy8jXBUX9LnRCCJoDz21wJzVPM=",
+      "flattenedRowId": "5MZ5adgY2vgNRZ+f-D+WJxZau2iz8YNn8EdxnWt6-p8=",
+      "relatedOccurrences": [
+        "M+zskbrXGSW7RkJZv",
+        "MG0d4jrNk+9nQFIKy"
+      ],
+      "indentLevel": 0,
+      "isPartNumberReadOnly": false,
+      "headerIdToValue": {
+        "57f3fb8efa3416c06701d628": null,
+        "57f3fb8efa3416c06701d61e": false,
+        "57f3fb8efa3416c06701d61d": false,
+        "57f3fb8efa3416c06701d615": null,
+        "57f3fb8efa3416c06701d616": null,
+        "57f3fb8efa3416c06701d613": null,
+        "5ace84d3c046ad611c65a0dd": 2.0,
+        "57f3fb8efa3416c06701d614": null,
+        "57f3fb8efa3416c06701d611": "In progress",
+        "57f3fb8efa3416c06701d633": "N/A",
+        "57f3fb8efa3416c06701d612": null,
+        "57f3fb8efa3416c06701d610": null,
+        "57f3fb8efa3416c06701d617": null,
+        "57f3fb8efa3416c06701d618": null,
+        "57f3fb8efa3416c06701d60d": "Part 1",
+        "57f3fb8efa3416c06701d60e": null,
+        "57f3fb8efa3416c06701d60c": {
+          "isGenerated": true,
+          "opacity": 255,
+          "color": {
+            "green": 207,
+            "blue": 237,
+            "red": 157
+          }
+        },
+        "57f3fb8efa3416c06701d60f": null,
+        "5ace8269c046ad612c65a0ba": "7",
+        "57f3fb8efa3416c06701d626": null,
+        "57f3fb8efa3416c06701d627": null,
+        "5ace8269c046ad612c65a0bb": "Auto",
+        "57f3fb8efa3416c06701d625": [
+          {
+            "memberCategoryIds": null,
+            "memberCategories": null,
+            "ownerType": 2,
+            "publishState": 1,
+            "defaultObjectType": 2,
+            "objectTypes": [
+              2
+            ],
+            "description": "Category created by upgrade",
+            "ownerId": "556f3109e4b00b3fee9a3f4a",
+            "id": "5877a03ebe4c21163b49dce2",
+            "href": null,
+            "name": "Onshape Part"
+          }
+        ],
+        "57f3fb8efa3416c06701d644": null,
+        "57f3fb8efa3416c06701d623": "Each",
+        "57f3fb8efa3416c06701d645": null
+      },
+      "selectedMetadataEnumValues": {
+        "5ace8269c046ad612c65a0bb": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "Auto"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Coarse"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Medium"
+            },
+            {
+              "value": "3",
+              "state": 0,
+              "label": "Fine"
+            },
+            {
+              "value": "4",
+              "state": 0,
+              "label": "Very fine"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d611": {
+          "selectedValue": "0",
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "In progress"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Pending"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Released"
+            },
+            {
+              "value": "3",
+              "state": 0,
+              "label": "Obsolete"
+            },
+            {
+              "value": "4",
+              "state": 0,
+              "label": "Rejected"
+            },
+            {
+              "value": "5",
+              "state": 0,
+              "label": "Discarded"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d633": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "Show Assembly and components"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Show Assembly only"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Show components only"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d623": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "Centimeter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Foot",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Inch",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Meter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Millimeter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Yard",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Gram",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Kilogram",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Ounce",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Pound",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Liter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Gallon",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Each",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Fluid ounce",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Milliliter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Centiliter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Package",
+              "state": 0,
+              "label": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "itemSource": {
+        "viewHref": "https://cad.onshape.com/documents/bb06b1053b2b874cfd62f254/v/ce5795223a4404e250eae8a5/e/31bbb64809a9526be886352f?configuration=default",
+        "sourceElementMicroversionId": "762b9aef50d5db8f395d5789",
+        "wvmType": "v",
+        "isStandardContent": false,
+        "fullConfiguration": "default",
+        "configuration": "default",
+        "wvmId": "ce5795223a4404e250eae8a5",
+        "documentId": "bb06b1053b2b874cfd62f254",
+        "partId": "JF/",
+        "elementId": "31bbb64809a9526be886352f",
+        "partIdentity": "cff7f07b6b6e140b068a23dd"
+      },
+      "indentedRowId": "UOwUiDpFCYVXErSh8Qm4oUVRSjEWC-qiYWCUCCvVyN4=",
+      "flattenedRowId": "hnXiPUMwrcOaotATa5VLNgCHhVgfvDzyiyMHH0JwAek=",
+      "relatedOccurrences": [
+        "M6bqZaNH8W57nQ5HV",
+        "MK/4pzT79OX/YDT19"
+      ],
+      "indentLevel": 0,
+      "isPartNumberReadOnly": false,
+      "headerIdToValue": {
+        "57f3fb8efa3416c06701d628": null,
+        "57f3fb8efa3416c06701d61e": false,
+        "57f3fb8efa3416c06701d61d": false,
+        "57f3fb8efa3416c06701d615": null,
+        "57f3fb8efa3416c06701d616": null,
+        "57f3fb8efa3416c06701d613": null,
+        "5ace84d3c046ad611c65a0dd": 2.0,
+        "57f3fb8efa3416c06701d614": null,
+        "57f3fb8efa3416c06701d611": "In progress",
+        "57f3fb8efa3416c06701d633": "N/A",
+        "57f3fb8efa3416c06701d612": null,
+        "57f3fb8efa3416c06701d610": null,
+        "57f3fb8efa3416c06701d617": null,
+        "57f3fb8efa3416c06701d618": null,
+        "57f3fb8efa3416c06701d60d": "NEMA 17 17HD40",
+        "57f3fb8efa3416c06701d60e": null,
+        "57f3fb8efa3416c06701d60c": {
+          "isGenerated": true,
+          "opacity": 255,
+          "color": {
+            "green": 234,
+            "blue": 234,
+            "red": 234
+          }
+        },
+        "57f3fb8efa3416c06701d60f": null,
+        "5ace8269c046ad612c65a0ba": "8",
+        "57f3fb8efa3416c06701d626": null,
+        "57f3fb8efa3416c06701d627": null,
+        "5ace8269c046ad612c65a0bb": "Auto",
+        "57f3fb8efa3416c06701d625": [
+          {
+            "memberCategoryIds": null,
+            "memberCategories": null,
+            "ownerType": 2,
+            "publishState": 1,
+            "defaultObjectType": 2,
+            "objectTypes": [
+              2
+            ],
+            "description": "Category created by upgrade",
+            "ownerId": "556f3109e4b00b3fee9a3f4a",
+            "id": "5877a03ebe4c21163b49dce2",
+            "href": null,
+            "name": "Onshape Part"
+          }
+        ],
+        "57f3fb8efa3416c06701d644": null,
+        "57f3fb8efa3416c06701d623": "Each",
+        "57f3fb8efa3416c06701d645": null
+      },
+      "selectedMetadataEnumValues": {
+        "5ace8269c046ad612c65a0bb": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "Auto"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Coarse"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Medium"
+            },
+            {
+              "value": "3",
+              "state": 0,
+              "label": "Fine"
+            },
+            {
+              "value": "4",
+              "state": 0,
+              "label": "Very fine"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d611": {
+          "selectedValue": "0",
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "In progress"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Pending"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Released"
+            },
+            {
+              "value": "3",
+              "state": 0,
+              "label": "Obsolete"
+            },
+            {
+              "value": "4",
+              "state": 0,
+              "label": "Rejected"
+            },
+            {
+              "value": "5",
+              "state": 0,
+              "label": "Discarded"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d633": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "Show Assembly and components"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Show Assembly only"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Show components only"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d623": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "Centimeter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Foot",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Inch",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Meter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Millimeter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Yard",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Gram",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Kilogram",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Ounce",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Pound",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Liter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Gallon",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Each",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Fluid ounce",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Milliliter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Centiliter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Package",
+              "state": 0,
+              "label": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "itemSource": {
+        "viewHref": "https://cad.onshape.com/documents/e18b653be252676ae3b8c36c/w/db663cb86067f77f2d0621fb/e/8b59acb581a073e53ad6831b?configuration=default",
+        "sourceElementMicroversionId": "ed72154eda9dc860e0622b78",
+        "wvmType": "w",
+        "isStandardContent": false,
+        "fullConfiguration": "default",
+        "configuration": "default",
+        "wvmId": "db663cb86067f77f2d0621fb",
+        "documentId": "e18b653be252676ae3b8c36c",
+        "partId": "JHD",
+        "elementId": "8b59acb581a073e53ad6831b",
+        "partIdentity": "e99a76c280ff2e05173aff1d"
+      },
+      "indentedRowId": "MLJCdtEchNB0zFI6IkKvE52xu2Gu656edmq7sLlv2Vo=",
+      "flattenedRowId": "wfMrUYIfJE-4KzAJkyO5yfQ0gThLgcqP3WODWvn2l1g=",
+      "relatedOccurrences": [
+        "Mhebdv1ctJk86p887"
+      ],
+      "indentLevel": 0,
+      "isPartNumberReadOnly": false,
+      "headerIdToValue": {
+        "57f3fb8efa3416c06701d628": null,
+        "57f3fb8efa3416c06701d61e": false,
+        "57f3fb8efa3416c06701d61d": false,
+        "57f3fb8efa3416c06701d615": null,
+        "57f3fb8efa3416c06701d616": null,
+        "57f3fb8efa3416c06701d613": null,
+        "5ace84d3c046ad611c65a0dd": 1.0,
+        "57f3fb8efa3416c06701d614": null,
+        "57f3fb8efa3416c06701d611": "In progress",
+        "57f3fb8efa3416c06701d633": "N/A",
+        "57f3fb8efa3416c06701d612": null,
+        "57f3fb8efa3416c06701d610": null,
+        "57f3fb8efa3416c06701d617": null,
+        "57f3fb8efa3416c06701d618": null,
+        "57f3fb8efa3416c06701d60d": "Part 1",
+        "57f3fb8efa3416c06701d60e": null,
+        "57f3fb8efa3416c06701d60c": {
+          "isGenerated": true,
+          "opacity": 255,
+          "color": {
+            "green": 207,
+            "blue": 237,
+            "red": 157
+          }
+        },
+        "57f3fb8efa3416c06701d60f": null,
+        "5ace8269c046ad612c65a0ba": "9",
+        "57f3fb8efa3416c06701d626": null,
+        "57f3fb8efa3416c06701d627": null,
+        "5ace8269c046ad612c65a0bb": "Auto",
+        "57f3fb8efa3416c06701d625": [
+          {
+            "memberCategoryIds": null,
+            "memberCategories": null,
+            "ownerType": 2,
+            "publishState": 1,
+            "defaultObjectType": 2,
+            "objectTypes": [
+              2
+            ],
+            "description": "Category created by upgrade",
+            "ownerId": "556f3109e4b00b3fee9a3f4a",
+            "id": "5877a03ebe4c21163b49dce2",
+            "href": null,
+            "name": "Onshape Part"
+          }
+        ],
+        "57f3fb8efa3416c06701d644": null,
+        "57f3fb8efa3416c06701d623": "Each",
+        "57f3fb8efa3416c06701d645": null
+      },
+      "selectedMetadataEnumValues": {
+        "5ace8269c046ad612c65a0bb": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "Auto"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Coarse"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Medium"
+            },
+            {
+              "value": "3",
+              "state": 0,
+              "label": "Fine"
+            },
+            {
+              "value": "4",
+              "state": 0,
+              "label": "Very fine"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d611": {
+          "selectedValue": "0",
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "In progress"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Pending"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Released"
+            },
+            {
+              "value": "3",
+              "state": 0,
+              "label": "Obsolete"
+            },
+            {
+              "value": "4",
+              "state": 0,
+              "label": "Rejected"
+            },
+            {
+              "value": "5",
+              "state": 0,
+              "label": "Discarded"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d633": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "Show Assembly and components"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Show Assembly only"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Show components only"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d623": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "Centimeter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Foot",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Inch",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Meter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Millimeter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Yard",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Gram",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Kilogram",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Ounce",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Pound",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Liter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Gallon",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Each",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Fluid ounce",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Milliliter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Centiliter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Package",
+              "state": 0,
+              "label": null
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "formatVersion": "2.1",
+  "bomSource": {
+    "viewHref": "https://cad.onshape.com/documents/e18b653be252676ae3b8c36c/w/db663cb86067f77f2d0621fb/e/31b6819f3012a8cb6a8c2f9a?configuration=current",
+    "href": "https://cad.onshape.com/api/assemblies/d/e18b653be252676ae3b8c36c/w/db663cb86067f77f2d0621fb/e/31b6819f3012a8cb6a8c2f9a?configuration=current",
+    "workspace": {
+      "id": "db663cb86067f77f2d0621fb",
+      "name": "Main"
+    },
+    "document": {
+      "id": "e18b653be252676ae3b8c36c",
+      "name": "Caisson"
+    },
+    "element": {
+      "configuration": "current",
+      "headerIdToValue": {
+        "57f3fb8efa3416c06701d628": null,
+        "57f3fb8efa3416c06701d61e": false,
+        "57f3fb8efa3416c06701d61d": false,
+        "57f3fb8efa3416c06701d615": null,
+        "57f3fb8efa3416c06701d616": null,
+        "57f3fb8efa3416c06701d613": null,
+        "5ace84d3c046ad611c65a0dd": null,
+        "57f3fb8efa3416c06701d614": null,
+        "57f3fb8efa3416c06701d611": "In progress",
+        "57f3fb8efa3416c06701d633": "Show Assembly and components",
+        "57f3fb8efa3416c06701d612": null,
+        "57f3fb8efa3416c06701d610": null,
+        "57f3fb8efa3416c06701d617": null,
+        "57f3fb8efa3416c06701d618": null,
+        "57f3fb8efa3416c06701d60d": "caisson",
+        "57f3fb8efa3416c06701d60e": null,
+        "57f3fb8efa3416c06701d60c": null,
+        "57f3fb8efa3416c06701d60f": null,
+        "5ace8269c046ad612c65a0ba": null,
+        "57f3fb8efa3416c06701d626": null,
+        "57f3fb8efa3416c06701d627": null,
+        "5ace8269c046ad612c65a0bb": "Auto",
+        "57f3fb8efa3416c06701d625": [
+          {
+            "memberCategoryIds": null,
+            "memberCategories": null,
+            "ownerType": 2,
+            "publishState": 1,
+            "defaultObjectType": 3,
+            "objectTypes": [
+              3
+            ],
+            "description": "Category created by upgrade",
+            "ownerId": "556f3109e4b00b3fee9a3f4a",
+            "id": "5877a03ebe4c21163b49dce3",
+            "href": null,
+            "name": "Onshape Assembly"
+          }
+        ],
+        "57f3fb8efa3416c06701d644": null,
+        "57f3fb8efa3416c06701d623": "Each",
+        "57f3fb8efa3416c06701d645": null
+      },
+      "selectedMetadataEnumValues": {
+        "5ace8269c046ad612c65a0bb": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "Auto"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Coarse"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Medium"
+            },
+            {
+              "value": "3",
+              "state": 0,
+              "label": "Fine"
+            },
+            {
+              "value": "4",
+              "state": 0,
+              "label": "Very fine"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d611": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "In progress"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Pending"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Released"
+            },
+            {
+              "value": "3",
+              "state": 0,
+              "label": "Obsolete"
+            },
+            {
+              "value": "4",
+              "state": 0,
+              "label": "Rejected"
+            },
+            {
+              "value": "5",
+              "state": 0,
+              "label": "Discarded"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d633": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "0",
+              "state": 0,
+              "label": "Show Assembly and components"
+            },
+            {
+              "value": "1",
+              "state": 0,
+              "label": "Show Assembly only"
+            },
+            {
+              "value": "2",
+              "state": 0,
+              "label": "Show components only"
+            }
+          ]
+        },
+        "57f3fb8efa3416c06701d623": {
+          "selectedValue": null,
+          "enumOptions": [
+            {
+              "value": "Centimeter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Foot",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Inch",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Meter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Millimeter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Yard",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Gram",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Kilogram",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Ounce",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Pound",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Liter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Gallon",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Each",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Fluid ounce",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Milliliter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Centiliter",
+              "state": 0,
+              "label": null
+            },
+            {
+              "value": "Package",
+              "state": 0,
+              "label": null
+            }
+          ]
+        }
+      },
+      "id": "31b6819f3012a8cb6a8c2f9a",
+      "name": "caisson"
+    }
+  },
+  "createdAt": "2026-11-13T21:26:38.285Z",
+  "templateId": "dc9153301b06a1d59d889555",
+  "headers": [
+    {
+      "propertyName": "item",
+      "visible": true,
+      "valueType": "STRING",
+      "id": "5ace8269c046ad612c65a0ba",
+      "name": "Item"
+    },
+    {
+      "propertyName": "quantity",
+      "visible": true,
+      "valueType": "DOUBLE",
+      "id": "5ace84d3c046ad611c65a0dd",
+      "name": "Quantity"
+    },
+    {
+      "propertyName": "partNumber",
+      "visible": true,
+      "valueType": "STRING",
+      "id": "57f3fb8efa3416c06701d60f",
+      "name": "Part number"
+    },
+    {
+      "propertyName": "description",
+      "visible": true,
+      "valueType": "STRING",
+      "id": "57f3fb8efa3416c06701d60e",
+      "name": "Description"
+    },
+    {
+      "propertyName": "appearance",
+      "visible": false,
+      "valueType": "OBJECT",
+      "id": "57f3fb8efa3416c06701d60c",
+      "name": "Appearance"
+    },
+    {
+      "propertyName": "name",
+      "visible": false,
+      "valueType": "STRING",
+      "id": "57f3fb8efa3416c06701d60d",
+      "name": "Name"
+    },
+    {
+      "propertyName": "revision",
+      "visible": false,
+      "valueType": "STRING",
+      "id": "57f3fb8efa3416c06701d610",
+      "name": "Revision"
+    },
+    {
+      "propertyName": "state",
+      "visible": false,
+      "valueType": "ENUM",
+      "id": "57f3fb8efa3416c06701d611",
+      "name": "State"
+    },
+    {
+      "propertyName": "vendor",
+      "visible": false,
+      "valueType": "STRING",
+      "id": "57f3fb8efa3416c06701d612",
+      "name": "Vendor"
+    },
+    {
+      "propertyName": "project",
+      "visible": false,
+      "valueType": "STRING",
+      "id": "57f3fb8efa3416c06701d613",
+      "name": "Project"
+    },
+    {
+      "propertyName": "productLine",
+      "visible": false,
+      "valueType": "STRING",
+      "id": "57f3fb8efa3416c06701d614",
+      "name": "Product line"
+    },
+    {
+      "propertyName": "material",
+      "visible": false,
+      "valueType": "OBJECT",
+      "id": "57f3fb8efa3416c06701d615",
+      "name": "Material"
+    },
+    {
+      "propertyName": "title1",
+      "visible": false,
+      "valueType": "STRING",
+      "id": "57f3fb8efa3416c06701d616",
+      "name": "Title 1"
+    },
+    {
+      "propertyName": "title2",
+      "visible": false,
+      "valueType": "STRING",
+      "id": "57f3fb8efa3416c06701d617",
+      "name": "Title 2"
+    },
+    {
+      "propertyName": "title3",
+      "visible": false,
+      "valueType": "STRING",
+      "id": "57f3fb8efa3416c06701d618",
+      "name": "Title 3"
+    },
+    {
+      "propertyName": "notRevisionManaged",
+      "visible": false,
+      "valueType": "BOOL",
+      "id": "57f3fb8efa3416c06701d61d",
+      "name": "Not revision managed"
+    },
+    {
+      "propertyName": "excludeFromBom",
+      "visible": false,
+      "valueType": "BOOL",
+      "id": "57f3fb8efa3416c06701d61e",
+      "name": "Exclude from all BOMs"
+    },
+    {
+      "propertyName": "57f3fb8efa3416c06701d623",
+      "visible": false,
+      "valueType": "ENUM",
+      "id": "57f3fb8efa3416c06701d623",
+      "name": "Unit of measure"
+    },
+    {
+      "propertyName": "category",
+      "visible": false,
+      "valueType": "CATEGORY",
+      "id": "57f3fb8efa3416c06701d625",
+      "name": "Category"
+    },
+    {
+      "propertyName": "57f3fb8efa3416c06701d626",
+      "visible": false,
+      "valueType": "VALUE_WITH_UNITS",
+      "id": "57f3fb8efa3416c06701d626",
+      "name": "Mass"
+    },
+    {
+      "propertyName": "57f3fb8efa3416c06701d627",
+      "visible": false,
+      "valueType": "COMPUTED",
+      "id": "57f3fb8efa3416c06701d627",
+      "name": "Center of mass"
+    },
+    {
+      "propertyName": "57f3fb8efa3416c06701d628",
+      "visible": false,
+      "valueType": "COMPUTED",
+      "id": "57f3fb8efa3416c06701d628",
+      "name": "Inertia"
+    },
+    {
+      "propertyName": "bomBehavior",
+      "visible": false,
+      "valueType": "ENUM",
+      "id": "57f3fb8efa3416c06701d633",
+      "name": "Subassembly BOM behavior"
+    },
+    {
+      "propertyName": "snap3dcadtoarscanblob",
+      "visible": false,
+      "valueType": "STRING",
+      "id": "57f3fb8efa3416c06701d644",
+      "name": "Snap 3D Cad to AR scan blob"
+    },
+    {
+      "propertyName": "snap3dcadtoarscanxml",
+      "visible": false,
+      "valueType": "STRING",
+      "id": "57f3fb8efa3416c06701d645",
+      "name": "Snap 3D Cad to AR scan xml"
+    },
+    {
+      "propertyName": "5ace8269c046ad612c65a0bb",
+      "visible": false,
+      "valueType": "ENUM",
+      "id": "5ace8269c046ad612c65a0bb",
+      "name": "Tessellation quality"
+    }
+  ],
+  "id": "407e4439b352db1f1e7d0948",
+  "name": "BOM : caisson"
+}
