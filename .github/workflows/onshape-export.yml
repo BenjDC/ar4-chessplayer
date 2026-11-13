@@ -1,0 +1,61 @@
+name: Export Onshape
+
+# Lancement manuel : onglet Actions > Export Onshape > Run workflow.
+# Chaque export consomme le quota API Onshape du compte (voir RESUME.md pour le nombre d'appels).
+on:
+  workflow_dispatch:
+    inputs:
+      document_id:
+        description: "ID du document Onshape"
+        default: "e18b653be252676ae3b8c36c"
+        required: true
+      workspace_id:
+        description: "ID du workspace"
+        default: "db663cb86067f77f2d0621fb"
+        required: true
+      step:
+        description: "Exporter aussi les STEP (environ 5 appels de plus par Part Studio)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: onshape-export
+  cancel-in-progress: false
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer les dépendances
+        run: pip install requests
+
+      - name: Exporter depuis Onshape
+        env:
+          ONSHAPE_ACCESS_KEY: ${{ secrets.ONSHAPE_ACCESS_KEY }}
+          ONSHAPE_SECRET_KEY: ${{ secrets.ONSHAPE_SECRET_KEY }}
+        run: |
+          python tools/onshape_export.py \
+            --did "${{ inputs.document_id }}" \
+            --wid "${{ inputs.workspace_id }}" \
+            ${{ inputs.step && '--step' || '' }}
+
+      - name: Committer le résultat
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add mecanique/onshape
+          if git diff --cached --quiet; then
+            echo "Aucun changement dans le modèle."
+          else
+            git commit -m "Export Onshape du $(date -u +'%Y-%m-%d %H:%M') UTC"
+            git push
+          fi
