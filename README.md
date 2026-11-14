@@ -41,7 +41,7 @@ python chessplayer.py --color noirs        # partie : la machine joue les noirs
 python chessplayer.py --test essai.png     # teste la vision sur une photo, sans caméra
 ```
 
-Il faut aussi télécharger l'exécutable Stockfish (https://stockfishchess.org/download/). Son chemin est pour l'instant codé en dur dans `chessai/chessmonitor.py`.
+Il faut aussi télécharger l'exécutable Stockfish (https://stockfishchess.org/download/), puis indiquer son chemin dans la variable d'environnement `STOCKFISH_PATH`, ou le placer dans le `PATH` (voir [chessai/README.md](chessai/README.md)).
 
 ## Librairies utilisées
 

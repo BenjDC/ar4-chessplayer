@@ -12,7 +12,7 @@ Tableau de suivi (Whiteboard) : https://claude.ai/artifact/VLvAx6wNvFf2uxrUXrjHf
 - [x] Revue de conception et registre des risques (`risques.md`)
 - [x] README découpé par sous-système, librairies listées
 - [x] Exigences revues : démarche incrémentale V1 / V2 / V3
-- [ ] Valider les exigences encore marquées « à valider »
+- [x] Valider les exigences encore marquées « à valider »
 - [ ] Inventaire du fablab (`actions.md`)
 - [ ] Courses du lot 1 (`courses.md`)
 

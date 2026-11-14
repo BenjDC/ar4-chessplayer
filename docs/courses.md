@@ -2,7 +2,7 @@
 
 Organisée par lots. On n'achète un lot que lorsque le précédent a donné ses résultats, pour ne pas payer du matériel qu'un test rendrait inutile (EX-35 : maîtrise des coûts).
 
-- **Leroy Merlin Gennevilliers** (121, avenue du Vieux Chemin de Saint-Denis) : pour les plaques, les panneaux et la quincaillerie volumineuse. Vérifiez le stock sur leroymerlin.fr en choisissant ce magasin. La découpe des panneaux de bois se fait sur place.
+- **Leroy Merlin** (magasin le plus proche) : pour les plaques, les panneaux et la quincaillerie volumineuse. Vérifiez le stock sur leroymerlin.fr en choisissant son magasin. La découpe des panneaux de bois se fait sur place.
 - **En ligne** : pour les petits composants, faciles à envoyer.
 
 Les prix marqués « constaté » ont été relevés sur leroymerlin.fr le 14/11/2026. Les autres sont des **ordres de grandeur à vérifier**.
@@ -13,7 +13,7 @@ Les prix marqués « constaté » ont été relevés sur leroymerlin.fr le 14/11
 
 Il sert au banc magnétique du jalon 2 et répond aux risques R-01, R-05 et R-09, ainsi qu'aux décisions 002, 003, 009 et 012. Budget estimé : 50 à 80 €.
 
-**À Leroy Merlin Gennevilliers**
+**À Leroy Merlin**
 
 | Article | Qté | Pour quoi | Prix |
 |---|---|---|---|

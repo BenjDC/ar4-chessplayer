@@ -1,4 +1,4 @@
-# Actions – à faire par Benjamin
+# Actions – à faire par le porteur du projet
 
 Les actions qui demandent d'être sur place (fablab, magasin) ou de prendre une décision. Cochez au fur et à mesure. Les résultats (mesures, photos, inventaire) peuvent être transmis tels quels à Claude, qui met à jour la nomenclature, les décisions et les risques.
 

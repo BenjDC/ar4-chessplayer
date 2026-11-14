@@ -1,6 +1,6 @@
 # Mesures des pièces d'échecs
 
-Pièces Damier Opéra en résine plombée, taille 5, sur un échiquier à cases de 50 mm. Diamètres de base mesurés par Benjamin.
+Pièces Damier Opéra en résine plombée, taille 5, sur un échiquier à cases de 50 mm. Diamètres de base mesurés au pied à coulisse.
 
 | Pièce | Ø de base (mm) | Rayon (mm) | Hauteur (mm) | Masse (g) | Feutre (mm) |
 |---|---|---|---|---|---|

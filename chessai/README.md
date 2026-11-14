@@ -13,4 +13,9 @@ Retour au [README principal](../README.md) · Vue d'ensemble du logiciel : [docs
 
 Le moteur Stockfish est un exécutable à télécharger à part (https://stockfishchess.org/download/). Le paquet Python `stockfish` ne fait que le piloter.
 
-**Dette** : les chemins vers l'exécutable sont codés en dur pour deux machines (Windows et macOS) dans `__init__`. À rendre configurable, par variable d'environnement ou argument.
+Le chemin de l'exécutable est lu dans la variable d'environnement `STOCKFISH_PATH`. À défaut, `stockfish` est cherché dans le `PATH`. Par exemple :
+
+```bash
+export STOCKFISH_PATH=/chemin/vers/stockfish        # macOS / Linux
+set STOCKFISH_PATH=C:\chemin\vers\stockfish.exe     # Windows (cmd)
+```

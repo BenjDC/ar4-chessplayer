@@ -5,17 +5,23 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import io
 import platform
+import os
+import shutil
 
 
 class Chessfish:
 
     def  __init__(self):
 
-        if (platform.system() =="Windows"):
-            stockfish_path = "C:\\Users\\Robotique\\Documents\\Benjamin\\ar4-chessplayer\\ar4-chessplayer\\stockfish-windows-x86-64-avx2\\stockfish\\stockfish-windows-x86-64-avx2.exe"
-        else:
-            stockfish_path = "/Users/Myriametben/Documents/GitHub/ar4-chessplayer/stockfish/stockfish-macos-m1-apple-silicon"  # ou "C:/chemin/vers/stockfish.exe" sous Windows
-        
+        # Chemin de l'exécutable Stockfish : variable d'environnement STOCKFISH_PATH,
+        # sinon recherche de « stockfish » dans le PATH.
+        stockfish_path = os.environ.get("STOCKFISH_PATH") or shutil.which("stockfish")
+        if not stockfish_path:
+            raise RuntimeError(
+                "Exécutable Stockfish introuvable : définir la variable d'environnement "
+                "STOCKFISH_PATH (chemin complet de l'exécutable) ou ajouter stockfish au PATH."
+            )
+
         # Initialiser Stockfish
         self.ai_player = Stockfish(stockfish_path, depth=15)  # depth peut être ajusté
 

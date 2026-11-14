@@ -39,7 +39,7 @@ Projet personnel, mené aussi pour apprendre à utiliser l'IA sur tout le cycle 
 
 **Moyens disponibles** : fablab avec imprimante 3D Bambu Lab P2S. Les pièces imprimées sont faites sur place. Le PLA (disponible) suffit pour les prototypes, le banc de test et la plupart des pièces de la V1. Le PETG est recommandé pour les supports de moteurs (chaleur des moteurs) et à envisager pour les supports de poulies si la tension des courroies se relâche (fluage du PLA). Alimentation de labo et outillage courant sur place, le détail est dans l'inventaire (`docs/actions.md`).
 
-**Actions et achats** : `docs/actions.md` (à faire par Benjamin) et `docs/courses.md` (liste des courses par lots).
+**Actions et achats** : `docs/actions.md` (à faire par le porteur du projet) et `docs/courses.md` (liste des courses par lots).
 
 ## Conventions
 
@@ -65,6 +65,7 @@ Jamais de clé dans le dépôt ni dans une conversation. Les clés Onshape sont 
 ## Commandes utiles
 
 ```bash
+export STOCKFISH_PATH=/chemin/vers/stockfish  # ou stockfish dans le PATH
 python chessplayer.py --color noirs           # partie, la machine joue les noirs
 python chessplayer.py --test essai.png        # teste la vision sur une image, sans caméra
 python tools/onshape_export.py --did … --wid … # export Onshape (clés dans l'environnement)
@@ -72,7 +73,6 @@ python tools/onshape_export.py --did … --wid … # export Onshape (clés dans 
 
 ## Dette technique connue
 
-- Chemins Stockfish codés en dur dans `chessai/chessmonitor.py` (deux machines précises).
 - Vision : modèle entraîné sur des images de 128 px mais alimenté en cases de 100 px.
 - `vision.get_board()` peut renvoyer `(None, None)` au lieu de la liste des cases.
 - Modèles binaires lourds suivis par git (`vision/*.keras` jusqu'à 75 Mo, `model_chess.pth` 43 Mo). Les anciens `.keras` ne servent plus.
