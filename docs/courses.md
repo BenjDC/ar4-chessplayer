@@ -45,7 +45,7 @@ Il sert au jalon 3 et répond aux risques R-06 et R-07, ainsi qu'à la décision
 | Poulies folles manquantes : dentées ou lisses, alésage selon l'inventaire, pour courroie de 9 mm | en ligne | Compléter les 8 poulies folles | ≈ 2-3 € pièce |
 | Visserie M3 et M5 (vis, écrous, rondelles) pour les axes de poulies et les pièces imprimées | Leroy Merlin | Montage | ≈ 10 € |
 | Écrous carrés M3 ou T-nuts pour MakerBeam (si l'inventaire en manque) | en ligne | Fixer les pièces au cadre | ≈ 10 € |
-| Filament PETG (si absent au fablab) | en ligne | Pièces sous tension de courroie | ≈ 20 € la bobine |
+| Filament PETG (optionnel) | en ligne | Blocs moteurs (chaleur) ; supports de poulies si le PLA flue | ≈ 20 € la bobine |
 | 2 micro-switchs de fin de course | en ligne | Repli si le homing sans capteur est peu fiable (R-07) | ≈ 3 € |
 | Plateau final, découpé à 600 × 600 mm, dans le matériau retenu après le banc | Leroy Merlin (découpe) | Plateau supérieur | selon le matériau |
 

@@ -34,7 +34,7 @@ Statuts : **validée** · **à valider** · **abandonnée**
 | EX-11 | Un déplacement ne renverse ni ne décale aucune autre pièce. | V1 | validée |
 | EX-12 | Elle retire du plateau les pièces qu'elle capture et les range hors de la zone de jeu. En V1, le retrait peut être fait par l'humain sur demande. | V1 aidée, V2 autonome | validée (emplacement : décision 010) |
 | EX-13 | Elle exécute le roque et la prise en passant. Pour la promotion, l'humain place la pièce en V1 et en V2. | V2 (roque, en passant), V3 (promotion) | validée |
-| EX-14 | Précision de positionnement : pièce posée assez près du centre de sa case pour que le coup suivant fonctionne. Indicateur : ±3 mm. | V1 (fonctionnel), V3 (indicateur) | à valider |
+| EX-14 | Précision de positionnement de la pièce, c'est-à-dire de la chaîne mécanique **et** du couplage aimant-pièce. Les passages par les coins laissent 0,5 à 8 mm de marge ([mesures](mesures/pieces.md)) : ±3 mm est trop large. Objectif provisoire : environ ±1 mm, à confirmer au banc (décalage entre la position d'arrêt de l'aimant et celle de la pièce). | V1 (fonctionnel), V2 (±1 mm) | à valider |
 | EX-15 | Durée d'exécution d'un coup. Indicateur suivi, sans objectif en V1. Repères pour la V3 : ≤ 15 s pour un coup simple, ≤ 30 s pour une prise. | V3 | à valider |
 | EX-16 | Fonctionnement assez silencieux pour une pièce de vie. | V3 | à valider |
 

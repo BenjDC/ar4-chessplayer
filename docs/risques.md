@@ -16,7 +16,7 @@ Dernière revue : 14/11/2026 (revue de conception).
 | ID | Risque | P | I | Crit. | Statut | Liens |
 |---|---|---|---|---|---|---|
 | R-01 | Force magnétique insuffisante à travers l'entrefer | 3 | 3 | **9** | ouvert | 002, 009, EX-10 |
-| R-02 | Collisions entre pièces pendant les déplacements | 3 | 3 | **9** | ouvert | EX-11, 010 |
+| R-02 | Collisions entre pièces pendant les déplacements | 3 | 3 | **9** | ouvert (confirmé par les mesures) | EX-11, EX-14, 010, 013 |
 | R-03 | Hypothèses non vérifiées issues de l'IA prises pour des faits | 3 | 2 | **6** | en cours de traitement | méthode |
 | R-04 | Détection du coup humain trop peu fiable | 3 | 2 | **6** | en cours de traitement | 007, 012, EX-20, EX-21 |
 | R-05 | Flèche du plateau : entrefer variable selon la case | 2 | 2 | 4 | ouvert | 003 |
@@ -40,13 +40,14 @@ Dernière revue : 14/11/2026 (revue de conception).
 - **Indicateur de fermeture** : force latérale de décrochage mesurée au moins 2 fois supérieure à la force de frottement de la pièce la plus lourde.
 
 ### R-02 – Collisions entre pièces pendant les déplacements (criticité 9)
-- **Cause** : en taille 5, les bases font environ 30 mm (pion) à 40 mm (roi), alors qu'une pièce qui suit la ligne entre deux cases passe à 25 mm du centre des cases voisines. Le passage « par les gouttières » ne suffit donc pas dès qu'une case voisine du trajet est occupée.
+- **Cause** : les bases mesurées font de 27,5 mm (pion) à 38,8 mm (roi) ([mesures](mesures/pieces.md)), alors qu'une pièce qui suit la ligne entre deux cases passe à 25 mm du centre des cases voisines. **Confirmé par le calcul** : il y a chevauchement de 2,5 mm (pion contre pion) à 13,8 mm (roi contre roi) dans une gouttière. Par un coin, la marge n'est que de 0,5 à 8 mm, et il y a contact avec un roi ou une dame. Le cavalier qui sort de sa position initiale frôle les pions.
 - **Conséquence** : des pièces poussées ou renversées (EX-11), et une position physique qui ne correspond plus à la partie.
 - **Réduction** :
   1. Mesurer les bases réelles.
   2. Étude géométrique sur des milliers de parties réelles, pour savoir combien de coups posent problème.
   3. Planificateur de trajets qui contourne les obstacles, ou écarte temporairement une pièce gênante.
   4. Accepter en V1 que l'humain réajuste une pièce.
+  5. Envisager des pièces imprimées à bases réduites (décision 013).
 - **Indicateur de fermeture** : la stratégie retenue couvre au moins 95 % des coups sans contact, d'après la simulation (seuil à valider).
 
 ### R-03 – Hypothèses non vérifiées issues de l'IA prises pour des faits (criticité 6)

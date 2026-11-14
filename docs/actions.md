@@ -40,7 +40,8 @@ But : savoir exactement ce qui est déjà là, pour ne pas acheter en double et 
 - [ ] Aimants, rondelles acier, capteurs à effet Hall : présents ou non
 
 **Matériel de jeu**
-- [ ] Pièces : **diamètre de base** au pied à coulisse, **hauteur** et **masse** d'une pièce de chaque type (roi, dame, fou, cavalier, tour, pion). Les dessous sont-ils feutrés ? Si oui, quelle épaisseur de feutre ?
+- [x] Pièces : diamètres de base (consignés dans `mesures/pieces.md`)
+- [ ] Pièces : **hauteur** et **masse** de chaque type, épaisseur du feutre éventuel
 - [ ] Échiquier en vinyle : épaisseur, et dimensions exactes de la zone des cases
 
 **Outillage**
@@ -56,7 +57,7 @@ But : savoir exactement ce qui est déjà là, pour ne pas acheter en double et 
 ## 4. Banc magnétique (jalon 2)
 
 - [ ] Imprimer les supports du banc : support d'aimant et support de servo. Claude fournira les fichiers.
-- [ ] Faire les 3 manipulations : force latérale, effet sur une pièce voisine à 50 mm, comparaison des 3 matériaux de plateau. Claude fournira la fiche de protocole et le tableau de relevé.
+- [ ] Faire les manipulations : force latérale, effet sur une pièce voisine à 50 mm, comparaison des 3 matériaux de plateau, **décalage entre la position d'arrêt de l'aimant et celle de la pièce** (pour EX-14), et **essai de contact** : pousser une pièce contre une voisine pour voir si elle glisse ou se renverse (décision 013). Claude fournira la fiche de protocole et le tableau de relevé.
 - [ ] En option : test d'un capteur à effet Hall sous une case (décision 012).
 - [ ] Transmettre les résultats, pour trancher les décisions 002 (préhenseur), 003 (plateau) et 009 (pièces attirables par l'aimant).
 

@@ -18,3 +18,4 @@ Une fiche par choix structurant (modèle : `000-modele.md`). Une décision rempl
 | 010 | [Rangement des pièces prises](010-rangement-des-pieces-prises.md) | ouverte |
 | 011 | [Montage de la caméra](011-montage-camera.md) | ouverte (dépend de 012) |
 | 012 | [Détection du coup humain](012-detection-du-coup-humain.md) | ouverte (V1 : vision + confirmation) |
+| 013 | [Compatibilité pièces / cases](013-compatibilite-pieces-et-cases.md) | **ouverte** (mesures : collisions inévitables dans les gouttières) |
