@@ -1,0 +1,25 @@
+# Dépendances Python du projet (à installer avec : pip install -r requirements.txt)
+# Attention : ce fichier liste les LIBRAIRIES à installer, pas les exigences
+# du projet. Les exigences fonctionnelles sont dans docs/exigences.md.
+
+# Vision
+opencv-python>=4.7      # API cv2.aruco.ArucoDetector
+numpy
+torch
+torchvision
+
+# Jeu d'échecs
+chess                   # python-chess
+stockfish               # pilote l'exécutable Stockfish, à télécharger à part
+Pillow
+cairosvg                # nécessite aussi la bibliothèque système Cairo
+
+# Communication série (pendule, carte de pilotage)
+pyserial
+
+# Outils (export Onshape)
+requests
+
+# Non inclus :
+# - tkinter : fourni avec Python (paquet système python3-tk sous Linux)
+# - tensorflow : uniquement pour les anciens scripts vision/dataset_train*.py

@@ -1,0 +1,35 @@
+sous_ensemble,composant,reference,quantite,specification,fournisseur_ou_lien,statut,decision,notes
+Jeu,Échiquier vinyle souple taille 5,Damier Opéra – vinyle roulable vert,1,"400 × 400 mm, cases de 50 mm",https://damieropera.com/produit/echiquier-en-vinyle-souple-roulable-4/,en stock,,
+Jeu,Pièces résine plombées taille 5,Damier Opéra,32,"lest au plomb (non magnétique) ; Ø de base 27,5 (pion) à 38,8 mm (roi), voir docs/mesures/pieces.md",https://damieropera.com/produit/pieces-en-resine-plombees-taille-5-3/,en stock,"009, 013",à équiper d'acier ou d'aimant
+Jeu,Insert magnétique sous pièce,à définir (rondelle acier ou néodyme),32,à dimensionner au test du jalon 2,,à choisir,009,
+Châssis,Profilé aluminium 10 × 10 long,MakerBeam (pièce Onshape 100113),11,longueur à confirmer (≈ 600 mm),MakerBeam,monté,003,cadre assemblé (photo du 14/11) ; quantité d'après l'export Onshape
+Châssis,Profilé aluminium 10 × 10 court,MakerBeam (pièce Onshape 100078),6,longueur à confirmer (≈ 100 mm),MakerBeam,monté,003,cadre assemblé (photo du 14/11) ; quantité d'après l'export Onshape
+Châssis,Équerre d'angle,MakerBeam corner (Part 1 Onshape),8,,MakerBeam,à vérifier,003,quantité d'après l'export Onshape
+Châssis,Plateau supérieur,"à choisir : PMMA 3 mm, MDF 3 mm ou composite aluminium 3 mm",1,"4 à 5 mm, ≈ 600 × 600 mm",Leroy Merlin (EX-35),à choisir,003,
+Châssis,Fond rigide,MDF ou contreplaqué,1,≈ 600 × 600 mm,,à choisir,003,
+Châssis,Visserie MakerBeam,M3,à définir,,,à choisir,003,
+Guidage,Rail linéaire,MGN9,3,"longueurs à définir (2 sur Y, 1 sur X)",,en stock,003,"2 rails Y montés sur le cadre, rail X pas encore posé (photo du 14/11)"
+Guidage,Chariot,MGN9H,3,,,en stock,003,sur les 3 rails
+Transmission,Moteur pas-à-pas NEMA 17,Motech MT-1704HS168A,2,"1,8°/pas ; 1,68 A ; axe 5 mm",,en stock,004,Motech confirmé (photo) ; Onshape modélise un 17HD40 générique
+Transmission,Courroie crantée,2GT renforcée fibre de verre 9 mm,2,longueur à calculer,Trianglelab,en stock,004,rouleau Trianglelab 2GT-9MM de 8 m (réf. C02TB00208)
+Transmission,Poulie motrice,"Trianglelab GT2 20 dents, alésage 5 mm, pour courroie de 9 mm",2,"montée sur l'axe de chaque NEMA 17, à l'arrière",,en stock,004,alésage mesuré à 5 mm
+Transmission,Poulie folle,"à roulements intégrés, pour courroie de 9 mm (lisse ou dentée selon le côté de courroie, à préciser)",8,4 en paires superposées aux coins avant ; 4 en paires superposées sur les chariots Y ; alésage (3 ou 5 mm) à préciser,,à vérifier,004,"répartition d'hypothèse, à confirmer selon le stock"
+Pièces imprimées,Blocs moteurs,à concevoir,2,,impression 3D au fablab (Bambu Lab P2S),à concevoir,004,PETG recommandé (chaleur des moteurs)
+Pièces imprimées,Supports de poulies en sandwich (coins),à concevoir,2,,impression 3D au fablab (Bambu Lab P2S),à concevoir,004,
+Pièces imprimées,Gantry blocks (chariots Y),à concevoir,2,porte-poulies et profilé X,impression 3D au fablab (Bambu Lab P2S),à concevoir,003,
+Pièces imprimées,Chariot central et support d'aimant,à concevoir,1,pince les deux étages de courroie,impression 3D au fablab (Bambu Lab P2S),à concevoir,002,
+Pièces imprimées,Guide angle,pièce Onshape « guide angle »,1,,impression 3D au fablab (Bambu Lab P2S),conçu,,matériau à renseigner dans Onshape
+Préhension,Électro-aimant 24 V,à choisir,1,maintien 25-50 N ; Ø 20-25 mm,,à choisir (non acheté),002,
+Préhension,Feutrine ou téflon,,1,contre le magnétisme résiduel,,à choisir (non acheté),002,
+Électronique,Carte contrôleur,BTT SKR Mini E3 V3,1,STM32 ; 4 × TMC2209 intégrés,BigTreeTech,à vérifier (proposé),005,
+Électronique,Alimentation,bloc 24 V,1,puissance à calculer (moteurs + aimant + marge),,à choisir,005,
+Électronique,Diode de roue libre,1N4007,1,en parallèle inverse sur l'aimant,,à vérifier (proposé),005,
+Électronique,Fins de course (secours),micro-switch,2,si le homing sans capteur ne suffit pas,,optionnel,005,
+Électronique,Câble USB,USB vers carte,1,liaison série 115200 bauds,,à vérifier (proposé),006,
+Vision,Caméra USB,à préciser,1,,,en stock,007,webcam du prototype de vision
+Vision,Tags ArUco DICT_4X4_50,id 9 / 19 / 29 / 39,4,30 mm + marge blanche 5 mm,vision/ressources/,fait,007,
+Vision,Support de caméra,à concevoir,1,,,à choisir,011,
+Pendule (option),Pendule d'échecs,RNPKZ professionnelle,1,,https://www.amazon.fr/dp/B0FDQJTFJ2/,à vérifier,,
+Pendule (option),Microcontrôleur,Arduino Nano,1,signal série à l'appui,,à vérifier,,
+Vision,Portique de test caméra,profilés 20 × 20 + renforts MDF,1,prototype au-dessus de l'échiquier,,monté,011,banc d'essai de la vision
+Outillage,Imprimante 3D,Bambu Lab P2S (modèle à confirmer),1,PLA disponible ; PETG recommandé pour les blocs moteurs,fablab,disponible,,non consommé : outil
