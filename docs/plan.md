@@ -13,6 +13,8 @@ Tableau de suivi (Whiteboard) : https://claude.ai/artifact/VLvAx6wNvFf2uxrUXrjHf
 - [x] README découpé par sous-système, librairies listées
 - [x] Exigences revues : démarche incrémentale V1 / V2 / V3
 - [ ] Valider les exigences encore marquées « à valider »
+- [ ] Inventaire du fablab (`actions.md`)
+- [ ] Courses du lot 1 (`courses.md`)
 
 ## Jalon 2 – Test magnétique
 - [ ] Trancher la décision 009 (pièces attirables par l'aimant)

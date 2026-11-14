@@ -37,6 +37,10 @@ Projet personnel, mené aussi pour apprendre à utiliser l'IA sur tout le cycle 
 - Pilotage du robot : pas encore écrit. Matériel : cadre et rails Y montés, moteurs, courroie et poulies en stock. Cible : un hôte Python qui envoie du G-code à Marlin (CoreXY) sur une SKR Mini E3 V3, par USB série à 115200 bauds, en attendant `ok` après chaque commande.
 - Pendule instrumentée (Arduino Nano, port série) : en option.
 
+**Moyens disponibles** : fablab avec imprimante 3D Bambu Lab P2S. Les pièces imprimées sont faites sur place, en PETG pour celles qui subissent la tension des courroies (le PLA flue). Alimentation de labo et outillage courant sur place, le détail est dans l'inventaire (`docs/actions.md`).
+
+**Actions et achats** : `docs/actions.md` (à faire par Benjamin) et `docs/courses.md` (liste des courses par lots).
+
 ## Conventions
 
 - **Langue** : français pour la doc, les commentaires et les messages. Identifiants de code en anglais ou en français, mais cohérents au sein d'un module.
@@ -71,5 +75,4 @@ python tools/onshape_export.py --did … --wid … # export Onshape (clés dans 
 - Chemins Stockfish codés en dur dans `chessai/chessmonitor.py` (deux machines précises).
 - Vision : modèle entraîné sur des images de 128 px mais alimenté en cases de 100 px.
 - `vision.get_board()` peut renvoyer `(None, None)` au lieu de la liste des cases.
-- Pas de `requirements.txt`.
 - Modèles binaires lourds suivis par git (`vision/*.keras` jusqu'à 75 Mo, `model_chess.pth` 43 Mo). Les anciens `.keras` ne servent plus.

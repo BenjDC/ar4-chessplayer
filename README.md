@@ -31,6 +31,8 @@ Le détail est dans le [plan](docs/plan.md).
 | Registre des risques | [docs/risques.md](docs/risques.md) |
 | Nomenclature | [docs/nomenclature.csv](docs/nomenclature.csv) |
 | Plan et jalons | [docs/plan.md](docs/plan.md) |
+| Actions à mener (inventaire, tests) | [docs/actions.md](docs/actions.md) |
+| Liste des courses, par lots | [docs/courses.md](docs/courses.md) |
 
 ## Démarrage rapide
 
@@ -43,7 +45,9 @@ Il faut aussi télécharger l'exécutable Stockfish (https://stockfishchess.org/
 
 ## Librairies utilisées
 
-Python 3. Il n'y a pas encore de `requirements.txt`.
+Python 3. Pour tout installer : `pip install -r requirements.txt`.
+
+> `requirements.txt` est la convention Python pour lister les **dépendances** à installer. Il n'a rien à voir avec les exigences du projet, qui sont dans [docs/exigences.md](docs/exigences.md).
 
 | Librairie (paquet pip) | Utilisée par | Rôle |
 |---|---|---|

@@ -14,11 +14,11 @@ Transmission,Moteur pas-à-pas NEMA 17,Motech MT-1704HS168A,2,"1,8°/pas ; 1,68 
 Transmission,Courroie crantée,2GT renforcée fibre de verre 9 mm,2,longueur à calculer,Trianglelab,en stock,004,rouleau Trianglelab 2GT-9MM de 8 m (réf. C02TB00208)
 Transmission,Poulie motrice,"Trianglelab GT2 20 dents, alésage 5 mm, pour courroie de 9 mm",2,"montée sur l'axe de chaque NEMA 17, à l'arrière",,en stock,004,alésage mesuré à 5 mm
 Transmission,Poulie folle,"à roulements intégrés, pour courroie de 9 mm (lisse ou dentée selon le côté de courroie, à préciser)",8,4 en paires superposées aux coins avant ; 4 en paires superposées sur les chariots Y ; alésage (3 ou 5 mm) à préciser,,à vérifier,004,"répartition d'hypothèse, à confirmer selon le stock"
-Pièces imprimées,Blocs moteurs,à concevoir,2,,impression 3D,à concevoir,004,
-Pièces imprimées,Supports de poulies en sandwich (coins),à concevoir,2,,impression 3D,à concevoir,004,
-Pièces imprimées,Gantry blocks (chariots Y),à concevoir,2,porte-poulies et profilé X,impression 3D,à concevoir,003,
-Pièces imprimées,Chariot central et support d'aimant,à concevoir,1,pince les deux étages de courroie,impression 3D,à concevoir,002,
-Pièces imprimées,Guide angle,pièce Onshape « guide angle »,1,,impression 3D,conçu,,matériau à renseigner dans Onshape
+Pièces imprimées,Blocs moteurs,à concevoir,2,,impression 3D au fablab (Bambu Lab P2S),à concevoir,004,
+Pièces imprimées,Supports de poulies en sandwich (coins),à concevoir,2,,impression 3D au fablab (Bambu Lab P2S),à concevoir,004,
+Pièces imprimées,Gantry blocks (chariots Y),à concevoir,2,porte-poulies et profilé X,impression 3D au fablab (Bambu Lab P2S),à concevoir,003,
+Pièces imprimées,Chariot central et support d'aimant,à concevoir,1,pince les deux étages de courroie,impression 3D au fablab (Bambu Lab P2S),à concevoir,002,
+Pièces imprimées,Guide angle,pièce Onshape « guide angle »,1,,impression 3D au fablab (Bambu Lab P2S),conçu,,matériau à renseigner dans Onshape
 Préhension,Électro-aimant 24 V,à choisir,1,maintien 25-50 N ; Ø 20-25 mm,,à choisir (non acheté),002,
 Préhension,Feutrine ou téflon,,1,contre le magnétisme résiduel,,à choisir (non acheté),002,
 Électronique,Carte contrôleur,BTT SKR Mini E3 V3,1,STM32 ; 4 × TMC2209 intégrés,BigTreeTech,à vérifier (proposé),005,
@@ -32,3 +32,4 @@ Vision,Support de caméra,à concevoir,1,,,à choisir,011,
 Pendule (option),Pendule d'échecs,RNPKZ professionnelle,1,,https://www.amazon.fr/dp/B0FDQJTFJ2/,à vérifier,,
 Pendule (option),Microcontrôleur,Arduino Nano,1,signal série à l'appui,,à vérifier,,
 Vision,Portique de test caméra,profilés 20 × 20 + renforts MDF,1,prototype au-dessus de l'échiquier,,monté,011,banc d'essai de la vision
+Outillage,Imprimante 3D,Bambu Lab P2S (modèle à confirmer),1,pièces imprimées en PETG si sous tension de courroie,fablab,disponible,,non consommé : outil

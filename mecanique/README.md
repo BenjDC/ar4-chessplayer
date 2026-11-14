@@ -41,4 +41,6 @@ Le principe initial est de faire passer les pièces le long des lignes entre les
 - **FreeCAD** (anciens fichiers) : `caisson.FCStd`, `Joint_rail.FCStd`, `../equerre_rail.FCStd`, et `pieces/` (rail, chariot, profilés MakerBeam 100 et 600, équerre ; STEP pour les profilés).
 
 ## Pièces imprimées à concevoir
+Imprimées au fablab sur la Bambu Lab P2S. On utilise du PETG pour les pièces sous tension de courroie (supports de poulies, blocs moteurs, gantry blocks), parce que le PLA flue sous charge permanente.
+
 Blocs moteurs, supports de poulies en sandwich aux coins, gantry blocks, chariot central avec support du préhenseur. Elles seront conçues par features paramétriques dans Onshape (MCP FeatureScript), une fois les poulies mesurées et le préhenseur choisi.
