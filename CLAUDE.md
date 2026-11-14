@@ -20,7 +20,12 @@ Projet personnel, mené aussi pour apprendre à utiliser l'IA sur tout le cycle 
 | Décisions techniques, une fiche par choix | `docs/decisions/` (index dans `docs/decisions/README.md`) |
 | Nomenclature (pièces, références, statut) | `docs/nomenclature.csv` |
 | Plan et jalons | `docs/plan.md` |
-| Architecture logicielle et mécanique | `README.md` |
+| Registre des risques (à relire en fin de jalon et après chaque test) | `docs/risques.md` |
+| Vue d'ensemble, librairies | `README.md` (court : renvoie vers les sous-dossiers) |
+| Architecture logicielle, boucle de jeu, module robot | `docs/logiciel.md` |
+| Vision, moteur d'échecs | `vision/README.md`, `chessai/README.md` |
+| Mécanique | `mecanique/README.md` |
+| Électronique et firmware (configuration Marlin à venir) | `electronique/README.md` |
 | Modèle CAO exporté d'Onshape (lecture seule) | `mecanique/onshape/RESUME.md` et les JSON voisins |
 | Anciens fichiers FreeCAD et STEP | `mecanique/` |
 
@@ -37,7 +42,8 @@ Projet personnel, mené aussi pour apprendre à utiliser l'IA sur tout le cycle 
 - **Langue** : français pour la doc, les commentaires et les messages. Identifiants de code en anglais ou en français, mais cohérents au sein d'un module.
 - **Décisions** : tout choix technique structurant donne une fiche dans `docs/decisions/` (modèle : `docs/decisions/000-modele.md`). Une décision remplacée n'est pas supprimée : son statut passe à « remplacée par NNN ».
 - **Nomenclature** : toute pièce ajoutée au design entre dans `docs/nomenclature.csv`.
-- **Exigences** : identifiants stables `EX-xx`. Ne jamais renuméroter.
+- **Exigences et risques** : identifiants stables `EX-xx` et `R-xx`. Ne jamais renuméroter. Un risque traité passe à « fermé ».
+- **README** : le README racine reste court. Le détail va dans le README du sous-dossier concerné.
 - **Unités** : millimètres, degrés, volts, ampères. Coordonnées du plateau en notation d'échecs (`a1`…`h8`), avec a1 côté blancs, à gauche.
 - **Git** : une branche et une pull request par sujet. Pas de commit direct sur `main`.
 

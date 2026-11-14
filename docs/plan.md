@@ -9,6 +9,8 @@ Tableau de suivi (Whiteboard) : https://claude.ai/artifact/VLvAx6wNvFf2uxrUXrjHf
 - [x] Accès à la CAO Onshape (export REST + MCP FeatureScript)
 - [x] `CLAUDE.md`, exigences, fiches de décision, nomenclature, plan
 - [x] Retrait du vocabulaire « bras AR4 »
+- [x] Revue de conception et registre des risques (`risques.md`)
+- [x] README découpé par sous-système, librairies listées
 - [x] Exigences revues : démarche incrémentale V1 / V2 / V3
 - [ ] Valider les exigences encore marquées « à valider »
 
