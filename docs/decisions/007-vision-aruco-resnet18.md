@@ -12,4 +12,4 @@
 
 ## Conséquences
 - Il n'est pas nécessaire de reconnaître le type de pièce : la promotion est supposée en dame, sauf indication contraire.
-- Dette : la taille des images à l'entraînement (128 px) diffère de celle en jeu (100 px). Le taux de réussite d'EX-20 n'est pas encore mesuré.
+- Dette : la taille des images à l'entraînement (128 px) diffère de celle en jeu (100 px). Premiers essais sur le portique de test : environ 90 % de reconnaissance, insuffisant pour jouer sans aide (voir 012).

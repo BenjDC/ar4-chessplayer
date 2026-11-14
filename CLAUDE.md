@@ -8,6 +8,8 @@ Un échiquier robotisé qui joue contre un humain. Une caméra lit le plateau, S
 
 Projet personnel, mené aussi pour apprendre à utiliser l'IA sur tout le cycle : conception, choix techniques, mécanique, électronique, code.
 
+**Démarche : le chemin compte plus que la destination.** On avance par incréments (V1, V2, V3, voir `docs/exigences.md`) : une fonction simple validée d'abord, puis la suivante. L'intervention humaine est acceptée quand elle évite une complexité prématurée (promotion, confirmation d'un coup douteux…). Les performances sont des indicateurs, pas des critères bloquants au début. Proposer des solutions simples et testables avant les solutions complètes.
+
 > Le dépôt s'appelle `ar4-chessplayer` pour des raisons historiques : l'idée initiale était un bras robot AR4. Elle est abandonnée au profit du plateau CoreXY (voir `docs/decisions/001-corexy-plutot-que-bras-ar4.md`). Ne pas réintroduire de code ou de vocabulaire « bras AR4 ».
 
 ## Où trouver quoi
@@ -25,9 +27,9 @@ Projet personnel, mené aussi pour apprendre à utiliser l'IA sur tout le cycle 
 ## Architecture en bref
 
 - `chessplayer.py` : boucle de jeu (vision → Stockfish → robot).
-- `vision/` : ArUco, redressement, ResNet18 à 3 classes sur les 64 cases, déduction du coup.
+- `vision/` : ArUco, redressement, ResNet18 à 3 classes sur les 64 cases, déduction du coup (≈ 90 % de reconnaissance). La détection du coup reste une décision ouverte (012) : vision, capteurs Hall ou RFID.
 - `chessai/chessmonitor.py` : état de la partie (python-chess) et Stockfish.
-- Pilotage du robot : pas encore écrit. Cible : un hôte Python qui envoie du G-code à Marlin (CoreXY) sur une SKR Mini E3 V3, par USB série à 115200 bauds, en attendant `ok` après chaque commande.
+- Pilotage du robot : pas encore écrit. Matériel : cadre et rails Y montés, moteurs, courroie et poulies en stock. Cible : un hôte Python qui envoie du G-code à Marlin (CoreXY) sur une SKR Mini E3 V3, par USB série à 115200 bauds, en attendant `ok` après chaque commande.
 - Pendule instrumentée (Arduino Nano, port série) : en option.
 
 ## Conventions

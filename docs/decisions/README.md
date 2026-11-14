@@ -14,4 +14,5 @@ Une fiche par choix structurant (modèle : `000-modele.md`). Une décision rempl
 | 008 | [Accès à la CAO Onshape](008-acces-cao-onshape.md) | décidée |
 | 009 | [Rendre les pièces attirables par l'aimant](009-pieces-attirables-par-aimant.md) | **ouverte, urgente** |
 | 010 | [Rangement des pièces prises](010-rangement-des-pieces-prises.md) | ouverte |
-| 011 | [Montage de la caméra](011-montage-camera.md) | ouverte |
+| 011 | [Montage de la caméra](011-montage-camera.md) | ouverte (dépend de 012) |
+| 012 | [Détection du coup humain](012-detection-du-coup-humain.md) | ouverte (V1 : vision + confirmation) |
