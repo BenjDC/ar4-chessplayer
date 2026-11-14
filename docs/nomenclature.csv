@@ -32,4 +32,4 @@ Vision,Support de caméra,à concevoir,1,,,à choisir,011,
 Pendule (option),Pendule d'échecs,RNPKZ professionnelle,1,,https://www.amazon.fr/dp/B0FDQJTFJ2/,à vérifier,,
 Pendule (option),Microcontrôleur,Arduino Nano,1,signal série à l'appui,,à vérifier,,
 Vision,Portique de test caméra,profilés 20 × 20 + renforts MDF,1,prototype au-dessus de l'échiquier,,monté,011,banc d'essai de la vision
-Outillage,Imprimante 3D,Bambu Lab P2S (modèle à confirmer),1,PLA disponible ; PETG recommandé pour les blocs moteurs,fablab,disponible,,non consommé : outil
+Outillage,Imprimante 3D,Bambu Lab P2S,1,"CoreXY fermée, volume 256 × 256 × 256 mm ; PLA disponible ; PETG recommandé pour les blocs moteurs",fablab,disponible,,non consommé : outil
