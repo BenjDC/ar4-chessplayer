@@ -41,7 +41,7 @@ Le principe initial est de faire passer les pièces le long des lignes entre les
 - **FreeCAD** (anciens fichiers) : `caisson.FCStd`, `Joint_rail.FCStd`, `../equerre_rail.FCStd`, et `pieces/` (rail, chariot, profilés MakerBeam 100 et 600, équerre ; STEP pour les profilés).
 
 ## Pièces imprimées à concevoir
-Imprimées au fablab sur la Bambu Lab P2S.
+Imprimées au fablab sur la Bambu Lab P2S (volume utile 256 × 256 × 256 mm : chaque pièce doit tenir dans ce cube).
 
 **PLA ou PETG ?** Le PLA disponible suffit pour le banc de test et la plupart des pièces de la V1 : chariot, support du préhenseur, gantry blocks, et supports de poulies s'ils sont bien épais. Deux limites :
 - **La chaleur.** Le PLA ramollit vers 55-60 °C. Or la carcasse d'un NEMA 17 peut atteindre 40-50 °C, voire plus, dans un caisson fermé. Les **blocs moteurs** sont donc à faire en PETG, ou à surveiller de près en PLA.

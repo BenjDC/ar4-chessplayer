@@ -6,10 +6,11 @@ Dernière mise à jour : 14/11/2026
 
 ## 1. Tout de suite
 
-- [ ] Relire la pull request #4 (mémoire du projet) et la fusionner. Points à relire en priorité :
+- [x] Relire la pull request #4 (mémoire du projet) et la fusionner. Points à relire en priorité :
   - les exigences encore « à valider » (`exigences.md`) ;
   - les statuts de la nomenclature (`nomenclature.csv`).
-- [ ] Confirmer le modèle de l'imprimante 3D (Bambu Lab P2S ?) et les filaments disponibles au fablab.
+- [x] Confirmer le modèle de l'imprimante 3D : Bambu Lab P2S (volume 256 × 256 × 256 mm).
+- [ ] Lister les filaments disponibles au fablab (PLA confirmé).
 
 ## 2. Inventaire au fablab
 
