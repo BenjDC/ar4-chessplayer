@@ -12,8 +12,8 @@ Guidage,Rail linéaire,MGN9,3,"longueurs à définir (2 sur Y, 1 sur X)",,en sto
 Guidage,Chariot,MGN9H,3,,,en stock,003,sur les 3 rails
 Transmission,Moteur pas-à-pas NEMA 17,Motech MT-1704HS168A,2,"1,8°/pas ; 1,68 A ; axe 5 mm",,en stock,004,Motech confirmé (photo) ; Onshape modélise un 17HD40 générique
 Transmission,Courroie crantée,2GT renforcée fibre de verre 9 mm,2,longueur à calculer,Trianglelab,en stock,004,rouleau Trianglelab 2GT-9MM de 8 m (réf. C02TB00208)
-Transmission,Poulie motrice,"GT2 20 dents, alésage 5 mm, largeur 9-10 mm",2,,,en stock,004,poulies GT2 20 dents à vis de serrage ; quantité à compter
-Transmission,Poulie folle,largeur 9-10 mm (référence à préciser),8,diamètre et alésage à préciser,,à vérifier,004,plusieurs poulies visibles sur la photo du cadre : identifier motrices et folles
+Transmission,Poulie motrice,"Trianglelab GT2 20 dents, alésage 5 mm, pour courroie de 9 mm",2,"montée sur l'axe de chaque NEMA 17, à l'arrière",,en stock,004,alésage mesuré à 5 mm
+Transmission,Poulie folle,"à roulements intégrés, pour courroie de 9 mm (lisse ou dentée selon le côté de courroie, à préciser)",8,4 en paires superposées aux coins avant ; 4 en paires superposées sur les chariots Y ; alésage (3 ou 5 mm) à préciser,,à vérifier,004,"répartition d'hypothèse, à confirmer selon le stock"
 Pièces imprimées,Blocs moteurs,à concevoir,2,,impression 3D,à concevoir,004,
 Pièces imprimées,Supports de poulies en sandwich (coins),à concevoir,2,,impression 3D,à concevoir,004,
 Pièces imprimées,Gantry blocks (chariots Y),à concevoir,2,porte-poulies et profilé X,impression 3D,à concevoir,003,
