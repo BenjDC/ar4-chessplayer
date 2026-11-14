@@ -1,6 +1,6 @@
 # 005 – Électronique : BTT SKR Mini E3 V3, TMC2209, 24 V
 
-- **Statut** : décidée
+- **Statut** : proposée (issue d'une exploration avec une IA, à confirmer)
 - **Date** : 2026-11-13
 - **Exigences liées** : EX-16, EX-32, EX-33, EX-34
 

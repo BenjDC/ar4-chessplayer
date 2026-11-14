@@ -1,6 +1,6 @@
 # 006 – Firmware Marlin et pilotage G-code depuis un hôte Python
 
-- **Statut** : décidée
+- **Statut** : proposée (à confirmer)
 - **Date** : 2026-11-13
 - **Exigences liées** : EX-10, EX-15, EX-33
 

@@ -54,6 +54,7 @@ Statuts : **validée** · **à valider** · **abandonnée**
 | EX-31 | Encombrement : caisson de 600 × 600 × 100 mm au plus, posable sur une table. | V1 | validée |
 | EX-32 | Une seule alimentation secteur (bloc 24 V). | V1 | validée |
 | EX-33 | Mise en route simple : allumer, lancer le programme, prise d'origine automatique, jouer. | V2 | à valider |
+| EX-35 | Maîtrise des coûts : matériaux et fournitures bon marché et courants. Les éléments volumineux, difficiles à envoyer par la poste (plaques, panneaux), sont pris au Leroy Merlin de Gennevilliers, avec découpe en magasin si possible. | V1 | validée |
 | EX-34 | Sécurité : pas de pièce mobile ni de tension accessible au joueur en usage normal. L'électro-aimant ne doit pas surchauffer (PWM réduit pendant les déplacements). | V1 | validée |
 
 ## En option
